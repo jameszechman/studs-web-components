@@ -1,6 +1,8 @@
-$font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-$font-extended: "HelveticaNeueExtended", "Helvetica", "Arial", sans-serif;
-$font-condensed: "HelveticaNeueCondensed", "Helvetica", "Arial", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+$font-family: 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
+$font-extended: 'HelveticaNeueExtended', 'Helvetica', 'Arial', sans-serif;
+$font-condensed: 'HelveticaNeueCondensed', 'Helvetica', 'Arial', sans-serif;
 
 $font-material-sharp: 'Material Symbols Sharp';
 $font-material-outline: 'Material Symbols Outlined';
@@ -17,7 +19,6 @@ $font-default: 1rem;
 $font-large: 2rem;
 $font-xl: 3rem;
 $font-xxl: 4rem;
-
 
 @mixin fonts {
   :root {
@@ -45,31 +46,61 @@ $font-xxl: 4rem;
   -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
 
-  font-variation-settings:'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
 @mixin fontSizes {
-  &.-small      {--font-size: #{$font-small}}
-  &.-medium     {--font-size: #{$font-default}}
-  &.-large      {--font-size: #{$font-large}}
-  &.-extraLarge {--font-size: #{$font-xl}}
-  &.-huge       {--font-size: #{$font-xxl}}
+  &.-small {
+    --font-size: #{$font-small};
+  }
+  &.-medium {
+    --font-size: #{$font-default};
+  }
+  &.-large {
+    --font-size: #{$font-large};
+  }
+  &.-extraLarge {
+    --font-size: #{$font-xl};
+  }
+  &.-huge {
+    --font-size: #{$font-xxl};
+  }
 }
 
 @mixin fontSizesRelative {
-  &.-small      {--font-size: 0.8em}
-  &.-medium     {--font-size: 1em}
-  &.-large      {--font-size: 2em}
-  &.-extraLarge {--font-size: 3em}
-  &.-huge       {--font-size: 4em}
+  &.-small {
+    --font-size: 0.8em;
+  }
+  &.-medium {
+    --font-size: 1em;
+  }
+  &.-large {
+    --font-size: 2em;
+  }
+  &.-extraLarge {
+    --font-size: 3em;
+  }
+  &.-huge {
+    --font-size: 4em;
+  }
 }
 
 @mixin fontSizesParent {
-  .-small &      {--font-size: #{$font-small}}
-  .-medium &     {--font-size: #{$font-default}}
-  .-large &      {--font-size: #{$font-large}}
-  .-extraLarge & {--font-size: #{$font-xl}}
-  .-huge &       {--font-size: #{$font-xxl}}
+  .-small & {
+    --font-size: #{$font-small};
+  }
+  .-medium & {
+    --font-size: #{$font-default};
+  }
+  .-large & {
+    --font-size: #{$font-large};
+  }
+  .-extraLarge & {
+    --font-size: #{$font-xl};
+  }
+  .-huge & {
+    --font-size: #{$font-xxl};
+  }
 }
 
 /*
