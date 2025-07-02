@@ -1,0 +1,28 @@
+// @use '../vendor/normalize-min.css'; // @TODO why is this overriding later styles? --Jp
+@use '../themes';
+@use '../utilities/fonts';
+@use '../utilities/colors';
+@use '../utilities/variables';
+@use '../utilities/mixins';
+@forward '../components';
+
+@include fonts.fonts;
+
+::selection {
+  background-color: var(--cta, colors.colorVal('orange', 40));
+  color: colors.$white;
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+}
+
+body {
+  padding: 0;
+  padding:  env(safe-area-inset-top)
+            env(safe-area-inset-right)
+            env(safe-area-inset-bottom)
+            env(safe-area-inset-left); //ios safe zone for notch
+}

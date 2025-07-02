@@ -1,0 +1,170 @@
+@use '../utilities' as *;
+.tabsComponent {
+  --border: transparent;
+  --border-width: 2px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  ::slotted([slot='panel']) {
+    display: none;
+    padding: 0;
+  }
+
+  ::slotted([slot='panel'][aria-expanded='true']) {
+    display: block;
+  }
+
+  &.-block {
+    flex-direction: row;
+    --background: transparent;
+
+    .tabs > {
+      ::slotted([slot='tab']) {
+        border-bottom: none;
+        border-right: var(--border-width) solid var(--border);
+        width: max-content;
+        padding: 0.25em 0.5em;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &.-inline {
+      flex-direction: row;
+      width: max-content;
+      max-width: 100%;
+      gap: 1rem;
+    }
+
+    &.-block {
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    ::slotted([slot='tab']) {
+      --padding: 0.75em 0.62em;
+      --background: transparent;
+
+      font-size: 1rem;
+      flex: 1 1 auto;
+      text-align: start;
+      border: var(--border-width) solid transparent;
+      border-bottom-color: var(--border);
+      outline: none;
+      background-color: var(--background);
+      padding: var(--padding);
+      cursor: pointer;
+      color: var(--text-color);
+      transition: all var(--transition-m);
+    }
+
+    ::slotted(studs-button[slot='tab']) {
+      --padding: 0;
+    }
+
+    &.-block {
+      ::slotted([slot='tab']) {
+        --background: transparent;
+        min-width: 100%;
+      }
+      ::slotted([slot='tab'][aria-selected="true"]) {
+        --background: transparent;
+        --border: var(--text-dark);
+        --text-color: var(--primary);
+        min-width: 100%;
+      }
+    }
+
+    ::slotted([slot='tab']:hover) {
+      --text-color: var(--primary);
+      --border:     var(--primary);
+      --background: var(--tab-hover);
+    }
+
+    ::slotted(button[slot='tab']:focus-within) {
+      --text-color: var(--primary);
+      --border: var(--primary);
+      --background: var(--tab-selected);
+      border: var(--border-width) solid var(--border);
+    }
+
+    ::slotted([slot='tab'][aria-selected='true']) {
+      --background: var(--tab-selected);
+      --border: var(--primary);
+    }
+
+    ::slotted([slot='tab'][disabled]) {
+      --border: transparent;
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &.-contained {
+      --background: var(--tab-background-light);
+      --border-width : 1px;
+
+      gap: 0.25rem;
+      border: var(--border-width) solid transparent;
+      border-bottom-color: var(--background);
+
+      ::slotted([slot='tab']) {
+        --background: var(--tab-selected);
+        border: 1px solid var(--border);
+        border-radius: 3px 3px 0 0;
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        transform: translateY(1px);
+      }
+
+      ::slotted([slot='tab']:hover) {
+        --text-color: var(--primary);
+        --background: var(--tab-hover);
+      }
+
+
+      ::slotted([slot='tab'][aria-selected='true']) {
+        --border: var(--primary);
+        --text-color: var(--primary);
+        --background: transparent;
+      }
+
+      ::slotted([slot='tab']:focus-visible) {
+        --background: var(--tab-hover);
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+
+      ::slotted([slot='tab'][aria-selected='true']:hover) {
+        --text-color: var(--primary-hover);
+      }
+
+      ::slotted([slot='tab'][aria-selected='true']:active) {
+        --text-color: var(--primary-active);
+      }
+
+      &.-block {
+        border-bottom: none;
+        border-right: 1px solid var(--border-color);
+
+        ::slotted([slot='tab']) {
+          transform: translateY(0) translateX(1px);
+          border-radius: 3px 0 0 3px;
+          background: var(--background);
+          min-width: 100%;
+        }
+        ::slotted([slot='tab'][aria-selected='true']) {
+          --background: transparent;
+        }
+      }
+    }
+  }
+}

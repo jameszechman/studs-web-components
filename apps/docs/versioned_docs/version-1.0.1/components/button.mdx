@@ -1,0 +1,452 @@
+---
+sidebar_position: 9
+description: Buttons represent actions that are available to the user.
+---
+
+# Button
+
+<HeaderComponent
+  htmlTag="studs-button"
+  jsxTag="StudsButton"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/button.ts"
+  urlStrbook="studs-display-button--docs"
+  folder="display"
+/>
+
+Buttons represent actions that are available to the user.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <p>
+            Buttons are used to initialize an action. Button labels express what
+            action will occur when the user interacts with it.
+          </p>
+          <p>In STUDS we provide 6 types of buttons:</p>
+          <ol>
+          <li><p>
+            Primary button: indicate the main action, one primary button at most
+            in one section.
+          </p></li>
+          <li><p>CTA button: directs users towards conversion-focused actions</p></li>
+          <li><p>
+            Secondary button: indicate a series of actions without priority.
+          </p></li>
+          <li><p>Tertiary button: used for adding action commonly.</p></li>
+          <li><p>Text button: used for the most secondary action.</p></li>
+          <li><p>Link button: used for external links.</p></li>
+          </ol>
+          <p>
+            Buttons are clickable elements that are used to trigger actions.
+            They communicate calls to action to the user and allow users to
+            interact with pages in a variety of ways. Button labels express what
+            action will occur when the user interacts with it.{' '}
+          </p>
+          <strong>When to use</strong>
+          <p>
+            Use buttons to communicate actions users can take and to allow users
+            to interact with the page. Each page should have only one primary
+            button, and any remaining calls to action should be represented as
+            lower emphasis buttons.
+          </p>
+          <strong>When not to use</strong>
+          <p>
+            Do not use buttons as navigational elements. Instead, use links when
+            the desired action is to take the user to a new page.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'Style',
+      description:
+        'Each button variant has a particular function and its design signals that function to the user. It is therefore very important that the different variants are implemented consistently across products, so that they message the correct actions.',
+    },
+    {
+      title: 'Variations',
+      description: (
+        <div>
+          <img
+            style={{ margin: '0px auto', display: 'flex', width: '150px' }}
+            src="/img/button_primary.png"
+            alt=""
+          />
+          <br />
+          <div>
+            For the principal call to action on the page. Primary buttons should
+            only appear once per screen (not including the application header,
+            modal dialog, or side panel).
+          </div>
+          <hr />
+          <img
+            style={{ margin: '0px auto', display: 'flex', width: '150px' }}
+            src="/img/button_secondary.png"
+            alt=""
+          />
+          <br />
+          <div>
+            For secondary actions on each page. Secondary buttons can only be
+            used in conjunction with a primary button. As part of a pair, the
+            secondary button’s function is to perform the negative action of the
+            set, such as “Cancel” or “Back”. Do not use a secondary button in
+            isolation and do not use a secondary button for a positive action.
+          </div>
+          <hr />
+          <img
+            style={{ margin: '0px auto', display: 'flex', width: '150px' }}
+            src="/img/button_tertiary.png"
+            alt=""
+          />
+          <br />
+          <div>
+            For less prominent, and sometimes independent, actions. Tertiary
+            buttons can be used in isolation or paired with a primary button
+            when there are multiple calls to action. Tertiary buttons can also
+            be used for sub-tasks on a page where a primary button for the main
+            and final action is present.
+          </div>
+          <hr />
+          <img
+            style={{ margin: '0px auto', display: 'flex', width: '150px' }}
+            src="/img/button_link.png"
+            alt=""
+          />
+          <div>Link buttons are simply used for external links.</div>
+          <hr />
+          <img
+            style={{ margin: '0px auto', display: 'flex', width: '150px' }}
+            src="/img/button_text.png"
+            alt=""
+          />
+          <br />
+          <div>
+            For the least pronounced actions; often used in conjunction with a
+            primary button. In a situation such as a progress flow, a text
+            button may be paired with a primary and secondary button set, where
+            the primary button is for forward action, the secondary button is
+            for “Back”, and the text button is for “Cancel”.
+          </div>
+        </div>
+      ),
+    },
+  ]}
+/>
+
+## CTA
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="cta">CTA Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-button button-type="cta">CTA Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Primary
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="primary">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="primary">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Secondary
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="secondary">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="secondary">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Tertiary
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="tertiary">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="tertiary">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Link
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="link">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="link">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Floating
+
+<ResizerFeatures>
+  <studs-button
+    onclick="alert('clicked')"
+    button-type="floating"
+    icon="info"
+  ></studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="floating" icon="info"></studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Icon
+
+<ResizerFeatures>
+  <studs-button
+    onclick="alert('clicked')"
+    button-type="icon"
+    icon="info"
+  ></studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="icon" icon="info"></studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Close
+
+<ResizerFeatures>
+  <studs-button
+    onclick="alert('clicked')"
+    button-type="close"
+    icon="close"
+  ></studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="close" icon="close"></studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Image
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" button-type="image">
+    <img slot="media" src="https://picsum.photos/200/300" />
+    Image Button
+  </studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button button-type="image"><img slot="media" src="https://picsum.photos/200/300" />Image Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Disabled
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" disabled="">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button disabled="">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Left Icon
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" icon-position="start" icon="info">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" icon-position="start" icon="info">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Right Icon
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" icon-position="end" icon="info">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" icon-position="end" icon="info">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Block
+
+<ResizerFeatures>
+  <studs-button
+    onclick="alert('clicked')"
+    content-direction="block"
+    icon="info"
+  >Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" content-direction="block" icon="info">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Large
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" size="large">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" size="large">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Small
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" size="small">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" size="small">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Outline
+
+<ResizerFeatures>
+  <studs-button onclick="alert('clicked')" variant="outline">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" variant="outline">Button</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Full Width
+
+<ResizerFeatures>
+<studs-button onclick="alert('clicked')" full-width="">Button</studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button onclick="alert('clicked')" full-width="">Button
+    </studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10854%3A82721&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="button" />
+
+## Writing Guidance
+<div>
+  <h3>Keep Buttons Concise</h3>
+  <p>Limit buttons to three words or less. This keeps buttons scannable and easy to understand. Limiting the length of buttons also ensures that we establish context through surrounding elements on the page.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DO_Buttons_Concise.png' alt='Button with concise text "Submit".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DONT_Buttons_Concise.png' alt='Button with overly detailed text "Click Here to Submit Your Information".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Use Title Case</h3>
+  <p>Use title case by capitalizing the first letter of major words, like nouns, verbs, adjectives, and adverbs. Keep short conjunctions, articles, and prepositions lowercase. This style highlights button text, aiding user scanning.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DO_Buttons_Capitalization.png' alt='Button labeled "Add to Cart" in title case.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DONT_Buttons_Capitalization.png' alt='Three examples of a button labeled "Add to Cart" in all uppercase, lowercase, and sentence case.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Be Specific in Link Text</h3>
+  <p>Avoid using generic phrases like "click here" or "learn more" whenever possible.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DO_Buttons_Specific.png' alt='A link showing a clear call to action "Download the User Guide".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Buttons/DONT_Buttons_Specific.png' alt='Screen with vague link texts: "Proceed to Information", "More Details Here", and "Click Here".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

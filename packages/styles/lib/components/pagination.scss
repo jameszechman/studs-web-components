@@ -1,0 +1,74 @@
+@use "icons" as icon;
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: max-content;
+  gap: 0.875rem;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+}
+
+.page-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  user-select: none;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dots {
+  margin: 0 0.5rem;
+}
+
+.icon {
+  color: var(--text-disabled);
+  @include icon.icon;
+}
+
+.pagination-helpers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #273142;
+}
+
+.jumper,
+.select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select {
+  studs-dropdown::part(dropdown)  {
+    min-width: 120px;
+  }
+}
+
+label {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  letter-spacing: 0;
+  user-select: none;
+
+  &.-disabled {
+    cursor: not-allowed;
+    color: var(--text-disabled);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  label {
+    display: none;
+  }
+}

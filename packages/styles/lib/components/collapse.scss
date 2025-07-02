@@ -1,0 +1,70 @@
+@use '../utilities' as *;
+.collapse {
+  --color: currentcolor;
+
+  &[disabled] {
+    pointer-events: none;
+  }
+
+  @keyframes rotateMarker {
+    from {rotate: 0deg}
+      to {rotate: 90deg}
+  }
+
+  summary {
+    color: var(--color);
+    list-style: none;
+    cursor: pointer;
+    text-decoration: underline;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &.-left summary {
+    justify-content: flex-start;
+  }
+
+  &.-right summary {
+    justify-content: flex-end;
+  }
+
+  &.-icon {
+    summary {
+      --color: var(--primary);
+      text-decoration: none;
+      gap: 0.625rem;
+    }
+
+    summary::after {
+      --color: var(--text-dark);
+      color: var(--color);
+      font-size: 2em;
+      display: inline-block;
+
+      @include iconFont;
+      content:'chevron_right';
+    }
+
+    &[open] summary::after {
+      animation: rotateMarker ease-out forwards var(--transition-m);
+    }
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::marker {
+    display: none;
+  }
+
+  &[disabled] summary {
+    &,
+    &::after {
+      --color: var(--text-disabled);
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,390 @@
+@use "../utilities" as *;
+
+
+:host {
+  --borderRadius-t-l: var(--border-radius);
+  --borderRadius-t-r: var(--border-radius);
+  --borderRadius-b-l: var(--border-radius);
+  --borderRadius-b-r: var(--border-radius);
+
+  --color:            var(--primary);
+  --background:       var(--primary);
+  --border:           var(--primary);
+  --text:             var(--text-inverted);
+
+  --hover-bkg:        var(--primary-hover);
+  --hover-text:       var(--text-inverted);
+  --hover-border:     var(--primary-hover);
+
+  --active-bkg:       var(--primary-active);
+  --active-text:      var(--text-inverted);
+  --active-border:    var(--primary-active);
+
+  --disabled-bkg:     var(--primary-disabled);
+  --disabled-text:    #{$white};
+  --disabled-border:  var(--primary-disabled);
+
+  display: inline-block;
+  position: relative;
+}
+
+:host([full-width]) {
+  width: 100%;
+}
+
+.button {
+  --padding: 0.75rem 1rem;
+  font-family: var(--font-family);
+  font-size: calc(var(--font-size) * .975);
+  font-weight: $font-black;
+
+  color: var(--text);
+  background-color: var(--background);
+  outline: 2px solid $transparent;
+  outline-offset: 2px;
+
+  border: 2px solid var(--border);
+  border-radius:  var( --borderRadius-t-l)
+                  var( --borderRadius-t-r)
+                  var( --borderRadius-b-r)
+                  var( --borderRadius-b-l);
+  padding: var(--padding);
+  box-shadow: var(--interactive-shadow);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+
+  transition: all var(--transition-m);
+  text-decoration: none;
+
+
+  &.-small      {
+    --font-size: 0.875rem;
+    --padding: 0.5rem 0.75rem;
+  }
+  &.-medium     {
+    --font-size: 0.9375rem;
+    --padding: 0.75rem 1rem;
+  }
+  &.-large      {
+    --font-size: 1rem;
+    --padding: 1.12rem;
+  }
+  &.-extraLarge {
+    --font-size: 1rem;
+    --padding: 1.12rem;
+  }
+
+
+  &.-group {
+    --padding: 0 1em;
+    height: 1.875rem;
+
+    &.-small { height: 1.375rem}
+    &.-large { height: 2.5rem}
+  }
+
+  &.-cta {
+    --disabled-bkg: var(--disabled);
+
+    --hover-bkg:        var(--primary-hover);
+    --hover-text:       var(--text-inverted);
+    --hover-border:     var(--primary-hover);
+
+    --active-bkg:       var(--primary-active);
+    --active-text:      var(--text-inverted);
+    --active-border:    var(--primary-active);
+
+    --disabled-bkg:     var(--disabled);
+    --disabled-text:    var(--text-disabled);
+    --disabled-border:  var(--border-color-light);
+
+    border-radius: 1.5em;
+
+  }
+
+  &.-primary {
+    --hover-bkg:        var(--primary-hover);
+    --hover-text:       var(--text-inverted);
+    --hover-border:     var(--primary-hover);
+
+    --active-bkg:       var(--primary-active);
+    --active-text:      var(--text-inverted);
+    --active-border:    var(--primary-active);
+
+    --disabled-bkg:     var(--primary-disabled);
+    --disabled-text:    #{$white};
+    --disabled-border:  var(--primary-disabled);
+  }
+
+  &.-secondary {
+    --background:      transparent;
+    --text:            var(--primary);
+
+    --hover-bkg:       transparent;
+    --hover-text:      var(--primary-hover);
+    --hover-border:    var(--primary-hover);
+
+    --active-bkg:      transparent;
+    --active-text:     var(--primary-active);
+    --active-border:   var(--primary-active);
+
+    --disabled-bkg:    transparent;
+    --disabled-text:   var(--primary-disabled);
+    --disabled-border: var(--primary-disabled);
+
+    box-shadow: none;
+  }
+
+  &.-tertiary,
+  &.-text {
+    --border:          transparent;
+    --background:      transparent;
+    --text:            var(--primary);
+
+    --hover-bkg:       transparent;
+    --hover-text:      var(--primary-hover);
+    --hover-border:    transparent;
+
+    --active-bkg:      transparent;
+    --active-text:     var(--primary-active);
+    --active-border:   transparent;
+
+    --disabled-bkg:    transparent;
+    --disabled-text:   var(--primary-disabled);
+    --disabled-border: transparent;
+
+    box-shadow: none;
+    border: none;
+    border-radius: 0.125em;
+
+    &:focus-visible {
+      --border: var(--primary-hover);
+    }
+  }
+
+  &.-link {
+    --background: transparent;
+    --text: var(--text-dark);
+
+    --hover-bkg:        transparent;
+    --hover-text:       var(--primary-hover);
+    --hover-border:     transparent;
+
+    --active-bkg:       transparent;
+    --active-text:      var(--button-link-active);
+    --active-border:    transparent;
+
+    --disabled-bkg:     transparent;
+    --disabled-text:    var(--text-disabled);
+    --disabled-border:  transparent;
+
+    border: none;
+    border-radius: 0.125em;
+    box-shadow: none;
+
+    text-decoration: underline;
+    text-decoration-color: var(--color);
+    text-underline-offset: .25em;
+
+    &:focus-visible {
+      --border: var(--border-color-med);
+    }
+
+    &:where(:disabled, [aria-disabled="true"]) {
+      --color: var(--primary-disabled);
+    }
+  }
+
+  &.-floating {
+    --background: var(--primary);
+    --text:       var(--text-inverted);
+
+    --hover-bkg:        var(--primary-hover);
+    --hover-text:       var(--text-inverted);
+    --hover-border:     var(--primary-hover);
+
+    --active-bkg:       var(--primary-active);
+    --active-text:      var(--text-inverted);
+    --active-border:    var(--primary-active);
+
+    --disabled-bkg:     var(--disabled-med);
+    --disabled-text:    #{$white};
+    --disabled-border:  var(--disabled-med);
+
+    --padding: .75em;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &.-icon {
+    --background: var(--primary);
+    --padding: 0 0.25em;
+
+    --disabled-bkg:     var(--disabled-med);
+    --disabled-text:    #{$white};
+    --disabled-border:  transparent;
+
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    &.-group {
+      border-radius: var( --borderRadius-t-l)
+                     var( --borderRadius-t-r)
+                     var( --borderRadius-b-r)
+                     var( --borderRadius-b-l);
+      --borderRadius-t-l: 0;
+      --borderRadius-b-l: 0;
+
+      &:not(.-outline) {
+        --background: var(--primary-active);
+        --border: var(--primary-active);
+      }
+    }
+  }
+
+  &.-close {
+    --padding: .325em;
+    color: currentcolor;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: none;
+    flex-direction: row-reverse;
+
+    &:disabled {
+      color: var(--text-disabled)
+    }
+
+    &:hover:not(:disabled) {
+      border-color: var(--primary);
+    }
+
+    &:active:not(:disabled),
+    &.-active:not(:disabled) {
+      translate: 0 0;
+      color: var(--active);
+    }
+  }
+
+  &.-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.-block {
+    flex-direction: column;
+
+    &.-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &.-outline {
+    --border:          var(--border-color);
+    --background:      var(--background-content);
+    --text:            var(--text-color);
+
+    --hover-bkg:       var(--tab-border);
+    --hover-text:      var(--primary);
+    --hover-border:    var(--border);
+
+    --active-bkg:      transparent;
+    --active-text:     var(--primary-active);
+    --active-border:   var(--primary-active);
+
+    --disabled-bkg:    transparent;
+    --disabled-text:   var(--primary-disabled);
+    --disabled-border: var(--primary-disabled);
+
+    box-shadow: none;
+    border: 1px solid var(--border);
+
+    &.-primary {
+      --border:     var(--primary);
+      --background: var(--tab-selected);
+    }
+  }
+
+  &.-image {
+    --imageSize: 1rem;
+    --background:      var(--background-content);
+    --text:            var(--text-dark);
+
+    --hover-bkg:       var(--background);
+    --hover-text:      var(--text-dark);
+    --hover-border:    var(--primary);
+
+    --active-bkg:      var(--primary-background-selected);
+    --active-text:     var(--text-dark);
+    --active-border:   var(--primary);
+
+    --disabled-bkg:    transparent;
+    --disabled-text:   var(--text-disabled);
+    --disabled-border: transparent;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+    --padding: 0.5em;
+    border: 1px solid $transparent;
+
+    &.-small  { --imageSize: 0.75rem }
+    &.-medium { --imageSize: 1rem }
+    &.-large  { --imageSize: 2rem }
+
+    ::slotted(img) {
+      object-fit: cover;
+      display: inline-block;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: 100%;
+      max-width: calc(var(--imageSize) * 5.75);
+    }
+
+    &:focus-visible {
+      --background: var(--primary-background-hover);
+    }
+  }
+
+  &.-full {
+    width: 100%;
+  }
+
+  &:hover {
+    --background: var(--hover-bkg);
+    --text:       var(--hover-text);
+    --border:     var(--hover-border);
+  }
+
+  &:active:not(:disabled),
+  &.-active:not(:disabled) {
+    --background: var(--active-bkg);
+    --text:       var(--active-text);
+    --border:     var(--active-border);
+    box-shadow: none;
+    translate: 0 2px;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    --background: var(--disabled-bkg);
+    --text:       var(--disabled-text);
+    --border:     var(--disabled-border);
+    cursor: not-allowed;
+
+    &:not(:where(.-floating, .-cta)) {
+      box-shadow: none;
+    }
+  }
+
+  // &:focus,
+  &:focus-visible {
+    outline-color: var(--border);
+  }
+
+}

@@ -1,0 +1,75 @@
+---
+sidebar_position: 47
+description: Textareas collect data from the user and allow multiple lines of text.
+---
+
+# Text Area
+
+<HeaderComponent
+  htmlTag="studs-textarea"
+  jsxTag="StudsTextarea"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="inputs/textarea.ts"
+  urlStrbook="studs-inputs-textarea--docs"
+  folder="inputs"
+/>
+
+Textareas collect data from the user and allow multiple lines of text.
+
+## Default
+
+<ResizerFeatures>
+  <studs-textarea value="Default Value"></studs-textarea>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-textarea value="Default Value"></studs-textarea>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73960&mode=dev"
+/>
+
+## Disabled
+
+<ResizerFeatures>
+  <studs-textarea disabled=""></studs-textarea>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-textarea disabled=""></studs-textarea>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73960&mode=dev"
+/>
+
+## With Character Counter
+
+<ResizerFeatures>
+  <studs-textarea
+    maxlength="100"
+    character-counter
+  ></studs-textarea>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-textarea
+  maxlength="100"
+  character-counter
+></studs-textarea>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73960&mode=dev"
+/>
+
+## Full Width
+
+<ResizerFeatures>
+<studs-textarea full-width=""></studs-textarea>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-textarea full-width=""></studs-textarea>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73960&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="textarea" />
+

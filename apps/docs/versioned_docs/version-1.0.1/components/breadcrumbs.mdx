@@ -1,0 +1,215 @@
+---
+sidebar_position: 8
+description: A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.
+---
+
+# Breadcrumbs
+
+<HeaderComponent
+  htmlTag="studs-breadcrumbs"
+  jsxTag="StudsBreadcrumbs"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/breadcrumbs.ts"
+  urlStrbook="studs-display-breadcrumbs--docs"
+  folder="display"
+/>
+
+A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure, it allows navigation up to any of the ancestors.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <p>A breadcrumb trail is composed of four main elements.</p>
+          <ol>
+            <li>
+              Home: a link to the home page of the experience. Not editable.
+            </li>
+            <li>Page link: navigates to the page.</li>
+            <li>
+              Separator: forward slashes that visually separate each level in
+              the full breadcrumb trail. Not interactive.
+            </li>
+            <li>Current page: the current page title. Not interactive.</li>
+          </ol>
+          <div>When to Use:</div>
+          <ul>
+            <li>When the system has more than two layers in a hierarchy.</li>
+            <li>When you need to inform the user of where they are.</li>
+            <li>When the user may need to navigate back to a higher level.</li>
+          </ul>
+          <h3>For Sizes</h3>
+          <ul>
+            <li>
+              For large or extra-large breakpoints, use the full breadcrumb
+              until it becomes too long for the view. For medium breakpoints, it
+              is recommended to use a truncated version.
+            </li>
+            <li>
+              For more than three levels, breadcrumbs are automatically
+              truncated using an ellipsis (…). Selecting the ellipsis will
+              reveal the full site hierarchy leading to the current page.
+            </li>
+          </ul>
+          <h3>Layout</h3>
+          <b>Placement</b>
+          <div>
+            Place the breadcrumb trail in the top left of the main content area,
+            between the masthead and page title. Start the breadcrumb with the
+            home page and follow the page-level hierarchy leading to the current
+            or active page.
+          </div>
+          <img src="/img/breadcrumb_layout.png" alt="" />
+        </div>
+      ),
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled',
+      description: (
+        <div>
+          <div>Each link has a hover, selected, and current state.</div>
+          <ul>
+            <li>
+              Hover state is when the mouse hovers over the link.
+              <img src="/img/breadcrumb_hover_state.png" alt="" />
+            </li>
+            <li>
+              Dropdown
+              <div>Activates a menu with the option for the user to search</div>
+              <img src="/img/breadcrumb_active_state.png" alt="" />
+              <img src="/img/breadcrumb_search_state.png" alt="" />
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'Style',
+      description: (
+        <div>
+          <ul>
+            <li>
+              Spaces between the link and the separator is 13 px / 0.813rem
+              <img src="/img/breadcrumb_spaces.png" alt="" />
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'Micro interactions, animations and transitions',
+      description: (
+        <ul>
+          <li>
+            By clicking on a non-current link, the user is taken to that page.
+          </li>
+          <li>
+            If the dropdown is active, then the use is presented with a list of
+            pages that they are able to navigate to, as well as perform a search
+            for a specific page.
+          </li>
+        </ul>
+      ),
+    },
+  ]}
+/>
+
+<Tables
+  headers={['state', 'behavior']}
+  args={[
+    {
+      state: 'Rest  ',
+      behavior: (
+        <div>
+          The rest state is the starting or ending state, indicating the page
+          link has not yet been selected.
+        </div>
+      ),
+    },
+    {
+      state: 'Hover',
+      behavior: (
+        <div>
+          When a user hovers over a selection, a highlight appears with the
+          primary color and a stroked line beneath, indicating which page link
+          is selectable.
+        </div>
+      ),
+    },
+    {
+      state: 'Active',
+      behavior: (
+        <div>
+          Active state features primary color, indicating the current page the
+          user is viewing.
+        </div>
+      ),
+    },
+    {
+      state: 'Focus',
+      behavior: (
+        <div>
+          A blue outline appears around the selection and its label when a user
+          tabs or uses keyboard controls to navigate selections.
+        </div>
+      ),
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-breadcrumbs separator="/">
+    <a href="http://www.strongtie.com">Home</a>
+    <a href="http://www.strongtie.com/about">About Us</a>
+    <a href="http://www.strongtie.com/contact">Contact</a>
+  </studs-breadcrumbs>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-breadcrumbs separator="/">
+  <a href="http://www.strongtie.com">Home</a>
+  <a href="http://www.strongtie.com/about">About Us</a>
+  <a href="http://www.strongtie.com/contact">Contact</a>
+</studs-breadcrumbs>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=12946%3A116616&mode=dev"
+/>
+
+## Custom Separator
+
+<ResizerFeatures>
+  <studs-breadcrumbs separator=">">
+    <a href="http://www.strongtie.com">Home</a>
+    <a href="http://www.strongtie.com/about">About Us</a>
+    <a href="http://www.strongtie.com/contact">Contact</a>
+  </studs-breadcrumbs>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-breadcrumbs separator=">">
+  <a href="http://www.strongtie.com">Home</a>
+  <a href="http://www.strongtie.com/about">About Us</a>
+  <a href="http://www.strongtie.com/contact">Contact</a>
+</studs-breadcrumbs>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=12946%3A116616&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="breadcrumbs" />
+
+

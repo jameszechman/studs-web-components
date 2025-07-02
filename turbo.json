@@ -1,0 +1,81 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalPassThroughEnv": [
+    "Path",
+    "APPDATA",
+    "LOCALAPPDATA",
+    "TMPDIR",
+    "HOME",
+    "TMP",
+    "GOROOT",
+    "USERPROFILE"
+  ],
+  "globalEnv": ["OS", "RUNNER_OS"],
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:docs": {
+      "cache": true,
+      "persistent": true,
+      "dependsOn": ["@studs/react#build"]
+    },
+    "dev:docs-next": {
+      "cache": true,
+      "persistent": true,
+      "dependsOn": ["@studs/react#build"]
+    },
+    "@studs/react#build": {
+        "cache": true,
+      "dependsOn": ["@studs/ui#build"]
+    },
+    "test": {
+      "cache": true,
+      "persistent": true
+    },
+    "test:ui": {
+      "cache": true,
+      "persistent": true
+    },
+    "coverage": {
+      "cache": true,
+      "persistent": false
+    },
+    "preview": {
+      "cache": true,
+      "persistent": true
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**",  "storybook-static/**"]
+    },
+    "playroom:build": {
+        "cache": true,
+        "persistent": false,
+        "outputs": ["playroom/**"],
+        "dependsOn": ["@studs/react#build"]
+    },
+    "build:watch": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true,
+      "outputs": ["dist/**",  "storybook-static/**"]
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false,
+      "persistent": false
+    },
+    "serve": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {}
+  }
+}

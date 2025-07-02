@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  width: fit-content;
+  overflow: auto;
+}
+
+::slotted(studs-menu) {
+  border-bottom: 4px solid transparent;
+}
+
+::slotted(studs-menu:hover) {
+    border-bottom-color: var(--primary);
+}

@@ -1,0 +1,21 @@
+
+label {
+  width: max-content;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.required {
+  color: var(--error-color)
+}
+
+.optional {
+  color: var(--text-disabled);
+}
+
+.tooltip {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}

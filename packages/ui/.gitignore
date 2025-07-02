@@ -1,0 +1,6 @@
+
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Unit test
+coverage

@@ -1,0 +1,106 @@
+@use '../utilities' as *;
+
+:host {
+  display: contents;
+}
+
+.datePicker {
+  studs-input {
+    display: inline-block;
+  }
+  .popper {
+    width: 300px;
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+    background: var(--background-content);
+    border-radius: 0.25em;
+    box-shadow: var(--box-shadow);
+    &[aria-hidden='false']{
+      display: block;
+    }
+
+    & .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.5em 0 1.5em;
+      & h4 {
+        margin: 0;
+        text-transform: capitalize;
+        font-size: 1.25em;
+        font-weight: bold;
+      }
+      & button {
+        padding: 0;
+        border: 8px solid transparent;
+        width: 0;
+        height: 0;
+        border-radius: 2px;
+        border-top-color: var(--text-color);
+        transform: rotate(90deg);
+        cursor: pointer;
+        background: none;
+        position: relative;
+        &:last-of-type {
+          transform: rotate(-90deg);
+        }
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    & .week-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 0.5em;
+      margin-bottom: 0.5em;
+      & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .month-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0.5em;
+    & .month-day {
+      padding: 0.5em;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: none;
+      background-color: var(--background-content);
+      &.-selected{
+        background: var(--primary);
+        color: var(--text-inverted);
+        border-radius: 5px;
+      }
+      &.-disabled {
+        border: none;
+        background-color: transparent;
+        color: var(--text-disabled);
+        pointer-events: none;
+      }
+      &:hover {
+        background: var(--primary);
+        color: var(--text-inverted);
+        border-radius: 5px;
+      }
+    }
+  }
+}

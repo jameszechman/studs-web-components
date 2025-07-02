@@ -1,0 +1,335 @@
+@use "../utilities/colors" as *;
+@use "../utilities/variables" as *;
+@use "../utilities/fonts" as *;
+
+/* all css colors defined here for both light and dark themes */
+
+@mixin light {
+  /* base colors */
+  --cta:          #{colorVal("orange", 50)};
+  --ctaRgb:       #{toRGB(#df4907)};
+  --cta-hover:    #{colorVal("orange", 40)};
+  --cta-active:   #{colorVal("orange", 60)};
+  --cta-disabled: #{colorVal("orange", 10)};
+
+  --primary:                     #{colorVal("orange", 50)};
+  --primaryRgb:                  #{toRGB(#df4907)};
+  --primary-hover:               #{colorVal("orange", 40)};
+  --primary-active:              #{colorVal("orange", 60)};
+  --primary-background-hover:    #{colorVal("orange", 0)};
+  --primary-background-active:   #{colorVal("orange", 10)};
+  --primary-background-selected: #{colorVal("orange", 20)};
+  --primary-disabled:            #{colorVal("orange", 20)};
+
+/* @TODO: remove / refactor these.
+   secondary and tertiary colors
+   are no longer being used.
+                -- Jp
+*/
+  --secondary:                   #{colorVal("gray", 60)};
+  --secondaryRgb:                #{toRGB(#686868)};
+  --secondary-hover:             #{colorVal("gray", 40)};
+  --secondary-active:            #{colorVal("gray", 60)};
+  --secondary-background-hover:  #{colorVal("gray", 0)};
+  --secondary-background-active: #{colorVal("gray", 10)};
+  --secondary-disabled:          #{colorVal("gray", 0)};
+
+  --tertiary:                   #{colorVal("mauve", 50)};
+  --tertiaryRgb:                #{toRGB(#847087)};
+  --tertiary-hover:             #{colorVal("mauve", 40)};
+  --tertiary-active:            #{colorVal("mauve", 60)};
+  --tertiary-background-hover:  #{colorVal("mauve", 0)};
+  --tertiary-background-active: #{colorVal("mauve", 10)};
+  --tertiary-disabled:          #{colorVal("mauve", 10)};
+
+/* @TODO: end remove / refactor block */
+
+  --text-color:       #{colorVal("gray", 90)};
+  --text-dark:        #{colorVal("gray", 100)};
+  --text-light:       #{colorVal("gray", 20)};
+  --text-medium:      #{colorVal("gray", 50)};
+  --text-disabled:    #{colorVal("gray", 20)};
+  // --text-disabled:    rgba(0, 0, 0, 0.25);
+  --text-inverted:    #{$white};
+  --heading-color:    #{$black};
+  --placeholder-text: #{colorVal("gray", 30)};
+
+  --link-color:   #{colorVal("gray", 100)};
+  --link-active:  #{colorVal("orange", 70)};
+  --link-hover:   #{colorVal("orange", 50)};
+  --link-visited: #{colorVal("gray", 70)};
+  --link-focus:   #{colorVal("gray", 30)};
+  --link-disabled:#{colorVal("orange", 20)};
+
+  --disabled:     #{colorVal("gray", 0)};
+  --disabled-med: #{colorVal("gray", 30)};
+  --highlight:    #{colorVal("gray", 0)};
+  --selected:     #{colorVal("orange", 0)};
+
+  --background:          #{colorVal("gray", 10)};
+  --background-featured: #{colorVal("gray", 90)};
+  --background-content : #{$white};
+  --background-element:  #{colorVal("gray", 0)};
+
+  --border-color:       #{colorVal("gray", 10)};
+  --border-color-light: #{colorVal("gray", 15)};
+  --border-color-med:   #{colorVal("gray", 30)};
+  --border-radius: 0.25em;
+
+  --table-border: #D6D6D6;
+  --table-background: #{$white};
+  --table-header: #{colorVal("gray", 10)};
+  --table-caption-color: #{colorVal("gray", 100)};
+  --table-content-color: #{colorVal("gray", 100)};
+
+  // --shadow-color-rgb: #{toRGB($black)};
+  --shadow-color-rgb: 40, 46, 51;
+  --shadow:      rgba(var(--shadow-color-rgb, black), .15);
+  --shadow-soft: rgba(var(--shadow-color-rgb, black), .25);
+  --box-shadow:  0 0.25rem 0.5rem var(--shadow);
+  --box-shadow-soft:  0 0.25rem 0.8rem var(--shadow);
+
+  --tooltip-bkg:  white;
+  --tooltip-text: var(--text-color);
+  // --tooltip-shadow: 0 .125rem .5rem rgba(var(--shadow-color-rgb, #{$black}), .5);
+  --tooltip-shadow: 0px 2px 4px 1px rgba(var(--shadow-color-rgb, black), .5);
+
+
+  --interactive-text:       var(--text-dark);
+  --interactive:            var(--primary);
+  --interactive-bkg:        #{colorVal('orange', 0)}; //@TODO: unused ? --Jp
+  --interactive-hover:      var(--primary-hover);
+  --interactive-disabled:   var(--primary-disabled);
+  --interactive-active:     #{colorVal('orange', 10)};
+  --interactive-thumb:      #{$white};
+  --interactive-unselected: #{colorVal("gray", 30)};
+  --interactive-shadow: 0px 1px 2px 1px var(--shadow),
+                        0px 1px 2px 0px var(--shadow-soft);
+
+  --accordion-bkg: #{$white};
+  --accordion-bkg-light: #{colorVal("gray", 0)};
+  --accordion-hover: #{colorVal("gray", 10)};
+
+  --chip-bkg:    #{colorVal("gray" ,10)};
+  --chip-text:   #{colorVal("gray", 90)};
+  --chip-focus:  var(--background-content);
+
+  --tab-background:       white;
+  --tab-background-light: #{colorVal("gray", 0)};
+  --tab-hover:            #{colorVal("gray", 0)};
+  --tab-border:           #{colorVal("gray", 10)};
+  --tab-selected:         #{colorVal("gray", 10)};
+
+  --breadcrumb-color:   #{colorVal("gray", 40)};
+  --breadcrumb-hover:   #{colorVal("gray", 90)};
+  --breadcrumb-current: var(--primary);
+
+  --modal-backdrop: rgba(0, 0, 0, 0.6);
+
+ /* feedback colors */
+  --info-color:    #1890FF;
+  --info-bkg:      #e0f0ff;
+  --info-rgb:      #{toRGB(#1890FF)};
+
+  --success-color: #3AAD49;
+  --success-bkg:   #e8f7ea;
+  --success-rgb:   #{toRGB(#3AAD49)};
+
+  --warning-color: #FBBD08;
+  --warning-bkg:   #fdf6e1;
+  --warning-rgb:   #{toRGB(#FBBD08)};
+
+  --error-color:   #DA1E28;
+  --error-bkg:     #fae4e4;
+  --error-rgb:     #{toRGB(#DA1E28)};
+
+  --contrast-bkg:  #{colorVal('gray', 90)};
+
+
+  /* @TODO: prune and edit these as needed  --Jp */
+  --nav-border:   #{colorVal("gray", 30)};
+
+  --button-color:   #{$white};
+  --button-default: #{colorVal("orange", 50)};
+  --button-focused: #{colorVal("orange", 60)};
+  --button-hover:   #{colorVal("orange", 40)};
+  --button-active:  #{colorVal("orange", 70)};
+  --button-fab:     #{colorVal("gray", 0)};
+  --button-shadow-color:  #{toRGB(#df4907)}; //@NOTE: due to Sass bug, color needs to be hard-coded to hex for now
+
+  --badge-background: var(--button-default);
+  --badge-color: var(--button-color);
+
+  // TODO: waiting for confirm from Design
+  --avatar-background: #{colorVal("gray", 0)};
+  --avatar-text: #{$white};
+  --avatar-shadow: #{colorVal("orange", 10)};
+  --avatar-border-color: #{$white};
+  --avatar-badge-border: #{$white};
+  --avatar-badge-offline: #{colorVal("gray", 20)};
+  --avatar-badge-busy: var(--error-color);
+  --avatar-badge-online: var(--success-color);
+
+  --logo-text:       #{$white};
+  --logo-bkg-top:    var(--text-color);
+  --logo-bkg-bottom: var(--text-color);
+
+  --dropdown-background-outline: #{colorVal("gray", 20)};
+  --dropdown-background: #{$white};
+
+  --switch-color:    #{colorVal("orange", 50)};
+  --switch-disabled: #{colorVal("gray", 30)};
+
+  --doc-badge-notice-background-color: #{colorVal("gray", 30)};
+  --doc-badge-notice-color:            #{$white};
+
+  --button-link-active: #{colorVal("orange", 50)};
+
+
+  @media (prefers-contrast: more) {
+    --text-color: #{$black};
+    --text-dark: #{$black};
+    --text-light: #{$white};
+    --link-focus: #{colorVal("orange", 70)};
+    --background: #{colorVal("gray", 0)};
+    --tooltip-bkg:  #{colorVal("gray", 80)};
+    --tooltip-text: #{$white};
+    --box-shadow: 0 0 0 2px #{colorVal("gray", 70)};
+    --button-shadow-color:  #{toRGB(#000)};
+  }
+}
+
+@mixin dark {
+    // temporary. We're still working out the vars to use.
+    // when done, we'll make the dark theme
+    //              --Jp
+    @include light;
+}
+
+@mixin reducedMotion {
+  --transition-s : #{$transition-s};
+  --transition-m : #{$transition-m};
+  --transition-l : #{$transition-l};
+  --transition-x : #{$transition-x};
+  --transition-xl : #{$transition-xl};
+  --transition-xxl : #{$transition-xxl};
+
+  --interactive-feedback: translateY(-.075em) scale(1.01);
+
+
+  @media (prefers-reduced-motion: reduce) {
+    --transition-s : 0s;
+    --transition-m : 0s;
+    --transition-l : 0s;
+    --transition-x : 0s;
+    --transition-xl : 0;
+    --transition-xxl : 0;
+
+    --interactive-feedback: translateY(0) scale(1);
+    }
+}
+
+:root {
+//   color-scheme: light dark; // both are supported
+  color-scheme: light;
+  @include light;
+
+  @include reducedMotion;
+
+  // Sizing Variables
+  --popper-arrow-size: 8px;
+  --padding: 1rem;
+
+//   @media (prefers-color-scheme: dark) {
+//     @include dark;
+//   }
+//
+//   @media (prefers-color-scheme: light) {
+//     @include light;
+//   }
+}
+
+.theme-dark {
+  @include dark;
+}
+
+.theme-light {
+  @include light;
+}
+
+/* theme overrides.
+     move these to individual files in future
+     once we have final theme names.
+     These are for demonstration only
+                --Jp
+*/
+
+.builder-tools {
+  --primary:          #{colorVal("steel", 50)};
+  --primaryRgb:       #{toRGB(#657682)};
+  --primary-hover:    #{colorVal("steel", 40)};
+  --primary-active:   #{colorVal("steel", 60)};
+  --primary-disabled: #{colorVal("steel", 20)};
+
+  --link-active:  #{colorVal("steel", 70)};
+  --link-hover:   #{colorVal("steel", 50)};
+  --link-disabled:#{colorVal("steel", 20)};
+
+  --selected:     #{colorVal("steel", 0)};
+}
+
+.component-manufacturing-tools {
+  --primary:          #{colorVal("mauve", 50)};
+  --primaryRgb:       #{toRGB(#847087)};
+  --primary-hover:    #{colorVal("mauve", 40)};
+  --primary-active:   #{colorVal("mauve", 60)};
+  --primary-disabled: #{colorVal("mauve", 20)};
+
+  --link-active:  #{colorVal("mauve", 70)};
+  --link-hover:   #{colorVal("mauve", 50)};
+  --link-disabled:#{colorVal("mauve", 20)};
+
+  --selected:     #{colorVal("mauve", 0)};
+}
+
+.general-tools {
+  --primary:          #{colorVal("orange", 50)};
+  --primaryRgb:       #{toRGB(#df4907)};
+  --primary-hover:    #{colorVal("orange", 40)};
+  --primary-active:   #{colorVal("orange", 60)};
+  --primary-disabled: #{colorVal("orange", 20)};
+
+  --link-active:  #{colorVal("orange", 70)};
+  --link-hover:   #{colorVal("orange", 50)};
+  --link-disabled:#{colorVal("orange", 20)};
+
+  --selected:     #{colorVal("orange", 0)};
+}
+
+.specification-tools {
+  --primary:          #{colorVal("pumpkin", 50)};
+  --primaryRgb:       #{toRGB(#A8671D)};
+  --primary-hover:    #{colorVal("pumpkin", 40)};
+  --primary-active:   #{colorVal("pumpkin", 60)};
+  --primary-disabled: #{colorVal("pumpkin", 20)};
+
+  --link-active:  #{colorVal("pumpkin", 70)};
+  --link-hover:   #{colorVal("pumpkin", 50)};
+  --link-disabled:#{colorVal("pumpkin", 20)};
+
+  --selected:     #{colorVal("pumpkin", 0)};
+}
+
+.supplier-tools {
+  --primary:          #{colorVal("sage", 50)};
+  --primaryRgb:       #{toRGB(#607D64)};
+  --primary-hover:    #{colorVal("sage", 40)};
+  --primary-active:   #{colorVal("sage", 60)};
+  --primary-disabled: #{colorVal("sage", 20)};
+
+  --link-active:  #{colorVal("sage", 70)};
+  --link-hover:   #{colorVal("sage", 50)};
+  --link-disabled:#{colorVal("sage", 20)};
+
+  --selected:     #{colorVal("sage", 0)};
+}

@@ -1,0 +1,407 @@
+---
+sidebar_position: 51
+description: Tooltips display informative text when users hover over, focus on, or tap an element.
+---
+
+# Tooltip
+
+<HeaderComponent
+  htmlTag="studs-tooltip"
+  jsxTag="StudsTooltip"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="overlays/tooltip.ts"
+  urlStrbook="studs-overlays-tooltip--docs"
+  folder="overlays"
+/>
+
+Tooltips display informative text when users hover over, focus on, or tap an element.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <p>
+            A tooltip, while similar to a popover, serves a distinct purpose. Recognizing the appropriate context for its use enhances clarity for all users, especially for individuals with cognitive and learning disabilities, or for those utilizing screen readers.
+          </p>
+          <strong>Usage</strong>
+          <p>
+            Use tooltips for secondary or supplemental information. If the
+            information is critical, place it on the page so that the user
+            doesn’t miss it. Do not use tooltips to display error or status
+            messages, long passages of text, images, or interactive content.
+          </p>
+          <strong>Form fields</strong>
+          <p>
+            Tooltips can be a source of additional context in form fields.
+            Ideally, this content would be presented through the form
+            component’s helper text and the tooltip will not be necessary. Do
+            not repeat the helper text content in a tooltip.
+          </p>
+          <img src="/img/tooltip_img_1.png" />
+          <strong>Truncated content</strong>
+          <p>
+            Tooltip can be used to show the remainder of truncated information,
+            such as the file name in the file input component.
+          </p>
+          <img src="/img/tooltip_img_2.png" />
+          <h3>Layout</h3>
+          <strong>Alignment</strong>
+          <p>
+            Consider the page elements when choosing the default position of a
+            tooltip. Note that constraints, such as screen size, will override
+            the default positioning to ensure the tooltip is always within the
+            viewport. For example, a tooltip with a bottom-start selection will
+            automatically flip to top-start placement if there is not enough
+            room on the screen below the trigger element.
+          </p>
+          <p>
+            Note that position and pointer are shown separately in Figma for
+            easy scanning and selection.
+          </p>
+          <strong>Positioned tooltips</strong>
+          <p>The tooltip has 4 placement choices. They have directional arrows pointing to the trigger.</p>
+        </div>
+      ),
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: (
+        <div>
+          <p>
+            Tooltips are activated upon focus state, or when a user hovers over
+            a trigger element. To dismiss the tooltip, stop hovering or focusing
+            the trigger element. Tooltips are always activated and dismissed by
+            press on mobile. Mobile tooltips require a close icon to dismiss.
+          </p>
+          <b>Hover</b>
+          <p>
+            Hovering on the trigger element activates the tooltip on desktop
+          </p>
+          <b>Focus</b>
+          <p>
+            One tab focuses on the dismiss icon in desktop tooltips. A second
+            tab exits the tooltip.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: 'Style',
+      description: (
+        <div>
+          <ol>
+            <li>Body text: provides user with additional information.</li>
+            <li>Pointer: directs user’s attention to the source element that triggered the tooltip.</li>
+            <li>Shadows are utilizing Elevation A2</li>
+          </ol>
+          <img src="/img/tooltip_img_3.png" />
+        </div>
+      ),
+    },
+  ]}
+/>
+
+### Position
+
+<p>
+  Tooltips uses four positions in relation to the trigger element: bottom, top,
+  left, and right. Make sure the direction and position of your tooltip don’t
+  obscure information on the page that the tooltip content is directly related
+  to.
+</p>
+
+<Tables
+  headers={['selection', 'description']}
+  args={[
+    {
+      selection: 'Top',
+      description: <div>Above the trigger (default)</div>,
+    },
+    {
+      selection: 'Bottom',
+      description: <div>Below the trigger</div>,
+    },
+    {
+      selection: 'Left',
+      description: <div>To the left of the trigger</div>,
+    },
+    {
+      selection: 'Right',
+      description: <div>To the right of the trigger</div>,
+    },
+  ]}
+/>
+
+### Pointer
+
+<p>
+  Tooltip has four pointer options: start, center, end, and no pointer. Center
+  is the default pointer position. If the tooltip does not fit without being
+  clipped by the side of the page, then it should dynamically pick a pointer
+  orientation that fits in the space between the grid margins.
+</p>
+
+<Tables
+  headers={['selection', 'description']}
+  args={[
+    {
+      selection: 'Center',
+      description: (
+        <div>
+          When tooltip is set to top, the pointer points down to the trigger
+          (default)
+        </div>
+      ),
+    },
+    {
+      selection: 'Start',
+      description: <div>Top, or left in left-to-right localizations</div>,
+    },
+    {
+      selection: 'End',
+      description: <div>Bottom, or right in left-to-right localizations</div>,
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-button button-type="primary">
+    Button
+    <studs-tooltip position="bottom">Hello!</studs-tooltip>
+  </studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-button button-type="primary">
+    Button
+    <studs-tooltip position="bottom">Hello!</studs-tooltip>
+  </studs-button>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13213%3A126437&mode=dev"
+/>
+
+## Disabled
+
+<ResizerFeatures>
+  <studs-button button-type="primary">
+      Button
+      <studs-tooltip position="bottom" disabled="">
+      Hello!
+    
+      </studs-tooltip>
+    </studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-button button-type="primary">
+      Button
+      <studs-tooltip position="bottom" disabled="">
+      Hello!
+    
+      </studs-tooltip>
+    </studs-button>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13213%3A126437&mode=dev"
+/>
+
+## Standalone
+
+<ResizerFeatures>
+  <div style={{ display: 'inline-block' }}>
+      <p id="attach_here">Hover over me</p>
+      <studs-tooltip query="#attach_here" position="right">Standalone</studs-tooltip>
+    </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<div style="display: inline-block">
+      <p id="attach_here">Hover over me</p>
+      <studs-tooltip query="#attach_here" position="right">Standalone</studs-tooltip>
+    </div>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13213%3A126437&mode=dev"
+/>
+
+## Containered
+
+<ResizerFeatures>
+  <studs-resizer style={{ height: '300px', display: 'block' }} direction="inline">
+      <studs-resizer-pane fullwidth="" size="200">
+        <studs-accordion size="medium" variant="borderless" direction="end">
+          <studs-accordion-item>
+            <div slot="toggle">Accordion One</div>
+            <div>
+              <studs-button button-type="primary">
+                Button
+                <studs-tooltip position="bottom">
+      Hello!
+    
+                </studs-tooltip>
+              </studs-button>
+              <studs-button button-type="primary">
+                Button
+                <studs-tooltip position="bottom">
+      Hello!
+    
+                </studs-tooltip>
+              </studs-button>
+            </div>
+          </studs-accordion-item>
+        </studs-accordion>
+      </studs-resizer-pane>
+    </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer style="height: 300px; display: block;" direction="inline">
+      <studs-resizer-pane fullwidth="" size="200">
+        <studs-accordion size="medium" variant="borderless" direction="end">
+          <studs-accordion-item>
+            <div slot="toggle">Accordion One</div>
+            <div>
+              <studs-button button-type="primary">
+                Button
+                <studs-tooltip position="bottom">
+      Hello!
+    
+                </studs-tooltip>
+              </studs-button>
+              <studs-button button-type="primary">
+                Button
+                <studs-tooltip position="bottom">
+      Hello!
+    
+                </studs-tooltip>
+              </studs-button>
+            </div>
+          </studs-accordion-item>
+        </studs-accordion>
+      </studs-resizer-pane>
+    </studs-resizer>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13213%3A126437&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="tooltip" />
+
+## Writing Guidance
+<div>
+  <h3>Always Add Value</h3>
+  <p>Only use tooltips when they contribute valuable insights or supplementary information that enhances the user's understanding. Avoid the obvious or repeating what's already clear from the interface.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DO_Tooltip_Value.png' alt='Tooltip advising to include a building number for the address field.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DONT_Tooltip_Value.png' alt='Toolip that state the obvious "Address goes here" above the address field.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Avoid Critical Information</h3>
+  <p>Tooltips should be reserved for non-essential, supportive content that is not critical to a task or its completion. When key information is needed, always present it in plain sight.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DO_Tooltip_Critical.png' alt='Tooltip advising users to avoid easily guessed passwords like "123456" above a password creation field.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DONT_Tooltip_Critical.png' alt='Tooltip informing users that passwords cannot be recovered onced saved.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Adhere to Punctuation Rules</h3>
+  <p>Use sentence case for most text, capitalize proper nouns, utilize punctuation marks like commas, periods, and semicolons appropriately to separate ideas and maintain sentence structure.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DO_Tooltip_Punctuation.png' alt='Tooltip stating "Submissions do not include order details." using standard punctuation and sentence rules.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Tooltip/DONT_Tooltip_Punctuation.png' alt='Three examples of the tooltip "Submission do not include order details" in all uppercase, lowercase, and camel case.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <b>All tooltips should be able to be activated and dismissed via pointer, keyboard, and touch</b>
+              <p>Users should have full control of the tooltip interaction regardless of device. Do not cause the tooltip to disappear or timeout after a set interval.</p>
+              <p>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">
+                1.4.13: Content on Hover or Focus
+              </a></p>
+            </li>
+            <li>
+              <b>Avoid covering up critical content with a tooltip</b>
+              <p>As with popovers, make sure that the direction and placement of your tooltip don’t obscure information on the page that the tooltip content is directly related to.</p>
+              <p>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html" target="_blank">
+                1.4.13: Content on Hover or Focus
+              </a></p>
+            </li>
+            <li>
+              <b>Tooltips should only contain static, text-based content to avoid additional interactivity</b>
+              <p>Tooltips are specifically for plain text-based content. If you require links, buttons or additional functionality in your tooltip, use a popover instead. Avoid rich text.</p>
+            </li>
+            <li>
+              <b>Avoid placing essential information in a tooltip</b>
+              <p>Tooltips should never hide critical information. Whenever possible, avoid using a tooltip altogether and place the information where it is visible at all times.</p>
+            </li>
+            <li>
+              <b>Tooltips should always describe the triggering element</b>
+              <p>Do not add a control that is specifically there to trigger a tooltip.</p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ]}
+/>

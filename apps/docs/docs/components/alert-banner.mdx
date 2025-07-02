@@ -1,0 +1,303 @@
+---
+sidebar_position: 1
+description: Alert Banners display non-modal messages that inform users of updates or changes to system status. Contextual message bars are most often used in task flows and forms, providing users additional context or information about a task. Either can be used for critical system alerts or passive feedback.
+---
+
+# Alert Banner
+
+<HeaderComponent
+  htmlTag="studs-alert"
+  jsxTag="StudsAlert"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/alert.ts"
+  urlStrbook="studs-display-alert--docs"
+  folder="display"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <div>Use the alert banner to communicate confirmation, alerts, or critical information. Alert banners should not rely on color alone to convey meaning, as color is not a universal experience for everyone. Combining text and icons in each message bar can optimize visual understanding.</div>
+          <br />
+          <h3>System-Related Information</h3>
+         
+          <div>
+            Alert Banners are most often used to communicate system alerts or information that is not related to a specific element on the page, including system health, warnings, or critical alerts.
+          </div>
+            <img
+                src="/img/alert_banner_1.png"
+                alt=""
+            />
+           
+          <h3>Status</h3>
+          <div>Use an alert banners, either contextually or globally, with an optional dismiss button for noncritical messages that communicate status. If your status can be conveyed within one or two words and no action is needed, consider using the badge component. Action from the user is not always required, but if one is needed, it should not be time-sensitive. If lines are included within the message, do not also add a timer.</div>
+          
+          <img
+            src="/img/alert_banner_2.png"
+            alt=""
+          />
+
+          <h3>Feedback</h3>
+          <div>Often used in task flows and forms, message bars communicate general information and context about the current task. For example, a success message after a form submission or a message that indicates there are multiple errors to fix. Despite the name, contextual Alert banners were not designed to replace inline messages or errors, but rather to provide additional feedback to a user after an action is completed.</div>
+           <img
+            style={{ width: '300px', maxWidth: '100%', display: 'flex', margin: '0 auto' }}
+            src="/img/alert_banner_3.png"
+            alt=""
+          />
+        </div>
+      ),
+    },
+    {
+      title: 'Styles',
+      description: (
+        <div>
+            <div>Alert banners can consist of seven primary elements. The only elements that are required are the message background and body text.</div>
+            <ol>
+                <li>Banner background: color-coded, depending on the semantic context.</li>
+                <li>
+                Icon: optional visual representation of the semantic type of message.
+                </li>
+                <li>Body text: content that relays the intent of the message.</li>
+                <li>Title: Title of the alert message for clarity</li>
+                <li>Link: optional link to provide more context or prompt user action. Not to be used with an action button</li>
+                <li>Button: optional action for the user to take</li>
+                <li>
+                Dismiss icon: optional icon to close the message.
+                </li>
+                <li>
+                Elevation: for global message bars only, <strong>elevation/A/4</strong> effect is applied.
+                <img src="/img/alert_banner_4.png" />
+                </li>
+            </ol>
+            <h3>Alignment</h3>
+            <div>There are two alignments available for the alert banner component. Left alignment is the default and should be used in all instances. </div>
+            <br />
+            <h3>Color</h3>
+            <div>Alert banners are limited to semantic colors. Designers should align usage to meaning. Remember that color is not a universal experience, and usage should not rely on color alone to convey meaning.</div>
+            <br />
+            <h3>Semantic</h3>
+            <div>There are four background colors for alert banners. Choose the option that best conveys the meaning of the message. Note that specific icons are reserved for use with their corresponding semantic colors. It is not recommended that you use these icons with a conflicting semantic color, as they each have an established, universal meaning.</div>
+            <img src="/img/alert_banner_5.png" />
+        </div>
+      ),
+    },
+        {
+      title: 'Variations',
+      description: (
+        <div>
+            <h3>Kinds</h3>
+            <div>Alert Banners appear at the top of the page, below the masthead, and across the width of the viewport. The page content is pushed down and there is elevation styling to provide contrast on nonwhite page backgrounds.</div>
+            <div>Contextual messages display above the relevant element and push down the content. The style varies from the global type in that it doesn’t have elevation. Its behavior is static on the page and moves with the rest of the content as the user scrolls. Note that because contextual message are static, they are not meant to include a timer.</div>
+            <div>When there are multiple alert banners, they should stack from top-to-bottom with the newest message bar appearing at the top of the stack.</div>
+            <br />
+            <h3>Options</h3>
+            <div>Alert banners contain several optional modifiers that can be combined to optimize understanding of conveyed information.</div>
+            <ul>
+            <li><div><strong>With icon and action: </strong>together can be used to provide more context or to route the user to take action.</div></li>
+            <li><div><strong>With icon: </strong>icons provide an additional visual element to clarify meaning without relying on color alone. Icons are included by default and are strongly recommended.</div></li>
+            <li><div><strong>Without icon or action: </strong>minimally, text is required for all message bars.</div></li>
+            <br />
+            <img src="/img/alert_banner_6.png" />
+            </ul>
+            <h3>Semantic</h3>
+            <div>There are four background colors for alert banners. Choose the option that best conveys the meaning of the message. Note that specific icons are reserved for use with their corresponding semantic colors. It is not recommended that you use these icons with a conflicting semantic color, as they each have an established, universal meaning.</div>
+            <img src="/img/alert_banner_7.png" />
+        </div>
+      ),
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-alert open="" position="top-right" heading="Title" type="bottom" message="This is a bottom  alert" closeable=""></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+    <studs-alert open="" position="top-right" heading="Title" type="bottom" message="This is an bottom  alert" closeable=""></studs-alert>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Success
+
+<ResizerFeatures>
+  <studs-alert
+    open=""
+    position="bottom-left"
+    type="success"
+    message="This is a success alert"
+  ></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-alert open="" position="bottom-left" type="success" message="This is an success alert"></studs-alert>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Warning
+
+<ResizerFeatures>
+  <studs-alert
+    open=""
+    position="bottom-left"
+    type="warning"
+    message="This is an warning alert"
+  ></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-alert open="" position="bottom-left" type="warning" message="This is a warning alert"></studs-alert>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Error
+
+<ResizerFeatures>
+  <studs-alert
+    open=""
+    position="bottom-left"
+    type="error"
+    message="This is an error alert"
+  ></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-alert open="" position="bottom-left" type="error" message="This is an error alert"></studs-alert>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Info
+
+<ResizerFeatures>
+  <studs-alert
+    open=""
+    type="info"
+    message="This is an info alert"
+  ></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-alert
+    open=""
+    type="info"
+    message="This is an info alert"
+  ></studs-alert>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Closeable
+
+<ResizerFeatures>
+  <studs-alert
+    open=""
+    type="info"
+    message="This is an info alert"
+    closeable=""
+  ></studs-alert>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-alert
+    open=""
+    type="info"
+    message="This is an info alert"
+    closeable=""
+  ></studs-alert>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15400-26199&mode=design&t=MSm8p9hJ0HTcdc7K-0"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="alert" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+         <strong>Capitalization</strong>
+          <div>Use sentence case within a message bar unless referring to proper nouns. Otherwise, do not use title case and never use all caps.</div>
+          <div><b>Do: </b>Your ticket was submitted.</div>
+          <div><b>Don’t: </b>YOUR TICKET WAS SUBMITTED.</div>
+          <br />
+          <strong>Past tense</strong>
+          <div>Use past tense to describe the status of an action that is completed.</div>
+          <div><b>Do: </b>Image uploaded.</div>
+          <div><b>Don’t: </b>Image uploading complete.</div>
+          <br />
+          <strong>Message text</strong>
+          <p>Because message bars convey important information and can include an inline link or action, keep the message text as concise as possible. Offer additional information or route users to action if necessary.</p>
+          <strong>Punctuation</strong>
+          <p>Include punctuation in message bars. If a link comes at the end of a sentence or before a comma, don’t link the punctuation mark. Review <a href="https://www.delldesignsystem.com/components/link/?tab=Design#standards">accessibility guidelines on links</a> for best practice information.</p>
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <ul>
+            <li>
+            <strong>A message bar’s meaning should not be communicated by color alone</strong>
+            <div>Support the meaning of a message bar with appropriate text or an icon. This helps users who cannot see color, or who are using assistive technology. Any body text must provide an indication of the status conveyed by the message bar regardless of the color used. If using an accompanying icon, its meaning must be visually self-evident and commonly used in that context, such as an error alert, check, or warning icon.</div>
+            <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">1.4.1 Use of Color</a></div>
+            </li>
+            <li>
+            <strong>Ensure each message bar meets the appropriate level of contrast</strong>
+            <div>Both the body text and icon must meet a contrast ratio of 4.5:1 with the message bar background. The message bar component should achieve a 3:1 contrast ratio or greater with the page background.</div>
+            <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html">1.4.11 Non-text Contrast</a></div>
+            </li>
+            <li>
+            <strong>Whenever possible, give users settings to change the frequency of or turn off non-essential notifications</strong>
+            <div>Non-urgent notifications can be distracting for people with cognitive disabilities and can be hard to see for those with partial or low vision, since notifications typically display on a separate non-disruptive area of the screen.</div>
+            <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/timing-adjustable.html">2.2.1 Timing Adjustable</a>, <a href="https://www.w3.org/WAI/WCAG21/Understanding/interruptions.html">2.2.4 Interruptions</a></div>
+            </li>
+            <li>
+            <strong>Links and titles on message bars should accurately describe the meaning and purpose of the notification</strong>
+            <div>All titles in the message bar notification and links, if included, should contain meaningful and descriptive link text. Avoid generic phrases like “Learn more” in favor of more descriptive and unique text, such as “Learn how to change your settings.”</div>
+            <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html">2.4.4 Link Purpose in Context</a>, <a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html">2.4.6 Headings and Labels</a></div>
+            </li>
+            <li>
+            <strong>Make sure that dynamic message bar notifications are announced by screen readers</strong>
+            <div>Notifications that appear dynamically (either as a result of a user interaction or another trigger) should be announced by screen readers.</div>
+            <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html">4.1.3 Status Messages</a></div>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'Related Documentation',
+      description: (
+        <div>
+          <a href="https://www.nngroup.com/articles/indicators-validations-notifications/">Indicators, Validations, and Notifications: Pick the Correct Communication Option</a> 
+        </div>
+      ),
+    },
+  ]}
+/>

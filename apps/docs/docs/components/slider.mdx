@@ -1,0 +1,299 @@
+---
+sidebar_position: 41
+description: Sliders allow users to make selections from a range of values.
+---
+
+# Slider
+
+<HeaderComponent
+  htmlTag="studs-slider"
+  jsxTag="StudsSlider"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="inputs/slider.ts"
+  urlStrbook="studs-inputs-slider--docs"
+  folder="inputs"
+/>
+
+{frontMatter.description}
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+    <p>Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</p>
+    <strong>Continuous sliders</strong>
+    <p>Continuous sliders allow users to select a value along a subjective range.</p>
+    <img src="/img/slider_continuous.png" />
+    <strong>Discrete sliders</strong>
+    <p>Discrete sliders can be adjusted to a specific value by referencing its value indicator. You can generate a mark for each step.</p>
+    <img src="/img/slider_discrete.png" />
+    <strong>Range Sliders</strong>
+    <p>The slider can be used to set the start and end of a range by supplying an array of values</p>
+    <img src="/img/slider_range.png" />
+    <p>Sliders allow users to view and select a value (or range) along a track. They’re ideal for adjusting settings such as volume and brightness, or for applying image filters.</p>
+    <p>Sliders can use icons or labels to represent a numeric or relative scale.</p> 
+    <p>Changes made with sliders must take effect immediately, so people can understand the effects of their selection as they're moving the slider.</p>
+</div>)
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: <div>
+      <p>Describe how the component should behave in different contexts.</p>
+      <img src="/img/slider_anatomy.png" />
+      <ol>
+      <li>Stop Indicator</li>
+      <li>Track</li>
+      <li>Handle</li>
+      <li>Value</li>
+      </ol>
+      <strong>Track</strong>
+      <p>The track shows the full range of values that can be selected on the slider. It has two sections: active and inactive.</p>
+      <ul>
+      <li>The <b>active</b> section of the track is from the minimum value to the handle. For range selection sliders, the active track is between the two handles.</li>
+      <li>The <b>inactive</b> section of the track is from the handle to the maximum value, or outside the two handles of a range selection slider.</li>
+      </ul>
+      <p>For left-to-right (LTR) languages, the values increase from left to right. For right-to-left (RTL) languages, this is reversed.</p>
+      <strong>Stop indicators</strong>
+      <p>On discrete sliders, stop indicators show the predetermined values that can be chosen along the track. The slider snaps to the closest stop. Avoid having too many stop indicators on a slider, because it can become visually crowded and difficult to adjust the value.</p>
+      <p>On all other types of sliders, stop indicators should be used to show the end values of inactive tracks.</p>
+      <strong>Handle</strong>
+      <p>The handle can be moved along the track to choose a value.</p>
+      <p>When sliders have two handles, the handles choose the minimum and maximum values in a range.</p>
+      <strong>Value (optional)</strong>
+      <p>The value displays the specific value that corresponds with the handle’s placement. </p>
+      <p>A value appears when interacting with the corresponding handle. For range sliders, only one value is shown at a time.</p>
+      <strong>Adding extra elements to the slider</strong>
+      <p>Instead of showing the built-in value label, a separate text input field can be added outside of the slider. If this is added, the slider and value in this text field should automatically update to match each other.</p>
+      <p>Make sure people can tab to the text field directly after the slider.</p>
+      <p>Icons or text can be added outside the slider to indicate the range of values and make the slider range more accessible. This can be used instead of a stop indicator.</p>
+      <strong>Select and drag</strong>
+      <p>Select a value by dragging the handle.</p>
+      <strong>Select jump</strong>
+      <p>Select a value by selecting part of the track.</p>
+      <strong>Select and arrow</strong>
+      <p>Select a value by keyboard navigation.</p>
+      <p><b>Tab:</b> Focus lands on handle</p>
+      <p><b>Arrows:</b> Selected value increases or decreases by one value or stop indicator</p>
+      <p><b>Space + Arrows:</b> Selected value increases or decreases by a larger interval or stop indicator</p>
+      </div>
+    },
+    {
+      title: 'Style',
+      description: (<div>
+        <p>Users should be able to:</p>
+        <ul>
+        <li>Navigate to a slider with keyboard/switch input</li>
+        <li>Select a range by controlling a handle along a track</li>
+        <li>Get appropriate feedback based on input type</li>
+        </ul>
+        <p>The slider handle shrinks in width and the value appears to provide a visual cue to the user that the handle is being pressed.</p>
+        <strong>Touch</strong>
+        <p>When tapped or dragged, the handle width shrinks to provide interaction feedback, and the value appears.</p>
+        <strong>Cursor</strong>
+        <p>When hovered, the cursor changes. When clicked, the handle width shrinks, and the value appears.</p>
+        <strong>Focus and navigation</strong>
+        <p>Initial focus lands directly on the handle, since it’s the primary interactive element of the slider.</p>
+        <p>The slider value can then be adjusted using the arrow keys or other keyboard navigation options.</p>
+        <strong>Color contrast</strong>
+        <p>Use visual anchors to ensure the slider meets accessibility standards.</p>
+        <p>If the inactive track of a continuous slider has less than a 3:1 contrast with its background, add visual indicators to identify the ends of the inactive track. These can be stop indicators, or icons with at least 3:1 contrast.</p>
+        <strong>Labeling elements</strong>
+        <p>The accessibility label for a slider is typically the same as the slider's adjacent text label. It should have the <b>slider</b> role.</p>
+        <p>If the UI text is correctly linked to the slider, assistive tech (such as a screenreader) will read the UI text followed by the component’s role.</p>
+              </div>)
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-slider
+    min="0"
+    max="100"
+    step="1"
+    defaultvalue="[0, 100]"
+    label="Peanut Butter"
+    end-label="Jelly"
+    enable-input="true"
+    enable-tooltip=""
+    enable-label=""
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+  ></studs-slider>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-slider
+    min="0"
+    max="100"
+    step="1"
+    defaultvalue="[0, 100]"
+    label="Peanut Butter"
+    end-label="Jelly"
+    enable-input="true"
+    enable-tooltip=""
+    enable-label=""
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+  ></studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Tooltip Without Custom Label
+
+<ResizerFeatures>
+<studs-slider label="A" end-label="B" enable-tooltip="" enabled-label="" defaultvalue="[22,64]" min="0" max="100" step="1"></studs-slider>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-slider 
+    label="A" 
+    end-label="B" 
+    enable-tooltip="" 
+    enabled-label="" 
+    defaultvalue="[22,64]" 
+    min="0" 
+    max="100" 
+    step="1">
+</studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Single Slider
+
+<ResizerFeatures>
+  <studs-slider
+    min="0"
+    max="100"
+    step="1"
+    enable-input="true"
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+  ></studs-slider>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-slider
+    min="0"
+    max="100"
+    step="1"
+    enable-input="true"
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+  ></studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Range
+
+<ResizerFeatures>
+  <studs-slider defaultvalue="[0, 100]"></studs-slider>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-slider defaultvalue="[0, 100]"></studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Marks
+
+<ResizerFeatures>
+  <studs-slider
+    defaultvalue="[0, 100]"
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+    min="0"
+    max='100'
+    step='1'
+></studs-slider>
+
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-slider
+    defaultvalue="[0, 100]"
+    marks={JSON.stringify([
+      { value: 0, label: '0°' },
+      { value: 25, label: '25' },
+      { value: 50, label: '50' },
+      { value: 75, label: '75' },
+      { value: 100, label: '100°' },
+    ])}
+    min="0"
+    max='100'
+    step='1'
+></studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Input
+
+<ResizerFeatures>
+  <studs-slider
+    defaultvalue={JSON.stringify([0, 50])}
+    enable-input=''
+    min="0"
+    max="50"
+    step="1"
+  ></studs-slider>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-slider
+    defaultvalue={JSON.stringify([0, 50])}
+    enable-input=''
+    min="0"
+    max="50"
+    step="1"
+  ></studs-slider>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=12239%3A90766&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="slider" />

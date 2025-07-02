@@ -1,0 +1,173 @@
+trigger: 
+  branches:
+    include:
+    - master
+    - staging
+    - dev
+    exclude:
+    - '*\\/*'
+    - staging-azure-dev
+    - main
+    
+pr: 'none'
+
+pool:
+      name: ADO_GN_AGT_POOL
+
+variables:
+  SNYK_PROJECT_NAME: studs-lit-ado
+  SNYK_ORG: strongtie-it
+  SONAR_PROJECT_KEY: sonar_studs_project
+  SONAR_PROJECT_NAME: Studs
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    TARGET_ENV: 'Dev'
+  ${{ elseif eq(variables['Build.SourceBranch'], 'refs/heads/staging') }}:
+    TARGET_ENV: 'Staging'
+  ${{ elseif eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}:
+    TARGET_ENV: 'Dev'
+  ${{ else }}:
+    TARGET_ENV: 'Null'    
+
+stages:
+- stage: Build
+  displayName: 'Build stage'
+  jobs:
+    - job: Build
+      displayName: 'Build'
+      steps:
+      - task: NodeTool@0
+        inputs:
+         versionSpec: '18.17.1'
+        displayName: 'install node.js'
+
+      - checkout: self
+      - script: |
+         npm install pnpm@8.6.10 -g
+         pnpm i
+        displayName: 'npm install and build'
+
+      - script: |
+          echo ASTRO_PRIVATE_DRAFT_SECRET=$(ASTRO_PRIVATE_DRAFT_SECRET) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo ASTRO_PRIVATE_REVALIDATION_KEY=$(ASTRO_PRIVATE_REVALIDATION_KEY) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo ASTRO_PUBLIC_IS_LIVE=$(ASTRO_PUBLIC_IS_LIVE) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo ASTRO_PUBLIC_SERVER_URL=$(ASTRO_PUBLIC_SERVER_URL) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo DATABASE_URI=$(DATABASE_URI) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo PAYLOAD_PUBLIC_DRAFT_SECRET=$(PAYLOAD_PUBLIC_DRAFT_SECRET) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo PAYLOAD_PUBLIC_SERVER_URL=$(PAYLOAD_PUBLIC_SERVER_URL) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo PAYLOAD_SECRET=$(PAYLOAD_SECRET) >> $(Build.SourcesDirectory)/apps/cms/.env1
+          echo REVALIDATION_KEY=$(REVALIDATION_KEY) >> $(Build.SourcesDirectory)/apps/cms/.env1
+        displayName: 'write environment variables into .env1 file'
+
+      - script:
+         pnpm build
+        displayName: 'build storybooks, playroom, admin'
+
+      - task: SnykSecurityScan@1
+        inputs:
+          serviceConnectionEndpoint: 'Snyk_CLI'
+          testType: 'app'
+          severityThreshold: 'low'
+          monitorWhen: 'never'
+#          monitorWhen: 'never'/'always'/'noIssuesFound'
+          failOnIssues: false
+#          projectName: '$(SNYK_PROJECT_NAME)_app'
+          organization: '$(SNYK_ORG)'
+          additionalArguments: '-all-projects --exclude=storybook-static'
+
+      - task: SnykSecurityScan@1
+        inputs:
+          serviceConnectionEndpoint: 'Snyk_CLI'
+          testType: 'code'
+#          projectName: '$(SNYK_PROJECT_NAME)_code'
+          organization: '$(SNYK_ORG)'
+          codeSeverityThreshold: 'low'
+          monitorWhen: 'never'
+          failOnIssues: false
+          additionalArguments: '--all-projects'
+
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '17'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'LocalDirectory'
+          jdkFile: '/azp/openjdk-17_linux-x64_bin.tar.gz'
+          jdkDestinationDirectory: '/azp/lib/jvm'
+          cleanDestinationDirectory: true
+
+      - task: SonarQubePrepare@5
+        inputs:
+          SonarQube: 'sonar_merlin'
+          scannerMode: 'CLI'
+          configFile: sonar-project.properties
+
+      - task: SonarQubeAnalyze@5
+        inputs:
+          jdkversion: 'JAVA_HOME_17_X64'
+
+      - task: SonarQubePublish@5
+        inputs:
+          pollingTimeoutSec: '300'
+
+      - script: |
+         cd $(Build.SourcesDirectory)
+         mkdir deployment
+         cd deployment
+         mkdir storybook
+         mkdir playroom
+         mkdir admin
+         cp -R -v $(Build.SourcesDirectory)/apps/docs/build/. .
+         cp -R -v $(Build.SourcesDirectory)/packages/ui/storybook-static/. ./storybook
+         cp -R -v $(Build.SourcesDirectory)/apps/playroom/dist/. ./playroom
+         cp -R -v $(Build.SourcesDirectory)/apps/cms/build/. ./admin
+         cp -v $(Build.SourcesDirectory)/apps/cms/.env ./admin
+         cp -v $(Build.SourcesDirectory)/apps/cms/.env1 ./admin
+         tar -czvf STUDS.tar.gz -C $(Build.SourcesDirectory)/deployment .
+         mkdir tar
+         mv $(Build.SourcesDirectory)/deployment/STUDS.tar.gz $(Build.SourcesDirectory)/deployment/tar/studs.tar.gz
+        displayName: 'Package into tar file'
+  
+      - task: PublishBuildArtifacts@1
+        displayName: 'store artifacts to container'
+        inputs:
+         PathtoPublish: '$(Build.SourcesDirectory)/deployment/tar'
+         ArtifactName: 'drop'
+         publishLocation: 'Container'
+
+      - script: |
+         echo 'runPublishArtifact=$(runPublishArtifact)'
+         echo 'Triggering branch=$(Build.SourceBranch)'
+         echo 'Will deploy to env $(TARGET_ENV)'
+        displayName: 'display branch, target environment for deployment etc.'
+
+- stage: PublishArtifact
+  displayName: 'publish artifact to ADO Artifacts'
+  dependsOn: Build
+  condition: and(and(succeeded(), eq(variables['runPublishArtifact'], 'true')), 
+                  ne(variables['TARGET_ENV'], 'Null'))
+
+  jobs:
+    - job: publishArtifact
+      displayName: 'upload to artifacts'
+      steps:
+      - task: UniversalPackages@0
+        inputs:
+         command: 'publish'
+         publishDirectory: '$(Build.ArtifactStagingDirectory)'
+         feedsToUsePublish: 'internal'
+         vstsFeedPublish: '9dbb4ecf-559b-4a98-851d-521ed2804dd7/6d0b4c15-52d3-44fd-98ad-979fa088a3bf'
+         vstsFeedPackagePublish: 'studs.tar.gz'
+         versionOption: 'patch'
+         packagePublishDescription: 'STUDS tar file for deployment'
+         verbosity: 'Debug'
+         publishedPackageVar: 'published_package'   
+
+- stage: Deployment
+  displayName: 'Deployment'
+  dependsOn: Build
+  condition: and(succeeded(), ne(variables['TARGET_ENV'], 'Null'))
+  jobs:
+  - template: deploy-template.yml # Template reference
+    parameters:
+      sshEndpoint_name: 'ssh_studs_$(TARGET_ENV)'
+      environment_name: '$(TARGET_ENV)'

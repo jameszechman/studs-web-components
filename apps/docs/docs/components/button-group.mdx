@@ -1,0 +1,177 @@
+---
+sidebar_position: 10
+description: Button groups can be used to group related studs-buttons into sections.
+---
+
+# Button Group
+
+<HeaderComponent
+  htmlTag="studs-button-group"
+  jsxTag="StudsButtonGroup"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/buttonGroup.ts"
+  urlStrbook="studs-display-buttonGroup--docs"
+  folder="display"
+/>
+Button groups can be used to group related `studs-buttons` into sections. 
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+  <p>
+   Buttons can be organized into groups, with each group acting as a collection of related actions. A button group consists of multiple instances of our standard button component, and it supports the inherited button designs and states.
+  </p>
+<p>
+Utilizing a button group to organize buttons offers advantages over merely placing buttons in close proximity, especially for:
+</p>
+
+  <ul>
+    <li>
+Displaying a set of buttons alongside additional individual buttons.
+    </li>
+    <li>
+Organizing various button sets together.
+    </li>
+    <li>Conserving horizontal space when presenting a series of closely linked buttons.</li>
+  </ul>
+   <img src="/img/button_group.png" />
+<p><b>Usage</b></p>
+<p>Organize buttons with similar functions into button groups, but don't cluster them together just because of their proximity.</p>
+<p>Typically, you should stick to using only default button types within button groups. In exceptional situations, you may include a primary button in these groups, but limit it to just one primary button per group, if used at all.</p>
+<p>Keep the number of buttons in a group manageable to avoid overwhelming users.</p>
+<p>Button groups should not be used to denote selections.</p>
+<p>They also shouldn't serve as substitutes for tabbed navigation.</p>
+<p>Mixing text-labeled buttons with icon-only buttons is generally discouraged, except when pairing a text-labeled button with an icon-only button featuring a downward triangle, which indicates a dropdown menu offering actions related to the button.</p>
+</div>
+)
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: <div>
+      <p>Behavior inherits button actions, style and variations.</p>
+      <p>Button groups are limited to medium (the default size) and small sizes only.</p>
+      </div>
+    },
+]}
+/>
+## Default
+<ResizerFeatures>
+  <studs-button-group>
+    <studs-button button-type="primary">Button 1</studs-button>
+    <studs-button button-type="primary">Button 2</studs-button>
+    <studs-button button-type="primary">Button 3</studs-button>
+  </studs-button-group>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button-group>
+    <studs-button button-type="primary">Button 1</studs-button>
+    <studs-button button-type="primary">Button 2</studs-button>
+    <studs-button button-type="primary">Button 3</studs-button>
+</studs-button-group>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=15041%3A6924&mode=dev"
+/>
+
+## Primary Split Button
+<ResizerFeatures>
+<studs-button-group>
+      
+    <studs-button button-type="primary">Split Button</studs-button>
+    <studs-menu>
+      <studs-button slot="trigger" button-type="icon" icon="arrow_drop_down"></studs-button>
+      <a href="#">Long Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+    </studs-menu>
+    
+    </studs-button-group>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button-group>
+      
+    <studs-button button-type="primary">Split Button</studs-button>
+    <studs-menu>
+      <studs-button slot="trigger" button-type="icon" icon="arrow_drop_down"></studs-button>
+      <a href="#">Long Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+    </studs-menu>
+    
+    </studs-button-group>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=15041%3A6924&mode=dev"
+/>
+
+## Secondary Split Button
+<ResizerFeatures>
+<studs-button-group>
+      
+    <studs-button button-type="secondary" variant="outline">Split Button</studs-button>
+    <studs-menu>
+      <studs-button slot="trigger" button-type="icon" icon="arrow_drop_down" variant="outline"></studs-button>
+      <a href="#">Long Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+    </studs-menu>
+    
+    </studs-button-group>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button-group>
+      
+    <studs-button button-type="secondary" variant="outline">Split Button</studs-button>
+    <studs-menu>
+      <studs-button slot="trigger" button-type="icon" icon="arrow_drop_down" variant="outline"></studs-button>
+      <a href="#">Long Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+    </studs-menu>
+    
+    </studs-button-group>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=15041%3A6924&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="button-group" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+          Labeling buttons properly lets users know what will happen when they activate the control, lessens errors, and increases confidence.
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          A button group does not behave like a tab component, so assistive technologies still interpret the buttons as unrelated. The grouping is purely visual.
+        </div>
+      ),
+    },
+  ]}
+/>

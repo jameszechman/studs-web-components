@@ -1,0 +1,109 @@
+---
+sidebar_position: 3
+description: An alert dialog group organizes multiple alert dialogs.
+sidebar_custom_props:
+  status: 'Draft'
+---
+
+# Alert Dialog Group
+
+<HeaderComponent
+  htmlTag="studs-alert-dialog-group"
+  jsxTag="StudsAlertDialogGroup"
+  version="Since 1.0"
+  status="Draft"
+  urlStrbook="studs-overlays-alertdialoggroup--docs"
+/>
+
+{frontMatter.description}
+
+## Default
+
+<ResizerFeatures>
+<div style={{ height: '900px' }}>
+  <studs-alert-dialog-group>
+    <studs-alert-dialog open={true} heading="Alert Dialog 3" static={true} id="alert-dialog-3">
+      <studs-icon slot="header-icon" icon="settings" size="large" />
+      <div>
+        Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title</studs-button>
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog open={true} heading="Alert Dialog 2" static={true} id="alert-dialog-2">
+      <studs-icon slot="header-icon" icon="settings" size="large" />
+      <div>
+        Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title</studs-button>
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog open={true} heading="Alert Dialog 1" static={true} id="alert-dialog-1">
+      <studs-icon slot="header-icon" icon="settings" size="large" />
+      <div>
+        Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title</studs-button>
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+  </studs-alert-dialog-group>
+</div>
+
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<div style="height: 900px">
+        <studs-alert-dialog-group>
+          
+    <studs-alert-dialog ?open"="" heading="Alert Dialog 3" static="" id="alert-dialog-3">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+      'Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title
+        </studs-button>
+        <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+        </studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog ?open"="" heading="Alert Dialog 2" static="" id="alert-dialog-2">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+      'Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title
+        </studs-button>
+        <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+        </studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog ?open"="" heading="Alert Dialog 1" static="" id="alert-dialog-1">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+      'Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+      <div slot="footer-buttons">
+        <studs-button button-type="tertiary">Button Title
+        </studs-button>
+        <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+        </studs-button>
+      </div>
+    </studs-alert-dialog>
+        </studs-alert-dialog-group>
+      </div>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="alert-dialog-group" />

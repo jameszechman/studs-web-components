@@ -1,0 +1,334 @@
+---
+sidebar_position: 2
+description: An alert dialog notifies users of important information that requires acknowledgment.
+sidebar_custom_props:
+  status: 'Draft'
+---
+
+# Alert Dialog
+
+<HeaderComponent
+  htmlTag="studs-alert-dialog"
+  jsxTag="StudsAlertDialog"
+  version="Since 1.0"
+  status="Draft"
+  urlStrbook="studs-overlays-alertdialog--docs"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+  <p>
+   An alert dialog is a nonmodal, passive dialog that keeps users informed without blocking access to the base page. The user can continue with the experience, regardless if the alert is still on screen. Use for interactions that aren’t critical.
+  </p>
+  <ul>
+    <li>
+     Alert message body length should be concise and not exceed more than two lines.
+    </li>
+    <li>
+    Titles should be descriptive, containing two to three words to explain the context of the message.
+    </li>
+    <li>Alerts should be related to the user’s task.</li>
+    <li>This type of feedback should be timely and inform users when the message was delivered or by when an action needs to occur.</li>
+    <li>If there is an action, give users the next steps to address the notification.</li>
+    <li>Limit sending notifications that aren’t necessary to prevent alert fatigue.</li>
+    <li>
+      Avoid sending duplicate notifications, even if the user hasn’t interacted or dismissed the original message.
+    </li>
+    <li>Notifications should appear in chronological order.</li>
+  </ul>
+</div>)
+    },
+    {
+      title: 'Style',
+      description: <div>
+      <p>There are five elements of an alert dialog. The icon, dismiss function, date and time stamp, and call-to-action footer are optional.</p>
+       <ol>
+    <li>
+     <b>Icon:</b> to represent the purpose of the alert dialog
+    </li>
+    <li>
+    <b>Title:</b> header overview of alert dialog
+    </li>
+    <li><b>Message body:</b> a brief description of the purpose of the alert dialog</li>
+    <li><b>Secondary call-to-action:</b> optional action button</li>
+    <li><b>Call-to-action:</b> optional action button
+    <img src="/img/alert_dialog_usage.png" />
+    </li>
+  </ol>
+  <p><b>Layout</b></p>
+  <p>For all grid sizes except XS (extra small), alerts are positioned at the bottom-right of the page to help minimize user distraction.</p>
+  <p>Elevation: <b>A/4</b></p>
+  <img src="/img/alert_dialog_elevation.png" />
+   <br />
+   <br />
+   <p><b>Mobile Breakpoint Positioning</b></p>
+  <p>For viewport ranges 320 to 479 pixels (XS grids), alerts appear centered and at the bottom of the screen.</p>
+  <img src="/img/alert_dialog_mobile.png" />
+  <br />
+  <br />
+  <p><b>Mobile Notifications</b></p>
+  <p>Multiple alerts are stacked on top of each other and appear chronologically, with the newest at the top.</p>
+  <img src="/img/alert_dialog_mobile_notifications.png" />
+      </div>
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+<div style={{ height: '300px' }}>        <studs-alert-dialog open="" heading="Alert Dialog" type="default" id="alert-dialog-default">                <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.            <div slot="footer-buttons">             <studs-button button-type="tertiary">Button Title             </studs-button>             <studs-button onclick="alert('clicked')" button-type="primary">Button Title             </studs-button>           </div>         </studs-alert-dialog>       </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 300px">
+        <studs-alert-dialog open="" heading="Alert Dialog" type="default" id="alert-dialog-default">
+          
+    <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+          <div slot="footer-buttons">
+            <studs-button button-type="tertiary">Button Title
+            </studs-button>
+            <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+            </studs-button>
+          </div>
+        </studs-alert-dialog>
+      </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+
+## Contrast
+
+<ResizerFeatures>
+<div style={{ height: '300px' }}>         <studs-alert-dialog open="" heading="Contrast Alert Dialog" type="contrast" id="alert-dialog-contrast">                <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.            <div slot="footer-buttons">             <studs-button button-type="tertiary">Button Title             </studs-button>             <studs-button onclick="alert('clicked')" button-type="primary">Button Title             </studs-button>           </div>         </studs-alert-dialog>       </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 300px">
+        <studs-alert-dialog open="" heading="Contrast Alert Dialog" type="contrast" id="alert-dialog-contrast">
+          
+    <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+          <div slot="footer-buttons">
+            <studs-button button-type="tertiary">Button Title
+            </studs-button>
+            <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+            </studs-button>
+          </div>
+        </studs-alert-dialog>
+      </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+## Success
+
+<ResizerFeatures>
+<div style={{ height: '300px' }}>        <studs-alert-dialog open="" heading="Success Alert Dialog" type="success" id="alert-dialog-success">                <studs-icon slot="header-icon" icon="check_circle" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.            <div slot="footer-buttons">             <studs-button button-type="tertiary">Button Title             </studs-button>             <studs-button onclick="alert('clicked')" button-type="primary">Button Title             </studs-button>           </div>         </studs-alert-dialog>       </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 300px">
+        <studs-alert-dialog open="" heading="Success Alert Dialog" type="success" id="alert-dialog-success">
+          
+    <studs-icon slot="header-icon" icon="check_circle" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+          <div slot="footer-buttons">
+            <studs-button button-type="tertiary">Button Title
+            </studs-button>
+            <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+            </studs-button>
+          </div>
+        </studs-alert-dialog>
+      </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+
+## Error
+
+<ResizerFeatures>
+<div style={{ height: '300px' }}>        <studs-alert-dialog open="" heading="Error Alert Dialog" type="error" id="alert-dialog-error">                <studs-icon slot="header-icon" icon="error" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.            <div slot="footer-buttons">             <studs-button button-type="tertiary">Button Title             </studs-button>             <studs-button onclick="alert('clicked')" button-type="primary">Button Title             </studs-button>           </div>         </studs-alert-dialog>       </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 300px">
+        <studs-alert-dialog open="" heading="Error Alert Dialog" type="error" id="alert-dialog-error">
+          
+    <studs-icon slot="header-icon" icon="error" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+          <div slot="footer-buttons">
+            <studs-button button-type="tertiary">Button Title
+            </studs-button>
+            <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+            </studs-button>
+          </div>
+        </studs-alert-dialog>
+      </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+
+## Alert Dialog Group
+
+<ResizerFeatures>
+<div style={{ height: '900px' }}>
+  <studs-alert-dialog-group>
+    <studs-alert-dialog open={true} heading="Alert Dialog 3" static={true} id="alert-dialog-3">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+
+      {/* For raw HTML inside a component, you might need to use `dangerouslySetInnerHTML` or render the HTML as JSX. */}
+      Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+
+      <div slot="footer-buttons">
+        <studs-button buttonType="tertiary">Button Title</studs-button>
+        {/* Inline event handling, ensuring `onClick` is used instead of `onclick` */}
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog open={true} heading="Alert Dialog 2" static={true} id="alert-dialog-2">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+
+      Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+
+      <div slot="footer-buttons">
+        <studs-button buttonType="tertiary">Button Title</studs-button>
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+    <studs-alert-dialog open={true} heading="Alert Dialog 1" static={true} id="alert-dialog-1">
+      <studs-icon slot="header-icon" icon="settings" size="large"></studs-icon>
+
+
+      Lorem <b>ipsum</b> dolor sit <i>amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+
+      <div slot="footer-buttons">
+        <studs-button buttonType="tertiary">Button Title</studs-button>
+        <studs-button onClick={() => alert('clicked')} buttonType="primary">Button Title</studs-button>
+      </div>
+    </studs-alert-dialog>
+  </studs-alert-dialog-group>
+</div>
+
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 300px">
+        <studs-alert-dialog open="" heading="Error Alert Dialog" type="error" id="alert-dialog-error">
+          
+    <studs-icon slot="header-icon" icon="error" size="large"></studs-icon> Lorem <b>ipsum</b> dolor sit <i>amet</i>, vince adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+          <div slot="footer-buttons">
+            <studs-button button-type="tertiary">Button Title
+            </studs-button>
+            <studs-button onclick="alert('clicked')" button-type="primary">Button Title
+            </studs-button>
+          </div>
+        </studs-alert-dialog>
+      </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=15441%3A51905&mode=dev"
+/>
+
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="alert-dialog" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <b>
+              Alert titles must accurately describe the meaning and purpose of the alert dialog
+              </b>
+              <div>
+                The purpose of the alert should be clearly understood by reading the title alone.
+              </div>
+              <div>
+                WCAG 2.1:&nbsp;
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html">
+                  2.4.6 Headings and Labels
+                </a>
+              </div>
+            </li>
+                      <li>
+              <b>
+               Avoid timed alerts
+              </b>
+              <div>
+                Those using assistive technology or who have cognitive difficulties may miss or find it hard to react to a timed message before it disappears.
+              </div>
+              <div>
+                WCAG 2.1(AAA, optional):&nbsp;
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/no-timing.html">
+                  2.2.3 No Timing
+                </a>
+              </div>
+            </li>
+                      <li>
+              <b>
+                Provide users with settings to turn off nonessential alerts or change the frequency
+              </b>
+              <div>
+                Non-urgent notifications can be distracting for people with cognitive disabilities and can be hard to see for those with partial or low vision, since notifications typically display on a non-disruptive area of the screen.
+              </div>
+              <div>
+                WCAG 2.1 (AAA, optional):&nbsp;
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/interruptions.html">
+                  2.2.4 Interruptions
+                </a>
+              </div>
+            </li>
+                     <li>
+              <b>
+                Avoid using icons alone to convey meaning
+              </b>
+              <div>
+                Icons should be used to reinforce the meaning, not explain it.
+              </div>
+            </li>
+            <li>
+              <b>
+                Make sure icons are universally recognizable
+              </b>
+              <div>
+                If there is any doubt about the meaning of an icon, make sure heading text accurately describes the purpose of the message along with the icon.
+              </div>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ]}
+/>

@@ -1,0 +1,113 @@
+@use '../utilities' as *;
+
+:host {
+    --arrow: 'arrow_right';
+    --arrow-color: initial;
+    color: var(--text-dark);
+}
+
+@mixin icon() {
+    @include iconFont;
+    transition: var(--transition-m);
+    content: var(--arrow);
+    color: var(--arrow-color);
+}
+
+[role='listitem'],
+[role="option"] {
+    transition: all var(--transition-s) ease-in-out;
+    box-sizing: border-box;
+    background: var(--background-content);
+    border: 1px solid transparent;
+    border-block-start: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125em;
+    }
+
+    .secondary {
+        color: var(--text-disabled);
+    }
+
+    &.-small {
+        padding-block: 0.75rem;
+        padding-inline-start: 0.75rem;
+        padding-inline-end: 1.5rem;
+    }
+    &.-medium {
+        padding-block: 1rem;
+        padding-inline-start: 1rem;
+        padding-inline-end: 1.5rem;
+    }
+    &.-large {
+        padding-block: 1.5rem;
+        padding-inline-start: 1.5rem;
+        padding-inline-end: 2rem;
+    }
+    &:not([disabled]) {
+        &:hover {
+            background-color: var(--primary-background-hover);
+        }
+        &:active,
+        &.-selected {
+            background-color: var(--primary-background-active);
+        }
+        &:focus,
+        &:focus-within {
+            outline: none;
+            border: 1px solid var(--primary);
+        }
+    }
+    &[disabled] {
+        color: var(--text-disabled);
+        pointer-events: none;
+    }
+    & > slot[name='suffix'],
+    & > slot[name='suffix'] {
+        display: block;
+        margin-inline-start: auto;
+    }
+    &.-expandable {
+        &.-start {
+            &::before {
+                @include icon;
+            }
+        }
+        &.-end {
+            &::after {
+                @include icon;
+            }
+        }
+
+    }
+}
+
+details {
+    &[open] {
+        .-expandable {
+            &::before,
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+[role='list'] {
+    &.-indent {
+        padding-inline-start: 2rem;
+    }
+    box-sizing: border-box;
+}
+
+::slotted(p) {
+    margin-block: 0;
+}

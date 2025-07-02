@@ -1,0 +1,27 @@
+@use '../utilities' as *;
+.buttonGroup {
+  display: flex;
+  align-items: center;
+
+  ::slotted(studs-button),
+  ::slotted(studs-toggle-button) {
+    border-left: 2px solid var(--primary-background-active);
+    --borderRadius-t-l: 0px;
+    --borderRadius-b-l: 0px;
+    --borderRadius-t-r: 0px;
+    --borderRadius-b-r: 0px;
+  }
+
+  ::slotted(studs-button:first-child),
+  ::slotted(studs-toggle-button:first-child)  {
+    border-left: none;
+    --borderRadius-t-l: var(--border-radius);
+    --borderRadius-b-l: var(--border-radius);
+  }
+
+  ::slotted(studs-button:last-child),
+  ::slotted(studs-toggle-button:last-child) {
+    --borderRadius-t-r: var(--border-radius);
+    --borderRadius-b-r: var(--border-radius);
+  }
+}

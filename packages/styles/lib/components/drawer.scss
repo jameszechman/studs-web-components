@@ -1,0 +1,69 @@
+@use "../utilities/animations" as *;
+
+:host {
+  display: contents;
+  --size: 25%;
+}
+
+aside {
+  display: none;
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  transition: var(--transition-m) ease-in-out;
+  background-color: var(--background-content);
+  z-index: 1000;
+  &[aria-hidden="false"] {
+    display: block;
+  }
+  &.-small {
+    --size: 15%;
+  }
+  &.-large {
+    --size: 35%;
+  }
+  &.-full {
+    --size: 100%;
+  }
+  &.-right,
+  &.-left {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: var(--size);
+  }
+  &.-right {
+    @include slideFadeLeftIn();
+    &.closing {
+      @include slideFadeLeftOut();
+    }
+    right: 0;
+  }
+  &.-left {
+    @include slideFadeRightIn();
+    &.closing {
+        @include slideFadeRightOut();
+    }
+    left: 0;
+  }
+  &.-top,
+  &.-bottom {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--size);
+  }
+  &.-top {
+    @include slideFadeDownIn();
+    &.closing {
+      @include slideFadeDownOut();
+    }
+    top: 0;
+  }
+  &.-bottom {
+    @include slideFadeUpIn();
+    &.closing {
+      @include slideFadeUpOut();
+    }
+    bottom: 0;
+  }
+}

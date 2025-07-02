@@ -1,0 +1,519 @@
+---
+sidebar_position: 31
+description: A menu appears upon interaction with a button, action, pointer, or other control.
+---
+
+# Menu
+
+<HeaderComponent
+  htmlTag="studs-menu"
+  jsxTag="StudsMenu"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="navigation/menu.ts"
+  urlStrbook="studs-navigation-menu--docs"
+  folder="navigation"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+  <p>
+    Menus appear upon interaction with a button, action, or other control. They display a list of choices, with one choice per line.
+  </p>
+  <p>
+  Menu items may be disabled if not applicable to a certain context. Contextual menus dynamically change their available menu items based on the current state of the app.
+  </p>
+<h3>Usage</h3>
+  <p>
+  A menu is a temporary piece of material that appears upon interaction with a button, action, pointer, or other control. It contains at least two menu items.
+  </p>
+  <p>
+  Each menu item consists of a discrete option or action that can affect the app, the view, or selected elements within a view.
+  </p>
+  <h3>When to Use</h3>
+  <ol>
+  <li>
+  <b>Declutter Interface</b>
+  <p>In general, use menus to hide less frequently used or advanced options until users specifically need them. This keeps the interface clean and focused on essential elements.</p>
+  </li>
+  <li>
+  <b>Context Menu</b>
+<p>Context menus are triggered by a right-click interaction. A context menu is a defined list of options in a menu that appears above all other content on a page and is related to the selected content or element it was triggered from.</p>
+</li>
+<li>
+<b>Customizable Actions</b>
+<p>Menus can speed up interactions for advanced users who are already familiar with the application. These users often rely on shortcuts and context-specific actions to work more efficiently.</p>
+</li>
+</ol>
+<h3>Menu Labels</h3>
+<p>The label of a button or control should concisely and accurately reflect the items within the menu. Menu bars typically use single words as labels, like a product name, action, or direction for the user to take. Other contexts may require longer labels.</p>
+<img src="/img/menu_label.png" />
+<p></p>
+<h3>Contextual Menus</h3>
+<p>Contextual menus dynamically change their available menu items based on the current state of the application.</p>
+<ul>
+<li>Menu items that are irrelevant to the current context may be <b>removed</b>.</li>
+<li>Menu items which are relevant but need certain conditions to be met may be <b>disabled</b>. For example, the Copy menu option becomes enabled when text is selected.</li>
+</ul>
+<h3>Sidebar Accordians</h3>
+<p>Action items that are expandable with the accordion function are closed by default, allowing the user to open for the submenu options.</p>
+<p>In the Sidebar, there is no collapse/expand all options. Carets inherit the behaviors from the Accordion component.</p>
+<h3>Cascadiing Menus (Desktop Only)</h3>
+<p>For menus that cascade, position the menus vertically and horizontally based on their proximity to screen edges.</p>
+<p>Developer note: Implementations of this component may vary by platform. By using standard platform implementations, you will receive any related future improvements.</p>
+<h4>Menu Nesting</h4>
+<p>Menu items can reveal nested submenus. Ideally, limit nesting to one level deep, as it can be difficult to navigate multiple nested submenus. Menus can nest up to 4 times. </p>
+<img src="/img/menu_nesting.png" />
+<h3>Location</h3>
+<p>Menus appear above all other in-app UI elements.</p>
+<h4>Waffle Menu / List</h4>
+<img src="/img/waffle_menu_list.png" />
+<h4>Avatar Menu</h4>
+<img src="/img/avatar_menu.png" />
+<h4>Waffle Menu / Category List</h4>
+<img src="/img/menu_vertical_nesting.png" />
+<h4>Waffle Menu / Grid</h4>
+<img src="/img/menu_grid.png" />
+<h4>Table Menu / Meatball</h4>
+<img src="/img/menu_meatball.png" />
+<h4>Card Menu / Meatball</h4>
+<img src="/img/card_menu_meatball.png" />
+<h3>Dismissing Menus</h3>
+<p>Dismiss a menu by tapping outside of the menu, or by tapping the emitting button (if visible).</p>
+<p>Selecting a menu item should also dismiss the menu. An exception is when a menu allows for multiple items to be chosen, for example, by using checkmarks.</p>
+<h3>Menu Tooltips</h3>
+<p>When additional information is needed for a navigation item, a tooltip may be added. </p>
+<p>Tooltips inherit tooltip design. Copy should be minimal as there should be no wrapping of text.</p>
+<img src="/img/menu_tooltips.png" />
+<p></p>
+<h3>Anatomy of a Menu</h3>
+<ol>
+<li><b>Menu:</b> A container displays the open state and contains a list of actions that can be selected.</li>
+<li><b>Submenu indicator:</b> A caret icon that indicates a submenu.</li>
+<li><b>Action item:</b> A menu item that can be activated to apply its action on certain elements. This item can be accompanied by a submenu indicator or keyboard shortcuts.</li>
+<li><b>Divider:</b> A rule that indicates different sections within the menu.</li>
+</ol>
+<img src="/img/menu_anatomy.png" />
+</div>)
+    },
+]}
+/>
+
+## Basic
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <button slot="trigger">Menu</button>
+    <a href="#">Item 1</a>
+    <a href="#">Item 2</a>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu><button slot="trigger">Menu</button><a href="#">Item 1</a><a href="#">Item 2</a></studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu Components
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-menu-title slot="title">Menu</studs-menu-title>
+    <studs-menu-label>Buttons</studs-menu-label>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 1</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 2</studs-menu-item>
+    <studs-menu-label>Links</studs-menu-label>
+    <studs-menu-item href="https://www.strongtie.com">Item 3</studs-menu-item>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="search"></studs-icon>Item 4</studs-menu-item>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu><studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-menu-title slot="title">Menu</studs-menu-title>
+    <studs-menu-label>Buttons</studs-menu-label>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 1</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 2</studs-menu-item>
+    <studs-menu-label>Links</studs-menu-label>
+    <studs-menu-item href="https://www.strongtie.com">Item 3</studs-menu-item>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="search"></studs-icon>Item 4</studs-menu-item>
+</studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu Using Tooltips
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-menu-title slot="title">Menu<studs-tooltip position="right">Title</studs-tooltip></studs-menu-title>
+    <studs-menu-label>Buttons<studs-tooltip position="right">Action Menu Items</studs-tooltip></studs-menu-label>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 1<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="info"></studs-icon>Item 2<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+    <studs-menu-label>Links<studs-tooltip position="right">Link Menu Items</studs-tooltip></studs-menu-label>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="home"></studs-icon><div>Inline Tooltip Item<studs-tooltip position="right">Inline Tooltip Item</studs-tooltip></div></studs-menu-item>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="search"></studs-icon>Item 4<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-menu-title slot="title">Menu<studs-tooltip position="right">Title</studs-tooltip></studs-menu-title>
+    <studs-menu-label>Buttons<studs-tooltip position="right">Action Menu Items</studs-tooltip></studs-menu-label>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Item 1<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="info"></studs-icon>Item 2<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+    <studs-menu-label>Links<studs-tooltip position="right">Link Menu Items</studs-tooltip></studs-menu-label>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="home"></studs-icon><div>Inline Tooltip Item<studs-tooltip position="right">Inline Tooltip Item</studs-tooltip></div></studs-menu-item>
+    <studs-menu-item href="https://www.strongtie.com"><studs-icon slot="prefix" icon="search"></studs-icon>Item 4<studs-tooltip position="right">Item</studs-tooltip></studs-menu-item>
+</studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu Grid
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu cols={2}>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+    <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu cols={3}>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+            <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+</studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Waffle
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu cols={3}>
+    <studs-button button-type="icon" slot="trigger" icon="apps"></studs-button>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+    <studs-icon icon="apps" size="large"></studs-icon>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu cols={3}>
+    <studs-button button-type="icon" slot="trigger" icon="apps"></studs-button>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+      <studs-icon icon="apps" size="large"></studs-icon>
+    </studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu Using Accordion
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-accordion>
+      <studs-accordion-item>
+        <div slot="toggle"><studs-icon icon="search"></studs-icon>Accordion One</div>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      </studs-accordion-item>
+      <studs-accordion-item>
+        <div slot="toggle">Accordion Two</div>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      </studs-accordion-item>
+      <studs-accordion-item>
+        <div slot="toggle">Accordion Three</div>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-divider></studs-divider>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      </studs-accordion-item>
+    </studs-accordion>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+      <studs-accordion>
+        <studs-accordion-item>
+          <div slot="toggle"><studs-icon icon="search"></studs-icon>Accordion One</div>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        </studs-accordion-item>
+        <studs-accordion-item>
+          <div slot="toggle">Accordion Two</div>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        </studs-accordion-item>
+        <studs-accordion-item>
+          <div slot="toggle">Accordion Three</div>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-divider></studs-divider>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        </studs-accordion-item>
+      </studs-accordion>
+    </studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu Using List
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+    <studs-list size="small">
+      <studs-list-item>Product Label</studs-list-item>
+      <studs-list-item>Product Label</studs-list-item>
+      <studs-list-item>Product Label<studs-list slot="list"><studs-list-item>Product Label</studs-list-item><studs-list-item>Product Label</studs-list-item><studs-list-item>Product Label<studs-list slot="list"><studs-list-item>Product Label</studs-list-item></studs-list></studs-list-item></studs-list></studs-list-item>
+    </studs-list>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu>
+    <studs-button variant="outline" slot="trigger" icon="expand_more" icon-position="end" >Menu</studs-button>
+         <studs-list size="small">
+            <studs-list-item>Product Label</studs-list-item>
+            <studs-list-item>Product Label</studs-list-item>
+            <studs-list-item>Product Label<studs-list slot="list"><studs-list-item>Product Label</studs-list-item><studs-list-item>Product Label</studs-list-item><studs-list-item>Product Label<studs-list slot="list"><studs-list-item>Product Label</studs-list-item></studs-list></studs-list-item></studs-list></studs-list-item>
+      </studs-list>
+    </studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Menu With Flyout
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+    <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu><studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item></studs-menu>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-menu>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+    <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu><studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item><studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item></studs-menu>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+    </studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Mega Menu
+
+<ResizerFeatures minHeight="30rem">
+  <studs-menu type="mega" cols={4}>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+  </studs-menu>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+   <studs-menu type="mega" cols={4}>
+    <studs-button button-type="icon" slot="trigger" icon="menu"></studs-button>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+  </studs-menu>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=14380%3A159737&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="menu" />
+

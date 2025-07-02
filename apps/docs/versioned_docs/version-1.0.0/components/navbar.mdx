@@ -1,0 +1,179 @@
+---
+sidebar_position: 33
+description: A navigation shows the available destinations in a product.
+sidebar_custom_props:
+  status: 'Draft'
+---
+
+# Navbar
+
+<HeaderComponent
+  htmlTag="studs-navbar"
+  jsxTag="StudsNavbar"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="navigation/navbar.ts"
+  urlStrbook="studs-navigation-navbar--docs"
+/>
+
+A navigation shows the available destinations in a product.
+
+
+## Default
+
+<ResizerFeatures>
+<div style={{ height: '250px' }}> <studs-navbar> <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0"> <studs-button slot="trigger" button-type="tertiary"> Products </studs-button> <studs-list size="small"> <studs-list-item> <studs-icon slot="prefix" size="medium" icon="home"></studs-icon> <span>Example navigation 1</span> </studs-list-item> <studs-list-item> <studs-icon slot="prefix" icon="tune"></studs-icon> <div>Label 1</div> </studs-list-item> <studs-list-item> <studs-icon slot="prefix" icon="favorite"></studs-icon> <div>Label 2</div> </studs-list-item> </studs-list> </studs-menu> <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0"> <studs-button slot="trigger" button-type="tertiary"> Solutions </studs-button> <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu on="hover-interactive"> <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu> <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu> <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu> <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> </studs-menu> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> </studs-menu> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> </studs-menu> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> </studs-menu> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item> </studs-menu> <studs-menu on="hover-interactive" position="bottom" type="mega" cols="3"> <studs-button slot="trigger" button-type="tertiary"> Resource Center </studs-button> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> <div> <studs-menu-label>Products Category</studs-menu-label> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> <studs-menu-item>Product Label</studs-menu-item> </div> </studs-menu> <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0"> <studs-button slot="trigger" button-type="tertiary"> Training &amp; Education </studs-button> <studs-list size="small"> <studs-list-item> Product Label </studs-list-item> <studs-list-item> Product Label </studs-list-item> <studs-list-item> Product Label <studs-list slot="list"> <studs-list-item>Product Label</studs-list-item> <studs-list-item>Product Label</studs-list-item> <studs-list-item>Product Label <studs-list slot="list"> <studs-list-item>Product Label<p></p></studs-list-item> </studs-list> </studs-list-item> </studs-list> </studs-list-item> </studs-list> </studs-menu> <studs-button button-type="tertiary"> Customer Service </studs-button> </studs-navbar> </div>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 250px">
+    <studs-navbar>
+      
+          <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0">
+            <studs-button slot="trigger" button-type="tertiary">
+              Products
+            </studs-button>
+            
+      <studs-list size="small">
+        <studs-list-item>
+            <studs-icon slot="prefix" size="medium" icon="home"></studs-icon>
+            <span>Example navigation 1</span>
+        </studs-list-item>
+        <studs-list-item>
+          <studs-icon slot="prefix" icon="tune"></studs-icon>
+          <div>Label 1</div>
+        </studs-list-item>
+        <studs-list-item>
+          <studs-icon slot="prefix" icon="favorite"></studs-icon>
+          <div>Label 2</div>
+        </studs-list-item>
+      </studs-list>
+    
+          </studs-menu>
+        
+          <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0">
+            <studs-button slot="trigger" button-type="tertiary">
+              Solutions
+            </studs-button>
+            
+      <studs-menu-title slot="title">Menu <studs-button button-type="close" icon="close" slot="actions"></studs-button></studs-menu-title>
+      <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      <studs-menu on="hover-interactive">
+        <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        <studs-menu>
+          <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          <studs-menu>
+            <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu>
+              <studs-menu-item slot="trigger"><studs-icon slot="prefix" icon="search"></studs-icon>Product Label<studs-icon icon="chevron_right" slot="suffix"></studs-icon></studs-menu-item>
+              <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+              <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+              <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+              <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            </studs-menu>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+            <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          </studs-menu>
+          <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+        </studs-menu>
+        <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      </studs-menu>
+      <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+      <studs-menu-item><studs-icon slot="prefix" icon="search"></studs-icon>Product Label</studs-menu-item>
+          </studs-menu>
+        
+          <studs-menu on="hover-interactive" position="bottom" type="mega" cols="3">
+            <studs-button slot="trigger" button-type="tertiary">
+              Resource Center
+            </studs-button>
+            
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+    <div>
+      <studs-menu-label>Products Category</studs-menu-label>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+      <studs-menu-item>Product Label</studs-menu-item>
+    </div>
+          </studs-menu>
+        
+          <studs-menu on="hover-interactive" position="bottom-right" type="dropdown" cols="0">
+            <studs-button slot="trigger" button-type="tertiary">
+              Training &amp; Education
+            </studs-button>
+            
+      <studs-list size="small">
+        <studs-list-item>
+          Product Label
+        </studs-list-item>
+        <studs-list-item>
+          Product Label
+        </studs-list-item>
+        <studs-list-item>
+          Product Label
+          <studs-list slot="list">
+            <studs-list-item>Product Label</studs-list-item>
+            <studs-list-item>Product Label</studs-list-item>
+            <studs-list-item>Product Label
+              <studs-list slot="list">
+                <studs-list-item>Product Label<p></p></studs-list-item>
+              </studs-list>
+            </studs-list-item>
+          </studs-list>
+        </studs-list-item>
+      </studs-list>
+    
+          </studs-menu>
+        <studs-button button-type="tertiary">
+          Customer Service
+        </studs-button>
+    </studs-navbar>
+  </div>
+  `}
+/>
+
+## Specifications
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="navbar" />

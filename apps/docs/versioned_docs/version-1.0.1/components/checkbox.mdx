@@ -1,0 +1,343 @@
+---
+sidebar_position: 13
+description: Checkboxes allow the user to toggle an option on or off.
+---
+
+# Checkbox
+
+<HeaderComponent
+  htmlTag="studs-checkbox"
+  jsxTag="StudsCheckbox"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="inputs/checkbox.ts"
+  urlStrbook="studs-inputs-checkbox--docs"
+  folder="inputs"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+      <div>
+    <p>If a user can select multiple options, use checkboxes. Checking one box does not uncheck others in the same list. A checkbox could also be used to confirm acceptance, as it allows a user to select and deselect the box before submission.</p>
+    <p>Checkboxes may have a group label and a checkbox label that corresponds to the checkbox itself, depending on which variant you choose. A checkbox can either be selected, unselected, or inactive.</p>
+    <b>Application of settings</b>
+    <div>Checkboxes are commonly used for multiple choice settings or actions that may a require a user’s approval or consideration before submission or saving.</div>
+              <img src="/img/checkbox_app_setting.png" alt="" />
+
+<b>Confirmation and acceptance</b>
+<div>
+  Standalone checkboxes are often used to confirm or accept actions or terms.
+  Unlike radio buttons, a checkbox allows the user to select and unselect their
+  option before confirmation. It also provides friction to make the user
+  consider their choice before submission. For this use case, a button is often
+  paired with the checkbox to submit or confirm the user’s selection or action.
+</div>
+<img src="/img/checkbox_confirmation_acceptance.png" alt="" />
+
+<b>Grouping</b>
+<div>
+  To feature multiple options within a category, select the checkbox group. In a
+  checkbox group, a group label is typically required. Checkbox groups are
+  typically aligned vertically to increase legibility.
+</div>
+
+</div>
+      ),
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description:
+      (
+        <div>
+        <b>Behaviors and states</b>
+        <p>Checkboxes can be selected, unselected, or indeterminate by selecting the checkbox or its associated label.</p>
+        <p>Checkboxes with labels in rest, hover, press, inactive, focus, and error states.</p>
+        </div>
+      )
+    },
+    
+    {
+      title: 'Style',
+      description:
+      (
+        <div>
+          <span>The checkbox component is composed of two parts:</span>
+          <ol>
+            <li>An option with a Label</li>
+            <li>A checkbox</li>
+            <li>
+            <div>
+              An option with a Value
+            </div>
+            <img style={{width: '200px', display: 'flex', margin: '0 auto'}} src="/img/checkbox_style_single.png" alt="" />
+            </li>
+          </ol>
+          <span>The checkbox Group is comprised of 4 parts:</span>
+          <ol>
+            <li>A group label</li>
+            <li>A checkbox</li>
+            <li>A text label</li>
+            <li>
+            <div>
+              An optional level 2 which allows a parent/child interatcion
+            </div>
+            <img style={{width: '200px', display: 'flex', margin: '0 auto'}} src="/img/checkbox_style_multiple.png" alt="" />
+            </li>
+          </ol>
+          <span>Alignment</span>
+          <p>Align checkboxes vertically when possible to eliminate confusion around labeling and which option the user is selecting. Horizontal alignment is only recommended for two options or less for this reason. Similarly, if using longer labels, and the text wraps, vertical is the preferred alignment.</p>
+        </div>
+      )
+    },
+    {
+      title: 'Variations',
+      description:
+      (
+        <ul>
+          <li>Checkboxes have three variants: with labels, with values and without.</li>
+        </ul>
+      )
+    },
+    {
+      title: 'Micro interactions, animations and transitions',
+      description:
+      (
+        <ul>
+          <li>When the user hovers, the state changes to the hover state. When the user selects (mouse down) the checkbox, the active state fills the box. When the user releases (mouse up) the state changes to checked.</li>
+        </ul>
+      )
+    },
+]}
+/>
+
+<Tables
+  headers={['state', 'behavior']}
+  args={[
+    {
+      state: 'Default',
+      behavior:
+        'The rest state is the starting or ending state, indicating the item has either been checked or unchecked.',
+    },
+    {
+      state: 'Hover',
+      behavior:
+        'When a user hovers over a selection, a highlight appears, indicating which item is clickable.',
+    },
+    {
+      state: 'Active',
+      behavior:
+        'The highlighted state of touching the screen or clicking a mouse over an item, indicating the item is in the act of being selected. The box is filled in this state',
+    },
+    {
+      state: 'Disable',
+      behavior:
+        'Inactive checkboxes and labels are displayed with 40% opacity, indicating the option exists but is not available to the user.',
+    },
+    {
+      state: 'Indeterminate',
+      behavior:
+        'The box primitive is filled with a minus icon to indicate that there are child checkboxes selected. ',
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-checkbox
+    name="checkbox"
+    value="checkbox"
+    label="Checkbox"
+  ></studs-checkbox>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-checkbox name="checkbox" value="checkbox" label="Checkbox"></studs-checkbox>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11186%3A81681&mode=dev"
+/>
+
+## Checked
+
+<ResizerFeatures>
+  <studs-checkbox
+    name="checkbox1"
+    value="checkbox1"
+    label="Checkbox"
+    checked=""
+  ></studs-checkbox>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-checkbox name="checkbox1" value="checkbox1" label="Checkbox" checked></studs-checkbox>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11186%3A81681&mode=dev"
+/>
+
+## Disabled
+
+<ResizerFeatures>
+  <studs-checkbox
+    name="checkbox2"
+    value="checkbox2"
+    label="Checkbox"
+    disabled=""
+  ></studs-checkbox>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-checkbox name="checkbox2" value="checkbox2" label="Checkbox" disabled></studs-checkbox>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11186%3A81681&mode=dev"
+/>
+
+## Checked Disabled
+
+<ResizerFeatures>
+  <studs-checkbox
+    name="checkbox3"
+    value="checkbox3"
+    label="Checkbox"
+    checked=""
+    disabled=""
+  ></studs-checkbox>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-checkbox name="checkbox2" value="checkbox2" label="Checkbox" checked disabled></studs-checkbox>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11186%3A81681&mode=dev"
+/>
+
+## Indeterminate
+
+<ResizerFeatures>
+  <studs-checkbox
+    name="checkbox4"
+    value="checkbox4"
+    label="Checkbox"
+    indeterminate=""
+  ></studs-checkbox>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-checkbox name="checkbox4" value="checkbox4" label="Checkbox" indeterminate></studs-checkbox>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11186%3A81681&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="checkbox" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+          <b>Capitalization</b>
+          <p>
+            Use title case for group labels and sentence case for all other
+            labels.
+          </p>
+          <b>Character length</b>
+          <p>
+            Checkbox labels should be scannable, consistent, and concise.
+            Standalone checkboxes (for example as part of terms and conditions)
+            may have a sentence or more of text so that the user is informed
+            about what they’re agreeing to. When checkboxes are used as a group
+            of options, try to keep the labels short. While it’s technically
+            feasible to create long labels, checkbox labels that wrap to a
+            second line may provide a poor user experience.
+          </p>
+          <div>
+            <b>Labels</b>
+          </div>
+          <div>
+            The biggest usability issues for checkboxes come from labels that
+            are vague, misleading, or describe options that are difficult for
+            users to understand.
+          </div>
+          <p>
+            Use clear and concise labels so users can easily scan options. Make
+            sure you present all choices, and that those choices don’t overlap.
+            All checkbox labels should be consistent in length, tense, and
+            meaning. For group labels, state the category of the grouping.
+          </p>
+          <b>Do:</b>
+          <ul>
+            <li>Ages 1 to 10</li>
+            <li>Ages 11 to 15</li>
+            <li>Ages 16 to 20</li>
+          </ul>
+          <b>Don’t:</b>
+          <ul>
+            <li>Ages 1 to 10</li>
+            <li>Ages 10 to 16</li>
+            <li>Ages 16 to 20</li>
+          </ul>
+          <b>Organization</b>
+          <p>
+            Make sure checkbox options are organized in a logical and meaningful
+            way. Keep in mind, that when listing items alphabetically, the order
+            will change when text is localized.{' '}
+          </p>
+          <b>Punctuation</b>
+          <p>
+            Avoid punctuating checkbox labels. An exception is if the label is a
+            complete sentence (for example, in terms and conditions).
+          </p>
+          <b>Specificity</b>
+          <p>Be explicit about the results of a user’s selection.</p>
+          <b>Terms and conditions</b>
+          <div>
+            When a checkbox is asking users to agree to terms or service, use
+            the first person and punctuate the sentence. In most cases, a link
+            or an explanation of the terms and conditions must be available in
+            the context of acceptance of those terms.
+          </div>
+          <p>
+            <b>Example:</b>&nbsp;I agree to the terms and conditions.
+          </p>
+          <b>Tone</b>
+          <div>
+            Use a positive tone, signaling affirmation, instead of negation to
+            avoid confusing users. Use imperative verbs when writing labels.
+          </div>
+          <div>
+            <b>Do:</b>&nbsp;Receive email promotions
+          </div>
+          <div>
+            <b>Don’t:</b>&nbsp;No, I do not want to receive email promotions.
+          </div>
+          <br />
+          <b>Ethics</b>
+          <p>
+            Do not pre-select or have a default item selected for your users.
+          </p>
+        </div>
+      ),
+    },
+  ]}
+/>

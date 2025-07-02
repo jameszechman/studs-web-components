@@ -1,0 +1,72 @@
+@use '../utilities' as *;
+
+.breadcrumbs {
+  --seperator: '/';
+  --color: var(--breadcrumb-color);
+  --hover: var(--breadcrumb-hover);
+  --current: var(--breadcrumb-current);
+  --gap: 1em;
+  --right: -0.625em;
+  --top: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  &.-slash {
+    --seperator: '/';
+  }
+
+  &.-angle {
+    --seperator: 'chevron_right';
+    --top: 0.2em;
+    --right: -1em;
+  }
+}
+
+::slotted(.crumb) {
+  color: var(--color);
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .25em;
+  transition: all var(--transition-s);
+}
+
+::slotted(.crumb:hover),
+::slotted(.crumb:active) {
+  color: var(--hover);
+  text-decoration-color: currentcolor;
+}
+
+::slotted(.crumb:focus-visible) {
+  outline: 1px solid var(--current);
+  outline-offset: .25em;
+}
+
+::slotted(.crumb)::after {
+  content: var(--seperator);
+  position: absolute;
+  right: var(--right);
+  top: var(--top);
+  pointer-events: none;
+
+  @include iconFont;
+}
+
+::slotted(.crumb:last-of-type) {
+  --seperator: '';
+  --hover: var(--current);
+  --color: var(--current);
+  pointer-events: none;
+  cursor: default;
+}

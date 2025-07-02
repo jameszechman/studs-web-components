@@ -1,0 +1,218 @@
+---
+sidebar_position: 38
+description: Radio-group allows the user to select a single option from a group.
+---
+
+# Radio Group
+
+<HeaderComponent
+  htmlTag="studs-radio-group"
+  jsxTag="StudsRadioGroup"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="inputs/radio-group.ts"
+  urlStrbook="studs-inputs-radiogroups--docs"
+  folder="inputs"
+/>
+
+Radio-group allows the user to select a single option from a group.
+
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+  <strong>When to use</strong>
+  <p>Utilize when employing radio components that permit the selection of only one option. Ensure proper implementation of radio and label within the radio group to convey information accurately to assistive technologies. Leverage the value attribute on the group to designate the selected option.</p>
+  <strong>Grouping</strong>
+  <p>Radio buttons require a minimum of two options. When listing more than five options, consider whether the dropdown provides a better experience for the user. Group labels are optional. However, if the individual option labels do not provide sufficient context, including a group label can clarify intent and help the user choose the appropriate option. This is particularly important when considering how people using assistive technology navigate through a site.</p>
+  <strong>Alignment</strong>
+  <p>Radio buttons are aligned to the left and usually stacked vertically when there are three or more options. This vertical stacking enhances readability and ease of scanning, particularly when the label text extends to two lines.</p>
+  <p>You can horizontally align radio buttons when there are two options with brief labels, such as "Yes" or "No." When aligning radio buttons in this manner, ensure there is adequate spacing between the options to maintain clarity regarding which label corresponds to each radio button.</p>
+</div>)
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: <div>
+      <strong>Interactivity</strong>
+      <p>Interactivity inherits Radio Button design, states, and spacing.</p>
+      </div>
+    },
+    {
+      title: 'Style',
+      description: (<div>
+        <p>A radio button group can have up to three parts:</p>
+        <ol>
+        <li>Group label: description of the group</li>
+        <li>Radio button: selectable option</li>
+        <li>Label: identifies option</li>
+        </ol>
+        <img src="/img/radiogroup_anatomy.png" />
+      </div>)
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <form onSubmit={function(e) { 
+    e.preventDefault(); 
+    const form=e.currentTarget; 
+    const formData=new FormData(form);
+    for (const key of formData.entries()) 
+    { console.log(key); } 
+    }
+  }>
+    <studs-radio-group name="radio" value="radio1">
+        <studs-radio name="radio" value="radio1" label="Radio 1"></studs-radio>
+        <studs-radio name="radio" value="radio2" label="Radio 2"></studs-radio>
+        <studs-radio name="radio" value="radio3" label="Radio 3"></studs-radio>
+    </studs-radio-group>
+    <studs-button type="submit">Submit</studs-button>
+  </form>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<form onSubmit={function(e) { 
+    e.preventDefault(); 
+    const form=e.currentTarget; 
+    const formData=new FormData(form);
+    for (const key of formData.entries()) 
+    { console.log(key); } 
+    }
+  }>
+    <studs-radio-group name="radio" value="radio1">
+        <studs-radio name="radio" value="radio1" label="Radio 1"></studs-radio>
+        <studs-radio name="radio" value="radio2" label="Radio 2"></studs-radio>
+        <studs-radio name="radio" value="radio3" label="Radio 3"></studs-radio>
+    </studs-radio-group>
+    <studs-button type="submit">Submit</studs-button>
+  </form>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=12239%3A127439&mode=dev"
+/>
+
+## No Selected
+
+<ResizerFeatures>
+  <form onSubmit={function submit(e) { 
+    e.preventDefault(); 
+    const form=e.currentTarget; 
+    const formData=new FormData(form);
+    for (const key of formData.entries()) 
+    { console.log(key); } 
+    }
+  }>
+    <studs-radio-group name="radio">
+        <studs-radio name="radio" value="radio1" label="Radio 1"></studs-radio>
+        <studs-radio name="radio" value="radio2" label="Radio 2"></studs-radio>
+        <studs-radio name="radio" value="radio3" label="Radio 3"></studs-radio>
+    </studs-radio-group>
+    <studs-button type="submit">Submit</studs-button>
+  </form>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<form onSubmit={function submit(e) { 
+    e.preventDefault(); 
+    const form=e.currentTarget; 
+    const formData=new FormData(form);
+    for (const key of formData.entries()) 
+    { console.log(key); } 
+    }
+  }>
+    <studs-radio-group name="radio2">
+        <studs-radio name="radio2" value="radio1" label="Radio 1"></studs-radio>
+        <studs-radio name="radio2" value="radio2" label="Radio 2"></studs-radio>
+        <studs-radio name="radio2" value="radio3" label="Radio 3"></studs-radio>
+    </studs-radio-group>
+    <studs-button type="submit">Submit</studs-button>
+  </form>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=12239%3A127439&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="radio-group" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+          <p>Because radio buttons require users to select only one choice, make sure that the options are clear and distinct. Like checkboxes, the biggest usability problems for radio buttons come from labels that are vague, misleading, or describe options that are difficult for users to understand. All labels should be consistent in length, tense, and meaning.</p>
+          <strong>Capitalization</strong>
+          <p>Use title case for group (legend) labels and sentence case for all other labels.</p>
+          <strong>Character length</strong>
+          <p>Radio button labels should be scannable, consistent, and concise.</p>
+          <strong>Describing options</strong>
+          <p>Make sure radio button options are organized in a logical and meaningful way. Keep in mind that when listing items alphabetically, the order will change when text is localized.</p>
+          <strong>Labels</strong>
+          <p>Always use clear and concise labels for radio buttons so options are easily scannable by users. Make sure choices don’t overlap. For group labels, a best practice is to state the category of the grouping.</p>
+          <b>Do:</b>
+          <ul>
+          <li>Ages 1 to 10</li>
+          <li>Ages 11 to 15</li>
+          <li>Ages 16 to 20</li>
+          </ul>
+          <b>Don’t:</b>
+          <ul>
+          <li>Ages 1 to 10</li>
+          <li>Ages 10 to 16</li>
+          <li>Ages 16 to 20</li>
+          </ul>
+          <strong>Punctuation</strong>
+          <p>Avoid punctuating radio button labels.</p>
+          <strong>Specificity</strong>
+          <p>Be explicit about the results of a user’s selection or what they are enabling or disabling.</p>
+          <strong>Tone</strong>
+          <div>Use a positive tone, signaling affirmation, instead of negation to avoid confusing users. Use imperative verbs when writing labels.</div>
+          <div><b>Do:</b> Opt in for email promotions</div>
+          <div><b>Don’t:</b> Opt out of email promotions</div>
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <strong>All radio buttons and radio button groups must have clear, concise, and unique labels</strong>
+          <div>Labels must also be programmatically associated with assistive technology users.</div>
+          <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">1.3.1 Info and Relationships</a></div>
+          <div>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html">2.4.6 Headings and Labels</a></div>
+          <br />
+          <strong>Avoid default selections</strong>
+          <div>Preselected choices are considered a deceptive practice for all users. Implement a default unselected state with radio button groups.</div>
+          <br />
+          <strong>All keyboard interactions and ARIA labels must meet accessibility criteria</strong>
+          <div><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#radiobutton">WAI-ARIA Authoring Practices</a></div>
+        </div>
+      ),
+    },
+    {
+      title: 'Related Documentation',
+      description: (
+        <div>
+         <p><a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/">Checkboxes vs. Radio Buttons</a></p>
+        </div>
+      ),
+    },
+  ]}
+/>

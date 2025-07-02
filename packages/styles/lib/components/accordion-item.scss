@@ -1,0 +1,111 @@
+.accordion {
+  &.-panel {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--accordion-bkg);
+
+    &.-border {
+      border: 1px solid var(--border-color);
+      background-color: var(--accordion-bkg-light);
+    }
+
+    & > summary::-webkit-details-marker {
+      display:none;
+    }
+
+    summary {
+      transition: var(--transition-m) ease-in-out;
+      display: flex;
+      flex-direction: row;
+      padding: 0.75em 1em;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.25em;
+      border: none;
+      cursor: pointer;
+
+      list-style: none;
+
+
+      ::part(studs-icon) {
+        color: var(--primary);
+        transition: rotate var(--transition-m);
+      }
+
+      studs-button {
+        rotate: 0deg;
+        transition: rotate var(--transition-m);
+        --padding: 0;
+      }
+    }
+
+    main {
+      background: var(--background-content);
+
+      > div.content {
+        padding: 1em;
+      }
+    }
+
+    &.-small {
+      summary {
+        padding: 0.25em 1em;
+      }
+    }
+
+    &.-large {
+      summary {
+        padding: 1.25em 1em;
+      }
+    }
+
+    &.-start {
+      summary {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+    }
+
+
+    &:not([disabled]) {
+      summary:focus-visible {
+        outline: var(--primary) auto 1px;
+      }
+      summary:hover {
+        background-color: var(--accordion-hover);
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      summary {
+        background-color: var(--disabled);
+        color: var(--text-disabled);
+        cursor: not-allowed;
+
+        ::part(studs-icon) {
+          color: var(--text-disabled);
+        }
+      }
+    }
+
+    &[open] {
+      summary {
+        studs-button {
+          rotate: 90deg;
+        }
+
+        ::part(studs-icon) {
+          rotate: 90deg;
+        }
+      }
+    }
+  }
+}
+
+
+::slotted([slot='toggle']) {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

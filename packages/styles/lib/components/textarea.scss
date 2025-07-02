@@ -1,0 +1,105 @@
+@use '../utilities' as *;
+
+:host {
+  --textarea-border-color: var(--border-color);
+  --textarea-border-width: 2px;
+}
+
+.textareaComponent {
+  .textareaWrapper {
+    display: inline-flex;
+    flex-direction: column;
+
+    &.-full {
+      width: 100%;
+    }
+  }
+
+  &:hover:not([disabled]):not(.-success):not(.-warning):not(:has(:focus-within)) {
+    --textarea-border-color: var(--primary);
+  }
+
+  textarea {
+    position: relative;
+    appearance: none;
+    border: var(--textarea-border-width) solid var(--textarea-border-color);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0;
+    padding: 0.75rem;
+    font-family: var(--font-family);
+
+
+    &:focus-within {
+      outline: none;
+      border-color: transparent;
+      box-shadow: var(--primary) 0px 0px 0px 1px inset, var(--primary) 0px 0px 0px 1px;
+    }
+
+    &[disabled] {
+      cursor: text;
+      resize: none;
+    }
+  }
+
+  label {
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  &.-required {
+    
+  }
+
+  &.-small {
+    textarea {
+      padding: 0.5rem;
+    }
+  }
+
+  &.-large {
+    textarea {
+      padding: 1rem;
+    }
+  }
+
+  &.-error {
+      --textarea-border-color: var(--error-color);
+      --textarea-border-width: 2px;
+  }
+
+  &.-success {
+      --textarea-border-color: var(--success-color);
+      --textarea-border-width: 2px;
+  }
+
+  &.-warning {
+      --textarea-border-color: var(--warning-color);
+      --textarea-border-width: 2px;
+  } 
+
+  .error-text {
+    margin: 0.5em;
+    color: var(--error-color);
+  }
+
+  .helper-text {
+    margin: 0.5em;
+    color: var(--text);
+  }
+
+  .counter {
+    margin-top: 0.5em;
+    color: var(--text-disabled);
+    text-align: right;
+
+    &.-error {
+      color: var(--error-color);
+    }
+
+    &.-warning {
+      color: var(--warning-color);
+    }
+  }
+}

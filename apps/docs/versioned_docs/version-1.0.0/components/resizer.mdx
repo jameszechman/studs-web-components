@@ -1,0 +1,198 @@
+---
+sidebar_position: 39
+description: The Resizer component features two side-by-side panels with the capability for user-driven resizing. It enables intricate layouts by allowing nested instances of Resizer for independent adjustability.
+---
+
+# Resizer
+
+<HeaderComponent
+  htmlTag="studs-resizer"
+  jsxTag="StudsResizer"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/resizer.ts"
+  urlStrbook="studs-display-resizer--docs"
+  folder="display"
+/>
+
+{frontMatter.description}
+
+
+## Inline
+
+<ResizerFeatures>
+  <studs-resizer
+    style={{ height: '300px', width: "100%" }}
+    direction="horizontal"
+    position={50}
+  >
+    <div>
+      <h3 slot="header">Panel One</h3>
+      <div slot="content">Padded Content</div>
+    </div>
+    <div>
+      <h3 slot="header">Panel Two</h3>
+      <div slot="content">Padded Content</div>
+    </div>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer
+    style={{ height: '300px', width: "100%" }}
+    direction="horizontal"
+    position={50}
+  >
+    <div>
+      <h3 slot="header">Panel One</h3>
+      <div slot="content">Padded Content</div>
+    </div>
+    <div>
+      <h3 slot="header">Panel Two</h3>
+      <div slot="content">Padded Content</div>
+    </div>
+  </studs-resizer>`}
+/>
+
+## Block
+
+<ResizerFeatures>
+  <studs-resizer
+    style={{width: '100%', height: 300}}
+    direction="vertical"
+  >
+    <div>Panel One</div>
+    <div>Panel Two</div>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer
+    style={{width: '100%', height: 300}}
+    direction="vertical"
+  >
+    <div>Panel One</div>
+    <div>Panel Two</div>
+  </studs-resizer>`}
+/>
+
+## Default cursor
+<ResizerFeatures>
+  <studs-resizer default-cursor direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <div style={{width: '100%', height: '100%'}}>
+      <studs-resizer default-cursor direction="vertical" style={{height: '100%'}}>
+        <div>Panel One</div>
+        <div>Panel Two</div>
+      </studs-resizer>
+    </div>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer default-cursor direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <div style={{width: '100%', height: '100%'}}>
+      <studs-resizer default-cursor direction="vertical" style={{height: '100%'}}>
+        <div>Panel One</div>
+        <div>Panel Two</div>
+      </studs-resizer>
+    </div>
+  </studs-resizer>`}
+/>
+
+## Single
+
+<ResizerFeatures>
+  <studs-resizer direction="horizontal" style={{width: '100%', height: 300}} position='100'>
+    <div>Panel One</div>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer direction="horizontal" style={{width: '100%', height: 300}} position='100'>
+    <div>Panel One</div>
+  </studs-resizer>`}
+/>
+
+## Two Panels
+
+<ResizerFeatures>
+  <studs-resizer direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <div style={{width: '100%', height: '100%'}}>
+      <studs-resizer direction="vertical" style={{height: '100%'}}>
+        <div>Panel One</div>
+        <div>Panel Two</div>
+      </studs-resizer>
+    </div>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <div style={{width: '100%', height: '100%'}}>
+      <studs-resizer direction="vertical" style={{height: '100%'}}>
+        <div>Panel One</div>
+        <div>Panel Two</div>
+      </studs-resizer>
+    </div>
+  </studs-resizer>`}
+/>
+
+## Three Panels
+
+<ResizerFeatures>
+  <studs-resizer direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <studs-resizer direction="vertical">
+      <div>Panel One</div>
+      <div style={{width: '100%', height: '100%'}}>
+        <studs-resizer direction="horizontal" style={{width: '100%', height: '100%'}}>
+          <div>Panel One</div>
+          <div>Panel Two</div>
+        </studs-resizer>
+      </div>
+    </studs-resizer>
+    <studs-resizer direction="vertical">
+      <div>Panel One</div>
+      <div style={{width: '100%', height: '100%'}}>
+        <studs-resizer direction="horizontal" style={{width: '100%', height: '100%'}}>
+          <div>Panel One</div>
+          <div>Panel Two</div>
+        </studs-resizer>
+      </div>
+    </studs-resizer>
+  </studs-resizer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-resizer direction="horizontal" style={{width: '100%', height: 300}}>
+    <div>Panel One</div>
+    <studs-resizer direction="vertical">
+      <div>Panel One</div>
+      <div style={{width: '100%', height: '100%'}}>
+        <studs-resizer direction="horizontal" style={{width: '100%', height: '100%'}}>
+          <div>Panel One</div>
+          <div>Panel Two</div>
+        </studs-resizer>
+      </div>
+    </studs-resizer>
+    <studs-resizer direction="vertical">
+      <div>Panel One</div>
+      <div style={{width: '100%', height: '100%'}}>
+        <studs-resizer direction="horizontal" style={{width: '100%', height: '100%'}}>
+          <div>Panel One</div>
+          <div>Panel Two</div>
+        </studs-resizer>
+      </div>
+    </studs-resizer>
+  </studs-resizer>`}
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="resizer" />

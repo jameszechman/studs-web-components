@@ -1,0 +1,67 @@
+@use "../utilities" as *;
+
+:host {
+  --max-width: 34rem;
+}
+
+dialog {
+  border: none;
+  background-color: transparent;
+}
+
+::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+
+  .-overlay {
+    @include fadeOut;
+  }
+  .-container {
+    @include slideOut;
+  }
+
+  &[open] {
+    .-overlay {
+      @include fadeIn;
+    }
+    .-container {
+      @include slideIn;
+    }
+  }
+
+  &.-container {
+    background-color: var(--background-content);
+    padding: 0.875rem;
+    width: 100%;
+    max-width: var(--max-width);
+    max-height: 100vh;
+    border-radius: 0.125rem;
+    overflow-y: auto;
+    box-sizing: border-box;
+    will-change: transform;
+  }
+
+  header {
+    display: grid;
+    grid-template-areas: title close;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+  }
+
+  main {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+
+    ::slotted(div) {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+}

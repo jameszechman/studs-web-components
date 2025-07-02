@@ -1,0 +1,30 @@
+:host {
+  display: contents;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
+.tooltip {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  font-size: 0.9em;
+  border: 1px solid var(--tooltip-bkg);
+  color: var(--tooltip-text);
+  background-color: var(--tooltip-bkg);
+  padding: 0.5rem;
+  border-radius: 0.15rem;
+  font-family: var(--font-family);
+
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,.35));
+  will-change: filter;
+
+  #arrow {
+    background-color: var(--tooltip-bkg);
+  }
+}
+
+slot {
+  display: inline;
+}

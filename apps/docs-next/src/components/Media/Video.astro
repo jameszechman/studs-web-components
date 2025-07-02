@@ -1,0 +1,21 @@
+---
+import { GRAPHQL_API_URL } from "../../_api";
+
+const {resource} = Astro.props;
+
+let src: string | undefined;
+if(resource && typeof resource !== 'string') {
+    const {filename} = resource;
+    src = `${GRAPHQL_API_URL}/media/${filename}`;
+}
+---
+
+<video
+    playsinline
+    autoplay
+    muted
+    loop
+    controls={false}
+    >
+    <source src={src} />
+</video>

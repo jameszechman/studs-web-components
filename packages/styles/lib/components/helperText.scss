@@ -1,0 +1,22 @@
+
+:host {
+    --color: var(--text-disabled)
+}
+
+p {
+    margin: 0;
+    color: var(--color);
+    &.error {
+        --color: var(--error-color);
+    }
+    &.warning {
+        --color: var(--warning-color);
+    }
+    &.success {
+        --color: var(--success-color);
+    }
+}
+
+::slotted(span) {
+    display: block;
+}

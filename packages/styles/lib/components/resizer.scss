@@ -1,0 +1,105 @@
+@use "../utilities" as *;
+
+$rowIcon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMCAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF8xNDgzMl80NzQpIj4KPHJlY3QgeD0iMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcng9IjEwIiB0cmFuc2Zvcm09InJvdGF0ZSg5MCAyMCAwKSIgZmlsbD0iI0RGNDkwNyIvPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTQ4MzJfNDc0KSI+CjxwYXRoIGQ9Ik0xNC4wODM0IDguODMzMzNMMTAgNC43NUw1LjkxNjcxIDguODMzMzNMMTQuMDgzNCA4LjgzMzMzWk0xNC4wODM0IDExLjE2NjdMNS45MTY3MSAxMS4xNjY3TDEwIDE1LjI1TDE0LjA4MzQgMTEuMTY2N1oiIGZpbGw9IndoaXRlIi8+CjwvZz4KPHJlY3QgeD0iMTkuNSIgeT0iMC41IiB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHJ4PSI5LjUiIHRyYW5zZm9ybT0icm90YXRlKDkwIDE5LjUgMC41KSIgc3Ryb2tlPSIjREY0OTA3Ii8+CjwvZz4KPGRlZnM+CjxmaWx0ZXIgaWQ9ImZpbHRlcjBfZF8xNDgzMl80NzQiIHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSIyIi8+CjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjA0MyAwIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93XzE0ODMyXzQ3NCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18xNDgzMl80NzQiIHJlc3VsdD0ic2hhcGUiLz4KPC9maWx0ZXI+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTQ4MzJfNDc0Ij4KPHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcgMykgcm90YXRlKDkwKSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=);
+$colIcon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMCAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF8xNDUxOV8xNjc1ODApIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMTAiIGZpbGw9IiNERjQ5MDciLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE0NTE5XzE2NzU4MCkiPgo8cGF0aCBkPSJNOC44MzMzMyA1LjkxNjY2TDQuNzUgOS45OTk5OUw4LjgzMzMzIDE0LjA4MzNWNS45MTY2NlpNMTEuMTY2NyA1LjkxNjY2VjE0LjA4MzNMMTUuMjUgOS45OTk5OUwxMS4xNjY3IDUuOTE2NjZaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+CjxyZWN0IHg9IjAuNSIgeT0iMC41IiB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHJ4PSI5LjUiIHN0cm9rZT0iI0RGNDkwNyIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2RfMTQ1MTlfMTY3NTgwIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMTI3IDAiIHJlc3VsdD0iaGFyZEFscGhhIi8+CjxmZU9mZnNldCBkeT0iMiIvPgo8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4wNDMgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd18xNDUxOV8xNjc1ODAiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3dfMTQ1MTlfMTY3NTgwIiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzE0NTE5XzE2NzU4MCI+CjxyZWN0IHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K);
+:host {
+  --row: #{$rowIcon} 10 10, row-resize;
+  --col: #{$colIcon} 10 10, col-resize;
+  --cursor: var(--row);
+  --widthHeight: 100%;
+
+  display: block;
+  width: var(--widthHeight);
+  height: var(--widthHeight);
+}
+
+.resize {
+  &Container {
+    overflow: hidden;
+    display: grid;
+    height: var(--widthHeight);
+
+    &.-resizing {
+      &:not(.-default-cursor) {
+        cursor: var(--cursor);
+      }
+    }
+
+    &.-block {
+      --cursor: var(--row);
+    }
+
+    &.-inline {
+      --cursor: var(--col);
+    }
+
+    &.-default-cursor {
+      &.-block {
+        --cursor: row-resize;
+      }
+
+      &.-inline {
+        --cursor: col-resize;
+      }
+    }
+  }
+
+  &Divider {
+    background: var(--border-color);
+    position: relative;
+    cursor: var(--cursor);
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+//  pretty sure we don't need these. will remove later --Jp
+//       .-block & {
+//         content: $rowIcon;
+//       }
+//
+//       .-inline & {
+//         content: $colIcon;
+//       }
+
+      opacity: 0;
+      z-index: 999;
+      transition: var(--transition-s);
+    }
+
+    &:hover,
+    .-resizing & {
+      .-default-cursor &,
+      &.-default-cursor {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      $bb-box: -2px;
+      left: $bb-box;
+      right: $bb-box;
+      top: $bb-box;
+      bottom: $bb-box;
+    }
+
+    [disabled] & {
+      cursor: not-allowed;
+      background: var(--disabled);
+    }
+  }
+}
+
+.panel {
+  display: grid;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  @include scrollbars(var(--primary), transparent, 5);
+}

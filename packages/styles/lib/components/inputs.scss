@@ -1,0 +1,215 @@
+@use '../utilities' as *;
+
+// studs-input {
+//   container-type: inline-size;
+//   container-name: inputComponent;
+//   width: 100%;
+// }
+
+@mixin searchInput() {
+  [type="search"] {
+    padding-right: 0;
+
+    // &::-webkit-search-cancel-button {
+    //   -webkit-appearance: searchfield;
+    // }
+
+    /* we really need to replace this clear icon
+       with something that we have control over.
+                        --Jp
+    */
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      height: 0.9em;
+      width: 0.9em;
+      border-radius: 50em;
+      background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+                  no-repeat 50% 50%;
+      background-size: contain;
+      opacity: 0;
+      position: relative;
+      pointer-events: none;
+      transition: all var(--transition-m);
+    }
+
+    &:focus::-webkit-search-cancel-button {
+      cursor: pointer;
+      opacity: 0.3;
+      pointer-events: all;
+    }
+  }
+}
+
+.inputComponent {
+  --border: var(--border-color-med);
+  --outline: var(--primary);
+  --background: var(--background-content);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+
+  &.-block {
+    gap: 0rem 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  // @container inputComponent (max-width: 320px) {
+  //     flex-direction: column;
+  //     align-items: flex-start;
+  // }
+
+  &.-top {
+    flex-direction: column;
+  }
+
+  .inputWrapper {
+    --text: var(--text-dark);
+
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0;
+    background-color: var(--background);
+    position: relative;
+
+    font-size: 0.875rem;
+    height: 2rem;
+
+    // @include fontSizes;
+    &.-small  {height: 1.5rem}
+    &.-medium {height: 2rem}
+    &.-large  {height: 2.5rem}
+
+    // &:has(input:focus, input:focus-visible) {
+    &:hover:not([disabled]):not(.-success):not(.-warning):not(:has(input:focus-visible)) {
+      // --border: var(--link-color);
+      border: 1px solid var(--primary);
+      // outline: 2px solid var(--primary);
+      box-shadow: none;
+      outline: none;
+    }
+
+    &:has(input:focus-visible) {
+      border-color: transparent;
+      box-shadow: var(--primary) 0px 0px 0px 1px inset, var(--primary) 0px 0px 0px 1px;
+    }
+
+    .adornment {
+      padding: 0 .5rem;
+      &.-search {
+        padding: 0;
+      }
+      &.-icon {
+        @include iconFont;
+      }
+      &.-infinite {
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        span {
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+      }
+      &.-start {
+        order: 0;
+      }
+      &.-end {
+        order: 2;
+      }
+      &.-infinite,
+      &.-search,
+      &.-password {
+        order: 2;
+      }
+    }
+
+    input {
+      order: 1;
+      border: none;
+      appearance: none;
+      font-size: var(--font-size);
+      line-height: 1;
+      margin: 0;
+      padding: 0 0.5rem;
+      color: var(--text);
+      width: 100%;
+
+      background: transparent;
+
+      // &:focus,
+      &:focus-visible {
+        outline: 1px solid var(--primary-active);
+        border-radius: 0;
+
+        @supports selector(:has(*)) {
+          outline: none;
+        }
+      }
+
+      @include placeholders;
+    }
+
+    &.-short {
+      width: 3em;
+
+      input {
+        text-align: center;
+      }
+    }
+
+    ::-ms-reveal {
+      display: none;
+    }
+
+
+    @include searchInput;
+
+    /*
+    [type="text"] {}
+    [type="password"] {}
+    [type="number"] {}
+    [type="tel"] {}
+    [type="email"] {}
+    [type="file"] {}
+    */
+
+    &.-error {
+      --border: var(--error-color);
+      --outline: var(--error-color);
+    }
+
+    &.-warning {
+      --border: var(--warning-color);
+      --outline: var(--warning-color);
+      --text: var(--text-color);
+    }
+
+    &.-success {
+      --border: var(--success-color);
+      --outline: var(--success-color);
+    }
+
+    &[disabled] {
+      --background: var(--disabled);
+      --border: var(--text-disabled);
+      --placeholder-text: var(--text-disabled);
+      --text: var(--text-disabled);
+      input {
+        cursor: text;
+      }
+    }
+  }
+}
+
+
+

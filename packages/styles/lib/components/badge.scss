@@ -1,0 +1,100 @@
+@use '../utilities' as *;
+
+:host {
+  --badge-block: -0.5em;
+  --badge-inline: -1.5em;
+}
+
+.badge {
+  display: inline-flex;
+  position: relative;
+  font-family: var(--font-family);
+  z-index: 1;
+
+  // Modifiers
+  &.-primary {
+    --badge-background: var(--primary);
+  }
+  &.-success {
+    --badge-background: var(--success-color);
+  }
+  &.-warning {
+    --badge-background: var(--warning-color);
+  }
+  &.-danger {
+    --badge-background: var(--error-color);
+  }
+  &.-info {
+    --badge-background: var(--info-color);
+  }
+
+  &.-center {
+    align-items: center;
+  }
+
+  // @include fontSizes();
+  &.-small  {--font-size: 0.65em}
+  &.-medium {--font-size: 0.8em}
+  &.-large  {--font-size: 1em}
+
+  .badgeContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--badge-background);
+    color: var(--badge-color);
+
+    padding: 0.5em;
+    border-radius: 1em;
+    line-height: 1;
+    min-width: 1em;
+    font-size: 0.8em;
+    position: absolute;
+
+    &.-badge {
+      font-size: calc(var(--font-size) * .8);
+    }
+
+    &:where(.-center) {
+      position: relative;
+    }
+  }
+
+  .dot {
+    --badge-block: -0.2em;
+    --badge-inline: -0.2em;
+    background-color: var(--badge-background);
+    color: var(--badge-color);
+
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 0;
+
+    font-size: var(--font-size);
+  }
+
+  :where(.badgeContent, .dot) {
+    &.-top-right {
+      top: var(--badge-block);
+      right: var(--badge-inline);
+    }
+    &.-bottom-right {
+      bottom: var(--badge-block);
+      right: var(--badge-inline);
+    }
+    &.-top-left {
+      left: var(--badge-inline);
+      top: var(--badge-block);
+    }
+    &.-bottom-left {
+      left: var(--badge-inline);
+      bottom: var(--badge-block);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+parameters:
+- name: 'sshEndpoint_name'
+  default: 'ssh_studs_dev'
+- name: 'environment_name'
+  default: 'Dev'
+  
+jobs:
+- deployment: Deploy
+  displayName: 'Deploy to ${{ parameters.environment_name }}'
+  environment: ${{ parameters.environment_name }}
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
+                
+        - script: |
+            cd $(System.ArtifactsDirectory)
+            mkdir studs
+            cd studs
+            tar -xzf $(System.ArtifactsDirectory)/drop/studs.tar.gz -C $(System.ArtifactsDirectory)/studs/
+          displayName: 'Extract tar.gz file'
+                
+        - task: CopyFilesOverSSH@0
+          inputs:
+            sshEndpoint: ${{ parameters.sshEndpoint_name }}
+            sourceFolder: '$(System.ArtifactsDirectory)/studs/'
+            contents: '**/*'
+            targetFolder: '/var/www/studs'
+            cleanTargetFolder: true
+            cleanHiddenFilesInTarget: true
+            readyTimeout: 120000

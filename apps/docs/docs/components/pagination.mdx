@@ -1,0 +1,241 @@
+---
+sidebar_position: 34
+description: The Pagination component enables the user to select a specific page from a range of pages. Number of content per page can also be selected by the user.
+---
+
+# Pagination
+
+<HeaderComponent
+  htmlTag="studs-stepper"
+  jsxTag="StudsStepper"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/stepper.ts"
+  urlStrbook="studs-display-stepper--docs"
+  folder="display"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+    <div>
+      <p>
+        Pagination divides a collection of data or other content types such as images, cards, or search results into multiple pages showing a fixed number of items per page.
+      </p>
+      <p>
+        Consider using the pagination component to make a large amount of related content more consumable to your users, or to optimize on-page real estate or load times in your experience. Pagination elements allow users to control how much information they’d like to see per page, and navigate all of the data or content types in a smaller, more controlled view. Controls are centered below the paginated items, whether it is on-page, below a table, or embedded in another component.
+      </p>
+      <b>On-page</b>
+      <p>
+        Pagination is typically not required when there are 25 or fewer items per
+        page. Depending on the context, however, consider reducing the capacity of
+        items per page. Considerations include smaller screen sizes or when other
+        variables increase vertical scroll.
+      </p>
+      <b>
+        Embedded
+      </b>
+      <p>Pagination can be used within components, such as tables, to help users navigate large data sets or other content.</p>
+</div>)
+    },
+
+    {
+      title: 'Style',
+      description: (<div>
+        <p>The pagination component is comprised of the following elements:</p>
+        <ol>
+          <li>Label of total pages: shows the number of pages based on the capacity of items per page.</li>
+          <li>Previous button: takes the user to the previous page.</li>
+          <li>Page button: takes the user to the specific page of results</li>
+          <li>Ellipses: Used to truncate the results if there are over the number of spaced page buttons</li>
+          <li>Current page: Displays the current page that the user is viewing.</li>
+          <li>Next button: takes the user to the next page.</li>
+          <li>Capacity control: select component that allows the user to determine the number of items per page. The default values are 10, 25, 50, 100, and 250, but can be customized.</li>
+          <li>Location: text input showing what page the user is viewing, which can also be used for navigation.
+            <img src="/img/pagination_img.png" />
+          </li>
+        </ol>
+      </div>)
+    },
+    {
+      title: 'Micro interactions, animations and transitions',
+      description: (
+        <div>
+          <ul>
+            <li>Buttons uses the tertiary ghost buttons with each state defined.</li>
+            <li>Capacity control uses the dropdown with the menu</li>
+            <li>Location input uses the number input component</li>
+          </ul>
+        </div>
+      ),
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-pagination
+    current-page="1"
+    total-items="1500"
+    items-per-page="10"
+  ></studs-pagination>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+    <studs-pagination
+        current-page="1"
+        total-items="1500"
+        items-per-page="10"
+    ></studs-pagination>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Jumper
+
+<ResizerFeatures>
+  <studs-pagination
+    current-page="1"
+    total-items="1500"
+    has-jumper=""
+  ></studs-pagination>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+    <studs-pagination
+        current-page="1"
+        total-items="1500"
+        has-jumper=""
+    ></studs-pagination>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Select
+
+<ResizerFeatures>
+  <studs-pagination
+    current-page="1"
+    total-items="1500"
+    has-select=""
+  ></studs-pagination>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+    <studs-pagination
+        current-page="1"
+        total-items="1500"
+        has-select=""
+    ></studs-pagination>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Jumper Select
+
+<ResizerFeatures>
+  <studs-pagination
+    current-page="1"
+    total-items="1500"
+    has-jumper=""
+    jumper-label="Go"
+    has-select=""
+    select-label="Show Items"
+  ></studs-pagination>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-pagination
+    current-page="1"
+    total-items="1500"
+    has-jumper=""
+    jumper-label="Go"
+    has-select=""
+    select-label="Show Items"
+  ></studs-pagination>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="pagination" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <b>Icon-only buttons should be used carefully and only after checking for accessibility</b>
+          <p>
+            The meaning of the icon must be visually self-evident (easily and universally understood). In addition, a programmatically associated semantic label (such as an aria-label attribute) should be added so it can be read by screen readers. If you’re in any doubt that an icon-only button will be understood, use accompanying text in your button label.
+          </p>
+          <p>WCAG 2.1: <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html"
+              target="_blank"
+            >
+              1.3.1 Info and Relationships
+            </a></p>
+            <b>All buttons except tertiary should have a contrast ratio of 3:1 or greater against the background, regardless of breakpoint or orientation (except if inactive)</b>
+            <p>Providing good contrast ratio on buttons ensures that anyone with low vision can see them and perceive their function. If the button variant doesn’t achieve adequate contrast with the background when viewed at a specific breakpoint, and/or in a particular orientation, either change the background or consider using a different button variant. The tertiary button is an exception and should have 4.5:1 contrast with its background at all times.</p>
+            <p>WCAG 2.1: <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+              target="_blank"
+            >
+              1.4.11 Non-text Contrast
+            </a></p>
+            <b>Tertiary buttons require a 4.5:1 contrast ratio against the background</b>
+            <p>Greater contrast is required because the text is the only part of the button that is visible. These buttons are therefore considered similar to text and will require a higher contrast ratio.</p>
+            <p>WCAG 2.1: <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+              target="_blank"
+            >
+              1.4.3 Contrast (Minimum)
+            </a>, <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html"
+              target="_blank"
+            >
+              1.4.11 Non-text Contrast
+            </a></p>
+        </div>
+      ),
+    },
+    {
+      title: 'Related Documentation',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <a
+                href="https://www.nngroup.com/articles/alternatives-pagination-listing-pages/"
+                target="_blank"
+              >
+                Alternatives to Pagination on Product-Listing Pages
+              </a>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ]}
+/>

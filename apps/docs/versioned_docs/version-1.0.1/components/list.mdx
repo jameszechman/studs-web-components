@@ -1,0 +1,459 @@
+---
+sidebar_position: 30
+description: A list displays items in a vertical arrangement, often with interactive features.
+sidebar_custom_props:
+  status: 'Draft'
+---
+
+# List
+
+<HeaderComponent
+  htmlTag="studs-list"
+  jsxTag="StudsList"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/list.ts"
+  urlStrbook="studs-display-list--docs"
+  folder="display"
+/>
+
+{frontMatter.description}
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+<b>Usage</b>
+  <p>
+Usage is very often correlated with list kinds. Ensure the kind matches the user’s expectations of the experience to avoid confusion. Users would not expect to see an ordered list for a group of discrete items.
+  </p>
+ <b>Related Items</b>
+  <p>
+  List can be used to show semantically related items or options. For example, a “Ports” header under a product’s technical specifications section, listing USB, power adapter, ethernet, and other included ports. List items may also be links, such as a list of resources attached to an article for further reading.
+  </p>
+<b>Process Documentation</b>
+<p>
+Complex processes may be hard for a user to digest and thus require a list of steps. This could include the actions that must be taken to enroll in a program, or an escalation of steps to take to correct a problem.
+</p>
+<b>Navigation</b>
+<p>
+Navigational items are often shown as a list of links to allow users to easily scan an overview of available pages.
+</p>
+</div>)
+    },
+    {
+      title: 'Options',
+      description: (
+        <div>
+          <ul>
+            <li>Lists are available with or without a prefix.</li>
+            <li><b>Ordered:</b> An ordered list contains items that are sequential or in order of priority, such as steps in a process. List items are marked by a number.</li>
+            <li><b>Unordered:</b>An unordered list contains related items that don’t rely on a sequential order. List items are preceded by a bullet point.</li>
+            <li><b>Unstyled:</b>An unstyled list is an unordered list without bullet point styling, such as sidebar navigation. Unstyled lists still have left-padding, so list items will appear indented.</li>
+          </ul>
+        </div>
+      ),
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+<studs-list>
+
+        <studs-list-item>
+            <span slot="prefix">🍎</span>
+            <span>Apple</span>
+            <span slot="secondary">Best Seller!</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍊</span>
+            <span>Orange</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍇</span>
+            <span>Grape</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍌</span>
+            <span>Banana</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+
+  </studs-list>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list>
+
+        <studs-list-item>
+            <span slot="prefix">🍎</span>
+            <span>Apple</span>
+            <span slot="secondary">Best Seller!</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍊</span>
+            <span>Orange</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍇</span>
+            <span>Grape</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+        <studs-list-item>
+            <span slot="prefix">🍌</span>
+            <span>Banana</span>
+            <span slot="suffix">$1.00</span>
+            <span slot="action">🛒</span>
+        </studs-list-item>
+
+    </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## Nested
+
+<ResizerFeatures>
+  <studs-list>
+      <studs-list-item>
+          <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} alt="Generated person" src="https://www.thispersondoesnotexist.com" slot="prefix" />
+          Jane Doe
+          <studs-icon icon="delete" slot="action"></studs-icon>
+          <studs-icon icon="save" slot="action"></studs-icon>
+      </studs-list-item>
+      <studs-list-item>
+          <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} alt="Generated person" src="https://www.thispersondoesnotexist.com" slot="prefix" />
+          Jane Doe
+          <studs-icon icon="delete" slot="action"></studs-icon>
+          <studs-icon icon="save" slot="action"></studs-icon>
+      </studs-list-item>
+      <studs-list-item>
+          <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} alt="Generated person" src="https://www.thispersondoesnotexist.com" slot="prefix" />
+          Jane Doe
+          <studs-icon icon="delete" slot="action"></studs-icon>
+          <studs-icon icon="save" slot="action"></studs-icon>
+          <studs-list slot="list">
+            <studs-list-item> Last Edited <p slot="suffix">Today</p></studs-list-item>
+            <studs-list-item> Created <p slot="suffix">12/01/23</p></studs-list-item>
+            <studs-list-item> Due by <p slot="suffix">12/01/24</p> <studs-list slot="list"><studs-list-item>Status<p slot="suffix">Valid</p></studs-list-item></studs-list></studs-list-item>
+          </studs-list>
+      </studs-list-item>
+    </studs-list>
+  </ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list>
+            <studs-list-item>
+                <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} src="https://www.thispersondoesnotexist.com" slot="prefix" />
+                Jane Doe
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item>
+                <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} src="https://www.thispersondoesnotexist.com" slot="prefix" />
+                Jane Doe
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item>
+                <img style={{ borderRadius: '100%', width: '20px', height: '20px' }} src="https://www.thispersondoesnotexist.com" slot="prefix" />
+                Jane Doe
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+                <studs-list slot="list">
+                    <studs-list-item>Last Edited <p slot="suffix">Today</p></studs-list-item>
+                    <studs-list-item>Created <p slot="suffix">12/01/23</p></studs-list-item>
+                    <studs-list-item>Due by <p slot="suffix">12/01/24</p>
+                    <studs-list slot="list">
+                    <studs-list-item>Status<p slot="suffix">Valid</p>
+                    </studs-list-item></studs-list>
+                    </studs-list-item>
+                </studs-list>
+            </studs-list-item>
+    </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## Selected
+
+<ResizerFeatures>
+<studs-list selected>
+                <studs-list-item>
+                    Item 1
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+                <studs-list-item>
+                    Item 2
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+                <studs-list-item selected>
+                    Item 3
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+            </studs-list>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list selected>
+                <studs-list-item>
+                    Item 1
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+                <studs-list-item>
+                    Item 2
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+                <studs-list-item selected>
+                    Item 3
+                    <studs-icon icon="delete" slot="action"></studs-icon>
+                    <studs-icon icon="save" slot="action"></studs-icon>
+                </studs-list-item>
+            </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## Disabled
+<ResizerFeatures>
+<studs-list>
+
+            <studs-list-item>
+                Item 1
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item disabled="">
+                Item 2
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item>
+                Item 3
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+
+    </studs-list>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list>
+
+            <studs-list-item>
+                Item 1
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item disabled="">
+                Item 2
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+            <studs-list-item>
+                Item 3
+                <studs-icon icon="delete" slot="action"></studs-icon>
+                <studs-icon icon="save" slot="action"></studs-icon>
+            </studs-list-item>
+
+    </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## With Checkboxes
+
+<ResizerFeatures>
+<studs-list size="small" as="div">
+
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 1
+            </studs-list-item>
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 2
+            </studs-list-item>
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 3
+            </studs-list-item>
+
+    </studs-list>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list size="small" as="div">
+
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 1
+            </studs-list-item>
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 2
+            </studs-list-item>
+            <studs-list-item>
+                <studs-checkbox slot="prefix"></studs-checkbox>
+                Item 3
+            </studs-list-item>
+
+    </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## Collapsible Navigation
+
+<ResizerFeatures>
+<studs-list as="nav" direction="end" icon="chevron_right"> <studs-list-item> Product Name </studs-list-item> <studs-list-item> Product Name </studs-list-item> <studs-list-item> Product Name <studs-list slot="list"> <studs-list-item>Product Name</studs-list-item> <studs-list-item>Product Name</studs-list-item> <studs-list-item>Product Name <studs-list slot="list"> <studs-list-item>Product Name</studs-list-item> </studs-list> </studs-list-item> </studs-list> </studs-list-item> </studs-list>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-list as="nav" direction="end" icon="chevron_right">
+
+      <studs-list-item>
+        Product Name
+      </studs-list-item>
+      <studs-list-item>
+        Product Name
+      </studs-list-item>
+      <studs-list-item>
+        Product Name
+        <studs-list slot="list">
+          <studs-list-item>Product Name</studs-list-item>
+          <studs-list-item>Product Name</studs-list-item>
+          <studs-list-item>Product Name
+            <studs-list slot="list">
+              <studs-list-item>Product Name</studs-list-item>
+            </studs-list>
+          </studs-list-item>
+        </studs-list>
+      </studs-list-item>
+
+    </studs-list>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?type=design&node-id=14860%3A149583&mode=dev&t=yuKHnr374KAoHEao-1"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="list" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+<h3>Formatting</h3>
+<p>Keep formatting consistent. Whether list items are written as sentences or fragments, keep all items in the same format.</p>
+<b>Do:</b>
+<br/>Things to do on vacation:
+          <ul>
+            <li>
+              Take a walk on the beach.
+            </li>
+            <li>
+              Explore a historic town.
+            </li>
+            <li>
+              Sleep in until noon.
+            </li>
+          </ul>
+<b>Don't:</b>
+<br/>Things to do on vacation:
+          <ul>
+            <li>
+              take a walk on the beach
+            </li>
+            <li>
+              explore a historic town
+            </li>
+            <li>
+              Sleep in until noon.
+            </li>
+          </ul>
+<br/>
+<h3>Repetition</h3>
+<p>Avoid repeating the first word in each list item.</p>
+<b>Do:</b>
+<br/>Reasons to take a break:
+          <ul>
+            <li>
+              Take a shower.
+            </li>
+            <li>
+              Go for a walk.
+            </li>
+            <li>
+              Go for a walk.
+            </li>
+          </ul>
+<b>Don't:</b>
+<br/>Reasons to take a break:
+          <ul>
+            <li>
+              Take a shower.
+            </li>
+            <li>
+              Take a walk.
+            </li>
+            <li>
+              Take a nap.
+            </li>
+          </ul>
+<br/>
+<h3>Capitalization</h3>
+<p>Begin each list item with a capital letter if it is a complete sentence. If the list item is a fragment, it may be sentence case following a colon in the sentence preceding the list.</p>
+<br/>
+<h3>Punctuation</h3>
+<p>If list items are complete sentences, they should end with a period or the appropriate punctuation. If the list item is a fragment, punctuation is not required.</p>
+
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+         <b>Vertically-stacked (listed) links should have a line height of 24 pixels or greater</b>
+              <p>This guideline creates a minimum distance between touch targets for anyone who experiences difficulties with fine motor control. The simplest and easiest way to meet this guideline is to apply the default body style (16 pixels with a line height of 24 pixels) or larger to your stacked links.</p>
+              <p>If the links are the small variant (12 pixels) or have a custom type style applied, ensure they have a minimum 24 pixel line-height. While inline links are exempt from this requirement, styling them with 16 pixel default body or greater is still recommended.
+WCAG 2.1:  <a
+                href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
+                target="_blank"
+              >
+                2.5.8 Target Size (Minimum)
+              </a>
+              </p>
+        </div>
+      ),
+    },
+  ]}
+/>

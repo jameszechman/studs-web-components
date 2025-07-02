@@ -1,0 +1,9 @@
+[role='list'], 
+[role="listbox"] {
+    display: flex;
+    flex-direction: column;
+}
+
+::slotted(studs-list-item:first-child) {
+    --border-color: transparent;
+}

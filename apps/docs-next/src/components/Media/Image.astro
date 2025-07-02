@@ -1,0 +1,40 @@
+---
+import {GRAPHQL_API_URL} from "../../_api";
+import { Image } from 'astro:assets';
+import {breakpoints} from "../../styles/breakpoints";
+const {resource, src: srcFromProps, alt: altFromProps} = Astro.props;
+
+let width: number | undefined;
+let height: number | undefined;
+let alt = altFromProps;
+let src = srcFromProps || '';
+
+if(!src && resource && typeof resource !== 'string') {
+    const {
+      width: fullWidth,
+      height: fullHeight,
+      filename: fullFilename,
+      alt: altFromResource,
+    } = resource
+
+    width = fullWidth
+    height = fullHeight
+    alt = altFromResource
+
+    const filename = fullFilename
+
+    src = `${GRAPHQL_API_URL}/media/${filename}`
+}
+
+const sizes = Object.entries(breakpoints)
+    .map(([, value]) => `(max-width: ${value}px) ${value}px`)
+    .join(', ')
+---
+
+<Image
+  src={src}
+  alt={alt}
+  width={width}
+  height={height} 
+  sizes={sizes}
+  />

@@ -1,0 +1,49 @@
+@mixin menuItem() {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: inherit;
+  pointer-events: all;
+  cursor: pointer;
+  transition: all var(--transition-s) ease-in-out;
+}
+
+@mixin menuItemActive() {
+  background-color: var(--highlight);
+}
+
+@mixin menuItemFocus() {
+  outline-color: var(--primary);
+}
+
+::slotted(a),
+.item {
+  @include menuItem;
+}
+
+::slotted(a:hover),
+::slotted(a:focus),
+::slotted(a:focus-within),
+.item:hover,
+.item:focus,
+.item:focus-within {
+  @include menuItemActive;
+}
+
+.item:hover,
+.item:focus,
+.item:focus-within {
+  &.-mega {
+    background-color: var(--background-content);
+    color: var(--primary);
+  }
+}
+
+::slotted(a:focus),
+.item:focus {
+  @include menuItemFocus
+}

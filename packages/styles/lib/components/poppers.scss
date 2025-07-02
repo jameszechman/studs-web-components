@@ -1,0 +1,23 @@
+@use '../utilities' as *;
+.popper {
+  @include fadeIn();
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &[aria-hidden="false"] {
+    display: flex;
+  }
+
+  #arrow {
+    background-color: inherit;
+    position: absolute;
+    width: var(--popper-arrow-size);
+    height: var(--popper-arrow-size);
+    z-index: -1;
+    transform: rotate(45deg);
+  }
+}

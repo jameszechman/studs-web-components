@@ -1,0 +1,25 @@
+div {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 1rem;
+}
+
+::slotted(studs-avatar) {
+  --z: 999;
+  margin-inline-start: -1rem;
+  z-index: var(--z);
+  transition: all .3s;
+}
+
+::slotted(studs-avatar:hover) {
+  z-index: 999;
+}
+
+slot[name="hidden"] {
+  display: none;
+}
+
+p {
+  padding-inline: 0.5em;
+  font-weight: 600;
+}

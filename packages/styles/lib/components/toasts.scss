@@ -1,0 +1,209 @@
+@use "../utilities" as *;
+@use "icons" as icon;
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+@keyframes slideFadeLeftIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeLeftOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes animateProgress {
+  from {transform: scaleX(1)}
+  to   {transform: scaleX(0)}
+}
+
+.toast {
+  --toast-text: var(--text-dark);
+  --toast-bkg: #{$white};
+  --toast-shadow: var(--info-rgb);
+  --toast-border: var(--info-color);
+
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  min-width: 320px;
+  width: max-content;
+  max-width: $screen-sm;
+  background-color: var(--toast-bkg);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25em;
+  margin: 0.5rem 0;
+  border-radius: 0.125rem;
+
+  box-shadow: 0 2px 2px 0 var(--shadow-soft), 0 2px 4px 1px var(--shadow);
+  color: var(--toast-text);
+  background: var(--toast-bkg);
+  overflow: visible;
+
+  display: none;
+
+  .toastMessage {
+    padding: 1.125em calc(1em + 10px) 1em 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+
+    > div {
+      flex-direction: column;
+    }
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: var(--toast-border);
+    transform-origin: left;
+      animation-name: animateProgress;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    &.static {
+      animation: none;
+      transform: scaleX(1);
+    }
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.25em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .icon {
+    align-self: flex-start;
+
+    @include icon.icon;
+
+    font-variation-settings:'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  }
+
+  &.-open {
+    animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+  }
+
+  &.-static {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  &:not(.-static) {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    &.-bottom {
+      &-right {
+        bottom: 0.5em;
+        right: 0.75em;
+      }
+      &-left {
+        bottom: 0.5em;
+        left: 0.75em;
+      }
+    }
+    &.-top {
+      &-right {
+        top: 0.5em;
+        right: 0.75em;
+      }
+      &-left {
+        top: 0.5em;
+        left: 0.75em;
+      }
+    }
+  }
+
+  studs-button {
+    align-self: flex-start;
+    margin: .75rem .5rem;
+
+    &::part(studs-icon) {
+      color: var(--text-medium);
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+  }
+
+  &.-error {
+    --toast-border: var(--error-color);
+  }
+
+  &.-warning {
+    --toast-border: var(--warning-color);
+  }
+
+  &.-info {
+    --toast-border: var(--info-color);
+  }
+
+  &.-success {
+    --toast-border: var(--success-color);
+  }
+
+  &.-fadeIn {
+    animation: fadeIn 300ms ease-in-out forwards;
+    animation-delay: 100ms;
+    opacity: 0;
+  }
+
+  &.-fadeOut {
+    animation: fadeOut 300ms ease-in-out forwards;
+    animation-delay: 100ms;
+    opacity: 1;
+  }
+
+  &.-slideFadeLeftIn {
+    animation: slideFadeLeftIn 300ms ease-in-out forwards;
+    animation-delay: 100ms;
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  &.-slideFadeLeftOut {
+    animation: slideFadeLeftOut 300ms ease-in-out forwards;
+    animation-delay: 100ms;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+

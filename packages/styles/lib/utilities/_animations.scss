@@ -1,0 +1,169 @@
+@use "../themes" as *;
+@use "../utilities/variables" as *;
+
+@mixin fadeIn($duration: var(--transition-m)) {
+    animation: fadeIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin fadeOut($duration: var(--transition-m)) {
+    animation: fadeOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideIn($duration: var(--transition-m)) {
+    animation: slideIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideOut($duration: var(--transition-m)) {
+    animation: slideOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeLeftIn($duration: var(--transition-m)) {
+    animation: slideFadeLeftIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeLeftOut($duration: var(--transition-m)) {
+    animation: slideFadeLeftOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeRightIn($duration: var(--transition-m)) {
+    animation: slideFadeRightIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeRightOut($duration: var(--transition-m)) {
+    animation: slideFadeRightOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeUpIn($duration: var(--transition-m)) {
+    animation: slideFadeUpIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeUpOut($duration: var(--transition-m)) {
+    animation: slideFadeUpOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeDownIn($duration: var(--transition-m)) {
+    animation: slideFadeDownIn $duration cubic-bezier(0, 0, 0.2, 1);
+}
+@mixin slideFadeDownOut($duration: var(--transition-m)) {
+    animation: slideFadeDownOut $duration cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1;}
+  }
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+  }
+
+@keyframes slideIn {
+    from { transform: translateY(15%); }
+      to { transform: translateY(0); }
+  }
+
+@keyframes slideOut {
+    from { transform: translateY(0); }
+      to { transform: translateY(-10%); }
+  }
+
+@keyframes slideFadeLeftIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeLeftOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFadeRightIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeRightOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFadeUpIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeUpOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFadeDownIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFadeDownOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideFadeLeftIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+@keyframes slideFadeLeftOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }

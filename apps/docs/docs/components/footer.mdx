@@ -1,0 +1,84 @@
+---
+sidebar_position: 23
+description: Footer component is used as the global footer for all views, contains copyright information and navigational links.
+draft: true
+---
+
+# Footer
+
+<HeaderComponent
+  htmlTag="studs-footer"
+  jsxTag="StudsFooter"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="navigation/studs-footer.ts"
+  urlStrbook="studs-navigation-footer--docs"
+/>
+
+{frontMatter.description}
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+<strong>Usage</strong>
+<p>Footer contains your application’s secondary menu items that perform an action when clicked.</p>
+<p>There are 2 variations of the footer:</p>
+<ol>
+<li>Compact</li>
+<li>Fullsize</li>
+</ol> 
+<strong>Compact</strong>
+<p>Compact footers have 3 components</p>
+<ol>
+<li>Copyright</li>
+<li>Links (up to 3)</li>
+<li>Contact (Email or Phone Number)</li>
+</ol>
+<p>This is used primarily for all products. The links are at the discretion of the designer’s IA and need to display pertinent information, like policies or other legal documentation.</p>
+<img src="/img/footer_compact.png" />
+<br />
+<br />
+<strong>Fullsize</strong>
+<p>Compact footers have 5 components</p>
+<ol>
+<li>Copyright and Logo</li>
+<li>Social Mediau Links (up to 3)</li>
+<li>Labeled Field (for email capture)</li>
+<li>Contact (Email or Phone Number)</li>
+</ol>
+<p>This is used primarily for public sites that need the marketing aspect with the form field for capturing emails, the social media links, and a contact are for email and phone number.</p>
+<img src="/img/footer_fullsize.png" />
+<br />
+<br />
+<strong>Best practices</strong>
+<p>Footer help should:</p>
+<ul>
+<li>Be positioned at the bottom of the interface</li>
+<li>Provide links to help that’s related to the experience on the screen</li>
+</ul>
+</div>)
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-footer></studs-footer>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`  <studs-footer></studs-footer>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73944&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="footer" />

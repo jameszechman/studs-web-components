@@ -1,0 +1,52 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  gap: 0.5rem;
+}
+
+.-block {
+    grid-template-columns: 1fr;
+    grid-template-areas: "label"
+                         "input"
+                         "helper"
+                         "error";
+}
+
+.-inline {
+    grid-template-columns: max-content 1fr;
+    grid-template-areas: "label input"
+                         "label helper"
+                         "label error";
+}
+
+fieldset {
+    // Overwrite fieldset default styles
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+::slotted(*) {
+  grid-area: input;
+}
+
+::slotted(studs-label) {
+  grid-area: label;
+}
+
+::slotted(studs-helper-text) {
+  grid-area: helper;
+}
+
+::slotted(studs-error-message) {
+    display: none;
+    grid-area: error;
+}
+
+::slotted(studs-error-message[aria-hidden="false"]) {
+    display: initial;
+}
+
+::slotted(studs-helper-text[aria-hidden="true"]) {
+    display: none;
+}

@@ -1,0 +1,512 @@
+---
+sidebar_position: 28
+description: The Input component allows for versatile data input, accommodating text, password, number, and email types, with options for style customization.
+---
+
+# Input
+
+<HeaderComponent
+  htmlTag="studs-input"
+  jsxTag="StudsInput"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="inputs/input.ts"
+  urlStrbook="studs-inputs-input--docs"
+  folder="inputs"
+/>
+
+The Input component allows for versatile data input, accommodating text, password, number, and email types, with options for style customization.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <p>
+            For brief, one-line entries, utilize the text input feature. This is
+            ideal for capturing names, phone numbers, or emails in forms.
+          </p>
+          <p>
+            For content spanning more than one line, opt for the text area
+            feature. Its expansive space promotes extended replies, often seen
+            in form sections for comments or inquiries.
+          </p>
+          <p>
+            In our selection, you'll discover the standard text input, the text
+            input accompanied by a button (usually for search functions), a
+            numeric input with an optional suffix (often paired with
+            measurements or currencies), a compact component with up and down
+            arrows for incremental adjustments, a suffix for supplementary data
+            on the entered number (like Measurements or Weights), and the
+            password field. Note: Password fields have a visibility toggle and
+            don't accommodate buttons.
+          </p>
+          <div>Text Input Usage</div>
+          <ul>
+            <li>
+              A user needs to input unique information that cannot be predicted
+              with a preset of options.
+            </li>
+            <li>
+              A user needs to input memorable data that can be entered more
+              quickly in a free-hand format versus a more complex control.
+            </li>
+          </ul>
+          <p>Number Input Usage</p>
+          <ul>
+            <li>The user needs to input a numeric value</li>
+            <li>
+              Adjusting small values when increasing or decreasing them requires
+              only a few clicks
+            </li>
+            <li>
+              When users may not know exact values and only want to change the
+              values that are relative to its current state
+            </li>
+          </ul>
+          <p>Search Box</p>
+          <ul>
+            <li>
+              A user needs to input unique information that cannot be predicted
+              with a preset of options.
+            </li>
+            <li>
+              A user needs to input memorable data that can be entered more
+              quickly in a free-hand format versus a more complex control.
+            </li>
+          </ul>
+          <br />
+          <b>Anatomy</b>
+          <br />
+          <b>Text Input</b>
+          <ol>
+            <li>
+              Container: where the editable content of the input is maintained
+            </li>
+            <li>
+              <div>Content: editable content</div>
+              <img
+                style={{ width: '200px', display: 'flex', margin: '0 auto' }}
+                src="/img/input_ac.png"
+                alt=""
+              />
+            </li>
+          </ol>
+          <b>Anatomy</b>
+          <br />
+          <b>Text Area Input</b>
+          <ol>
+            <li>
+              Container: where the editable content of the input is maintained
+            </li>
+            <li>Content: editable</li>
+            <li>
+              Size Control: draggable control bar to resize the text area
+              vertically and horizontally
+            </li>
+            <li>
+              <div>
+                Count: optional character counter that displays a current number
+                of characters and the text area’s limit
+              </div>
+              <img
+                style={{ width: '300px', display: 'flex', margin: '0 auto' }}
+                src="/img/input_ac_area.png"
+                alt=""
+              />
+            </li>
+          </ol>
+          <br />
+          <b>Number Input</b>
+          <ol>
+            <li>
+              Container: where the editable content of the input is maintained
+            </li>
+            <li>
+              <div>Content: editable content </div>
+              <img
+                style={{ width: '200px', display: 'flex', margin: '0 auto' }}
+                src="/img/input_ac_number.png"
+                alt=""
+              />
+            </li>
+          </ol>
+          <br />
+          <b>Password Input</b>
+          <ol>
+            <li>
+              Container: where the editable content of the input is
+              maintained{' '}
+            </li>
+            <li>
+              <div>Content: editable content</div>
+              <img
+                style={{ width: '200px', display: 'flex', margin: '0 auto' }}
+                src="/img/input_ac_password.png"
+                alt=""
+              />
+            </li>
+          </ol>
+        </div>
+      ),
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: (
+        <div>
+          <div>There are 7 States for text inputs:</div>
+          <ul>
+            <li>Default</li>
+            <li>
+              Hovered: Single outline of the input component with the primary
+              color
+            </li>
+            <li>
+              Focused: Double outlines the input component with the primary
+              color
+            </li>
+            <li>
+              Disabled: Input container is grayed out with the text/number 40%
+            </li>
+            <li>Success: Container is outlined with the green success color</li>
+            <li>
+              Warning: Container is outlined with the yellow warning color
+            </li>
+            <li>
+              <div>Error: Container is outlined with the red error color</div>
+              <img
+                style={{ width: '300px', display: 'flex', margin: '0 auto' }}
+                src="/img/input_ac_behavior.png"
+                alt=""
+              />
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'Variations',
+      description: (
+        <ul>
+          <li>Text Input</li>
+          <li>Text Area</li>
+          <li>Number Input</li>
+          <li>Password</li>
+        </ul>
+      ),
+    },
+  ]}
+/>
+
+<Tables
+  headers={['size', 'heightPxRem', 'use case']}
+  args={[
+    {
+      size: 'Small (sm)',
+      heightPxRem: '24 / 1.5',
+      'use case':
+        'Use when space is constricted or when placing a text input in a form that is long and complex.',
+    },
+    {
+      size: 'Medium (md)',
+      heightPxRem: '32 / 2',
+      'use case':
+        'This is the default size and the most commonly used size. When in doubt, use the medium size.',
+    },
+    {
+      size: 'Large (lg)',
+      heightPxRem: '40 / 2.5',
+      'use case':
+        'Use when there is a lot of space to work with. The large size is typically used in simple forms or when a text input is placed by itself on a page.',
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-input type="text"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="text"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Error
+
+<ResizerFeatures>
+  <studs-input type="text" status='error'></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="text" status='error'></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Success
+
+<ResizerFeatures>
+<studs-input type="text" value="Default Value" status="success"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="text" value="Default Value" status="success"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Warning
+<ResizerFeatures>
+<studs-input type="text" value="Default Value" status="warning"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="text" value="Default Value" status="warning"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Infinity
+
+<ResizerFeatures>
+  <studs-input infinite></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input infinite></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Limit Length
+
+<ResizerFeatures>
+<studs-input type="text" minlength="2" maxlength="4"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="text" minlength="2" maxlength="4"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Disabled
+
+<ResizerFeatures>
+  <studs-input disabled=""></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input disabled=""></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Adornment Icon
+
+<ResizerFeatures>
+  <studs-input
+    type="text"
+    adornments='{"home":{"type": "icon"}}'
+  ></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input
+  type="text"
+  adornments='{"home":{"type": "icon"}}'
+></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Adornment Start
+
+<ResizerFeatures>
+  <studs-input
+    type="text"
+    adornments='{"$":{}}'
+  ></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input
+  type="text"
+  adornments='{"$":{}}'
+></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Adornment End
+
+<ResizerFeatures>
+  <studs-input
+    type="text"
+    adornments='{"lbs":{"position":"end"}}'
+  ></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input
+  type="text"
+  adornments='{"lbs":{"position":"end"}}'
+></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Input Types
+
+### type="password"
+
+<ResizerFeatures>
+  <studs-input type="password"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="password"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+### type="number"
+
+<ResizerFeatures>
+  <studs-input type="number"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="number"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+### type="search"
+
+<ResizerFeatures>
+  <studs-input type="search"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="search"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+### type="search" with error
+
+<ResizerFeatures>
+<studs-input type="search" status="error" required=""></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="search" status="error" required=""></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+### type="submit"
+
+<ResizerFeatures>
+<studs-input type="submit" value="Submit"></studs-input>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`<studs-input type="submit" value="Submit"></studs-input>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=11883%3A104654&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="input" />
+
+## Writing Guidance
+**Purpose:** Use input field text to guide users on how to enter the correct information.
+<ul>
+  <li><b>Avoid Punctuation:</b> Only use punctuation if you're posing a question.</li>
+  <li><b>Use Sparingly:</b> Placeholder text should only be used when necessary. If the input field is self-explanatory, it may not need any additional hints.</li>
+  <li><b>Avoid Redundancy:</b> Do not repeat the input field label in the placeholder.</li>
+  <li><b>Consider Helper Text:</b> For more detailed guidance that remains visible as the user types, use persistent helper text instead of a disappearing placeholder.</li>
+  <li><b>Case Sensitivity:</b> Always use sentence case for placeholder text.</li>
+  <li><b>Standard Action Labels:</b> Use "Select" for dropdowns and other standard action labels for UI interactions within input fields.</li>
+</ul>
+### Examples
+<div>
+  <h3>Confusion with Pre-filled Text</h3>
+  <p>Ensure placeholders in input fields clearly indicate the required format without resembling pre-filled text. This prevents confusion and streamlines data entry by distinguishing between guidance text and user input.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DO_InputFields_Prefilled.png' alt='A date input field with placeholder text "MM/DD/YYYY" to indicate format.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DONT_InputFields_Prefilled.png' alt='A date input field incorrectly pre-filled with "12/08/2024" that may be mistaken for user input.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+  <h3>Obvious or Redundant Instructions</h3>
+  <p>You can enhance the usability of an input field by avoiding redundant placeholders. Redundant placeholders can also clutter the UI unnecessarily. </p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DO_InputFields_Omit.png' alt='A username input field with effective placeholder text "Email or phone" to indicate flexible user credentials.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DONT_InputFields_Omit.png' alt='A username input field with redundant placeholder text "Enter username" that mirrors the label, which is not recommended.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Separating Critical Information from Placeholder Text</h3>
+  <p>Placeholder text disappears once users start typing. Essential guidance on how to properly fill the input field should always be accessible.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DO_InputFields_Critical.png' alt='An input field labeled "Key" with helper text beneath: "Must be 6 to 10 characters long."' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DONT_InputFields_Critical.png.png' alt='An input field labeled "Key" with placeholder text "6 to 10 characters required" that will disappear when typing.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h3>Omitting Placeholders for Self-Explanatory Fields</h3>
+  <p>Not all input fields require placeholder text. By avoiding unnecessary placeholders, we can declutter the UI, reduce cognitive load, and respect the user’s expertise.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DO_InputFields_Omit.png' alt='An input field labeled "Project ID" without placeholder text, indicating that it is self-explanatory.' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Input_Fields/DONT_InputFields_Omit.png' alt='An input field labeled "Project ID" with unnecessary placeholder text "Enter your Project ID"' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

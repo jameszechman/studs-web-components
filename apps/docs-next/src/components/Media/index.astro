@@ -1,0 +1,11 @@
+---
+import Image from "./Image.astro";
+import Video from "./Video.astro";
+import type {Props} from "./types.ts"
+
+const props: Props = Astro.props;
+const { resource } = props;
+const isVideo = typeof resource !== 'string' && resource?.mimeType?.includes('video');
+---
+
+{isVideo ? <Video {...props} /> : <Image {...props} />}

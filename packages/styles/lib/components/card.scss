@@ -1,0 +1,149 @@
+@use '../utilities' as *;
+
+.card {
+  --pad-tb: calc(var(--padding) * 1.25);
+  --pad-lr: calc(var(--padding) * 0.62);
+  --gap: var(--padding);
+  --max-width: 600px;
+
+  display: grid;
+  grid-template-areas:
+    'media'
+    'title'
+    'content'
+    'footer';
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0;
+  background-color: var(--background-content);
+  border: none;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+
+
+
+  ::slotted([slot='title']) {
+    --pad-tb: 0;
+    grid-area: title;
+    color: var(--text-dark);
+    margin: var(--pad-tb) var(--pad-lr);
+  }
+
+  ::slotted([slot='content']) {
+    grid-area: content;
+    font-size: 1rem;
+    color: var(--text-color);
+    padding: var(--pad-tb) 0 0;
+    margin: 0 var(--pad-lr);
+    border-top: 1px solid var(--border-color);
+  }
+
+  ::slotted([slot='footer']) {
+    grid-area: footer;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0 var(--pad-lr);
+    padding: var(--pad-tb) 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+
+
+  &.-vertical {
+    ::slotted([slot='media']) {
+      grid-area: media;
+      width: 100%;
+    }
+
+    grid-template-areas:
+      'media'
+      'title'
+      'content'
+      'footer';
+    grid-template-rows: auto;
+
+    &.-top {
+      grid-template-rows: auto;
+      grid-template-areas:
+        'media'
+        'title'
+        'content'
+        'footer';
+    }
+
+    &.-middle {
+      grid-template-rows: auto;
+      grid-template-areas:
+        'title'
+        'media'
+        'content'
+        'footer';
+
+      ::slotted([slot='content']) {
+        border-top: none;
+      }
+    }
+  }
+
+  &.-horizontal {
+    --pad-tb: var(--padding);
+    --pad-lr: 0;
+    --gap: var(--padding);
+
+    padding: var(--padding);
+
+    max-width: 500px;
+    grid-template-areas:
+      'media title'
+      'content content'
+      'footer footer';
+    grid-template-columns: minmax(auto, 25%) 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    ::slotted([slot='media']) {
+      grid-area: media;
+      max-width: 100%;
+    }
+
+    &.-left {
+      grid-template-columns: minmax(auto, 25%) 1fr;
+      grid-template-areas:
+        'media title'
+        'content content'
+        'footer footer';
+    }
+
+    &.-right {
+      grid-template-columns: 1fr minmax(auto, 25%);
+      grid-template-areas:
+        'title media'
+        'content content'
+        'footer footer';
+    }
+
+    &.-none {
+      grid-template-areas:
+        'title title'
+        'content content'
+        'footer footer';
+    }
+  }
+
+  &.-compact {
+    grid-template-areas:
+      'title'
+      'content'
+      'footer';
+  }
+
+  &.-none {
+    grid-template-areas:
+      'title'
+      'content'
+      'footer';
+  }
+}

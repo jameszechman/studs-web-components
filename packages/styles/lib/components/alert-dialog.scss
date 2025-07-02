@@ -1,0 +1,79 @@
+@use '../utilities' as *;
+@use 'icons' as icon;
+
+dialog {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.alert-dialog {
+  position: absolute;
+  bottom: 2.125rem;
+  right: 2.125rem;
+  width: 360px;
+  background-color: var(--alert-dialog-bkg);
+  border-radius: 0.5rem;
+  border: 1px solid var(--alert-dialog-border-color);
+  box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.15),
+    0px 2px 3px 0px rgba(40, 46, 51, 0.25);
+  animation: fadeIn 0.5s ease-in-out;
+
+  .-header,
+  .-body {
+    color: var(--text-color);
+  }
+
+  .-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1.5rem;
+
+    h1 {
+      font-size: calc(var(--font-size) / 8 + var(--font-size));
+    }
+  }
+
+  .-body {
+    padding: 1.375rem 1.5rem;
+  }
+
+  .-footer {
+    padding: 1.375rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+  }
+}
+
+.-default,
+.-success,
+.-error {
+  --alert-dialog-bkg: var(-background-content);
+  --text-color: var(--text-dark);
+}
+
+.-default,
+.-contrast {
+  --alert-dialog-border-color: var(--border-color);
+}
+
+.-contrast {
+  --alert-dialog-bkg: var(--contrast-bkg);
+  --text-color: var(--text-inverted);
+}
+
+.-success {
+  --alert-dialog-border-color: var(--success-color);
+}
+
+.-error {
+  --alert-dialog-border-color: var(--error-color);
+}
+
+.-static {
+  position: unset;
+}

@@ -1,0 +1,57 @@
+@use '../utilities' as *;
+
+$spinner: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNlMmUyZTI7fS5jbHMtMSwuY2xzLTJ7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLXdpZHRoOjBweDt9LmNscy0ye2ZpbGw6I2RmNDkwNzt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjgsOGMtMi42MywwLTUuMjMuNTItNy42NSwxLjUyLTIuNDMsMS4wMS00LjYzLDIuNDgtNi40OSw0LjM0LTEuODYsMS44Ni0zLjMzLDQuMDYtNC4zNCw2LjQ5LTEuMDEsMi40My0xLjUyLDUuMDMtMS41Miw3LjY1cy41Miw1LjIzLDEuNTIsNy42NWMxLjAxLDIuNDMsMi40OCw0LjYzLDQuMzQsNi40OSwxLjg2LDEuODYsNC4wNiwzLjMzLDYuNDksNC4zNHM1LjAzLDEuNTIsNy42NSwxLjUyLDUuMjMtLjUyLDcuNjUtMS41MmMyLjQzLTEuMDEsNC42My0yLjQ4LDYuNDktNC4zNCwxLjg2LTEuODYsMy4zMy00LjA2LDQuMzQtNi40OSwxLjAxLTIuNDMsMS41Mi01LjAzLDEuNTItNy42NXMtLjUyLTUuMjMtMS41Mi03LjY1LTIuNDgtNC42My00LjM0LTYuNDljLTEuODYtMS44Ni00LjA2LTMuMzMtNi40OS00LjM0LTIuNDMtMS4wMS01LjAzLTEuNTItNy42NS0xLjUyWk0xNy4yOCwyLjEzQzIwLjY4LjcyLDI0LjMyLDAsMjgsMHM3LjMyLjcyLDEwLjcyLDIuMTNjMy40LDEuNDEsNi40OCwzLjQ3LDkuMDgsNi4wNywyLjYsMi42LDQuNjYsNS42OSw2LjA3LDkuMDgsMS40MSwzLjQsMi4xMyw3LjA0LDIuMTMsMTAuNzJzLS43Miw3LjMyLTIuMTMsMTAuNzJjLTEuNDEsMy40LTMuNDcsNi40OC02LjA3LDkuMDgtMi42LDIuNi01LjY5LDQuNjYtOS4wOCw2LjA3LTMuNCwxLjQxLTcuMDQsMi4xMy0xMC43MiwyLjEzcy03LjMyLS43Mi0xMC43Mi0yLjEzYy0zLjQtMS40MS02LjQ4LTMuNDctOS4wOC02LjA3LTIuNi0yLjYtNC42Ni01LjY5LTYuMDctOS4wOEMuNzIsMzUuMzIsMCwzMS42OCwwLDI4YzAtMy42OC43Mi03LjMyLDIuMTMtMTAuNzIsMS40MS0zLjQsMy40Ny02LjQ4LDYuMDctOS4wOCwyLjYtMi42LDUuNjktNC42Niw5LjA4LTYuMDdaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNCwyNGMyLjIxLDAsNCwxLjc5LDQsNCwwLDIuNjMuNTIsNS4yMywxLjUyLDcuNjUsMS4wMSwyLjQzLDIuNDgsNC42Myw0LjM0LDYuNDksMS44NiwxLjg2LDQuMDYsMy4zMyw2LjQ5LDQuMzRzNS4wMywxLjUyLDcuNjUsMS41Miw1LjIzLS41Miw3LjY1LTEuNTJjMi40My0xLjAxLDQuNjMtMi40OCw2LjQ5LTQuMzQsMS44Ni0xLjg2LDMuMzMtNC4wNiw0LjM0LTYuNDksMS4wMS0yLjQzLDEuNTItNS4wMywxLjUyLTcuNjUsMC0yLjIxLDEuNzktNCw0LTRzNCwxLjc5LDQsNGMwLDMuNjgtLjcyLDcuMzItMi4xMywxMC43Mi0xLjQxLDMuNC0zLjQ3LDYuNDgtNi4wNyw5LjA4LTIuNiwyLjYtNS42OSw0LjY2LTkuMDgsNi4wNy0zLjQsMS40MS03LjA0LDIuMTMtMTAuNzIsMi4xM3MtNy4zMi0uNzItMTAuNzItMi4xM2MtMy40LTEuNDEtNi40OC0zLjQ3LTkuMDgtNi4wNy0yLjYtMi42LTQuNjYtNS42OS02LjA3LTkuMDhDLjcyLDM1LjMyLDAsMzEuNjgsMCwyOGMwLTIuMjEsMS43OS00LDQtNFoiLz48L3N2Zz4=);
+
+.spinner {
+    --spinner: #{$spinner};
+
+    &[aria-hidden="true"] {
+      display: none;
+    }
+
+    &[aria-hidden="false"] {
+      display: block;
+    }
+
+   .-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &:not([disabled]) {
+      background: rgba(0, 0, 0, 0.6);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loader {
+    animation: spin 1s linear infinite;
+
+    &.-spinner {
+      --size: 2.375rem;
+
+      width: var(--size);
+      height: var(--size);
+
+      &.-extraSmall { --size: 1rem}
+      &.-small      { --size: 1.375rem}
+      &.-medium     { --size: 2.375rem}
+      &.-large      { --size: 3rem}
+
+      &::before {
+        content: var(--spinner);
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        display: block;
+      }
+    }
+  }
+
+  @keyframes spin {
+    from {transform: rotate(0deg)}
+    to   {transform: rotate(360deg)}
+  }
+}

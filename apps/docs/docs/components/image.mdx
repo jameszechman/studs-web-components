@@ -1,0 +1,132 @@
+---
+sidebar_position: 27
+description: The Image component lets you display images.
+---
+
+# Image
+
+<HeaderComponent
+  htmlTag="studs-image"
+  jsxTag="StudsImage"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/image.ts"
+  urlStrbook="studs-display-image--docs"
+  folder="display"
+/>
+
+The Image component lets you display images.
+
+## Default
+
+<ResizerFeatures>
+  <studs-image
+    src="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg"
+    alt="A picture of a box."
+  ></studs-image>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-image
+  src="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg"
+  alt="A picture of a box."
+></studs-image>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10120%3A75849&mode=dev"
+/>
+
+## Placeholder
+
+<ResizerFeatures>
+<studs-image></studs-image>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-image></studs-image>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10120%3A75849&mode=dev"
+/>
+
+## Src Set
+
+<ResizerFeatures>
+<studs-image small="https://ssttoolbox.widen.net/content/ck8bcx0mzm/png/homepage-agpd-feature.png?crop=false&amp;position=c&amp;color=ffffffff&amp;w=900&amp;h=675" medium="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg?keep=c&amp;crop=yes&amp;color=ffffff00&amp;quality=80&amp;w=900&amp;h=675" large="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg"></studs-image>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-image small="https://ssttoolbox.widen.net/content/ck8bcx0mzm/png/homepage-agpd-feature.png?crop=false&amp;position=c&amp;color=ffffffff&amp;w=900&amp;h=675" medium="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg?keep=c&amp;crop=yes&amp;color=ffffff00&amp;quality=80&amp;w=900&amp;h=675" large="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg"></studs-image>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10120%3A75849&mode=dev"
+/>
+
+## Caption
+
+<ResizerFeatures>
+<studs-image src="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg" caption="This is a caption."></studs-image>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-image src="https://ssttoolbox.widen.net/content/whccz2ba5x/jpeg/homepage-hero-at3g.jpeg" caption="This is a caption."></studs-image>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10120%3A75849&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="image" />
+
+## Writing Guidelines
+<p> When writing alternative text, use specific, concise language that conveys the essential information about the image to support screen reader users. Limit text to 125 characters or less.</p>
+<div>
+  <h3>Avoid Redundant Phrasing</h3>
+  <p>Describe the image content without stating that it is an image, as the context is already clear.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Image/DO_Image_Redundant.png' alt='Example image of construction that uses alternative text "Rebar placement in concrete footing for load-bearing walls.".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Image/DONT_Image_Redundant.png' alt='Example of image of construction that uses alternative text "Image of construction."' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <h3>Show Instead of Telling</h3>
+  <p>Use specific, concise language that conveys the essential information about the image, supporting screen reader users and those who cannot see the image.</p>
+  <div class='exampleImages'>
+    <div class='wrapper -do'>
+      <p class='-do'>Do</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Image/DO_Images_Descriptive.png' alt='Example image of a blueprint that uses alternative text "Blueprint of a two-story house with labeled rooms and dimensions.".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+
+    <div class='wrapper -dont'>
+      <p class='-dont'>Don't</p>
+      <figure>
+        <img src='/img/Content_Guidance_Images/Image/DONT_Images_Descriptive.png' alt='Example image of a blueprint that uses alternative text "Blueprint".' />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,1 @@
+{"id":7,"file":"carousel.ts","name":"carousel","properties":[{"name":"slides","description":"Array of slides.&nbsp;<code>SlideObject</code> example:\n<br /> <code>[{ \"id\": number, \"image\": string, \"alt\": string }]</code>\n","type":"[SlideObject]"},{"name":"perPage","description":"Quantity of slides per page\n\n","type":"number"}],"slots":[]}

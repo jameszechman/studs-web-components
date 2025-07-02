@@ -1,0 +1,11 @@
+div {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 0.5rem 0.5rem;
+  font-size: inherit;
+}

@@ -1,0 +1,362 @@
+---
+sidebar_position: 35
+description: A Popover can be used to display some content on top of another.
+---
+
+# Popover
+
+<HeaderComponent
+  htmlTag="studs-popover"
+  jsxTag="StudsPopover"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="overlays/popover.ts"
+  urlStrbook="studs-overlays-popover--docs"
+  folder="overlays"
+/>
+
+A Popover can be used to display some content on top of another.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+        <div>
+          <p>
+            Popover is similar to{' '}
+            <a href="tooltip" target="_blank">
+              tooltip
+            </a>{' '}
+            and{' '}
+            <a href="drawer" target="_blank">
+              drawer
+            </a>{' '}
+            but are not used for the same purpose. Identifying the right use
+            case will make the experience clear for all users, particularly for
+            those with cognitive and learning disabilities, or those using
+            screen readers.
+          </p>
+          <p>
+            Popover is a container that displays supplemental information after
+            pressing its trigger element. They can contain limited interactions
+            with its content, but should not contain actions that are required
+            for the experience.
+          </p>
+          <p>Popovers can contain up to four elements:</p>
+          <ol>
+            <li>
+              Popover Icon: optional icon to provide context or correlation to
+              another action
+            </li>
+            <li>Popover title: indicates the popover’s purpose.</li>
+            <li>Body: area for text, images, links, and other content.</li>
+            <li>Secondary action: button action for users to interact with</li>
+            <li>
+              Primary action: button action for users to interact with to
+              further their flow
+            </li>
+            <li>
+              Pointer: directs user’s attention to the source element that
+              triggered the popover.
+              <img src="/img/popover_img_1.png" />
+            </li>
+          </ol>
+          <p>
+            Popover is triggered via pressing a{' '}
+            <a href="button" target="_blank">
+              button
+            </a>{' '}
+            . It contains supplemental interactive content that adds details and
+            assistance to the specific piece of content that acts as its
+            trigger. Interactions with the content of a popover give additional
+            context or link to other sources of information. Use when content
+            may be helpful to some users but is too extensive to include inline.
+            Use popovers sparingly and allow only one popover to display at a
+            time. If popovers proliferate, users may experience cognitive
+            overload.
+          </p>
+          <img src="/img/popover_img_2.png" />
+          <br />
+          <br />
+          <b>Position</b>
+          <p>
+            Position the popover in relation to the source element either above,
+            below, to its left, or to its right. The popover defaults to the
+            center position above or below the trigger when possible, but can be
+            placed in one of three positions on each side of the component if
+            needed. As with <a href="tooltip" target="_blank">
+              tooltip
+            </a>, make sure the direction and placement of
+            your popover don’t obscure information on the page that the popover
+            content is directly related to.
+          </p>
+          <img src="/img/popover_img_3.png" />
+        </div>
+      ),
+    },
+
+  ]}
+/>
+
+### Interaction
+
+<b>Behavior and states</b>
+<p>Popover is opened by pressing a trigger, and closed by pressing the trigger again or pressing the dismiss icon. Upon press, the component hovers in one of four positions; to the top, right, bottom, or left of the trigger. On small screens, it may cover the entire viewable area including the trigger.</p>
+<p>Interactive elements within the content of an open popover can include a scroll bar, external links, a <a href="https://www.delldesignsystem.com/components/view-more-less/" target="_blank">view more/less</a> component, a <a href="table" target="_blank">table</a> component, and other displayed content but should not include submittable forms, select components, or other complex interactions. Consider <a href="drawer" target="_blank">drawer</a> or <a href="modal" target="_blank">modal</a> for more extensive supplemental content.</p>
+
+<Tables
+  headers={['state', 'behavior']}
+  args={[
+    {
+      state: 'Default',
+      behavior: (
+        <div>
+          The default state is indicated by a trigger available to focus or press.
+        </div>
+      ),
+    },
+    {
+      state: 'Hover',
+      behavior: (
+        <div>
+          A popover trigger typically does not have a hover state, but may follow button styles if using a secondary or tertiary style.
+        </div>
+      ),
+    },
+    {
+      state: 'Pressed',
+      behavior: (
+        <div>
+          The popover window opens above content with its pointer on, or near the trigger, indicating the trigger’s source and what the trigger’s content is related to.
+        </div>
+      ),
+    },
+  ]}
+/>
+
+<Tables
+  headers={['command', 'description']}
+  args={[
+    {
+      command: 'On activation',
+      description: (
+        <div>
+         The default initial focus should be on the popover’s dismiss button. If warranted by the content, you may use a different focus.
+        </div>
+      ),
+    },
+    {
+      command: 'Tab (initial press)',
+      description: (
+        <div>
+          Focus should move to the next interactive element inside the popover.
+        </div>
+      ),
+    },
+    {
+      command: 'Tab (subsequent presses)',
+      description: (
+        <div>
+          Cycles focus through interactive elements inside the popover following visual order wherever possible. On the last interactive element inside popover, tab moves focus back to the first focusable interactive element in the popover.
+        </div>
+      ),
+    },
+    {
+      command:'Shift + Tab',
+      description: (
+        <div>
+          Cycles focus through interactive elements in a reverse direction.
+        </div>
+      ),
+    },
+     {
+      command: 'Escape key (esc)',
+      description: (
+        <div>
+          Dismisses the popover.
+        </div>
+      ),
+    },
+  ]}
+/>
+
+## Default
+
+<ResizerFeatures minHeight="40rem">
+  <studs-button>Popover<studs-popover position="bottom" icon="info"><p slot="title">This is a popover</p><studs-image
+        src="https://ssttoolbox.widen.net/content/cusbzivu9t/jpeg/C_SCLC_InstPho_RI_Inst_StairCassetteLedgerConnector-exploded_C0.jpg?crop=true&amp;keep=c&amp;q=60&amp;w=900&amp;h=675"
+        slot="media"></studs-image><main>Popover content</main><studs-button button-type="primary" size="small" slot="footer">Yes</studs-button></studs-popover></studs-button>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<studs-button>
+  Popover
+  <studs-popover position="bottom" icon="info">
+    <p slot="title">This is a popover</p>
+    <studs-image
+      src="https://ssttoolbox.widen.net/content/cusbzivu9t/jpeg/C_SCLC_InstPho_RI_Inst_StairCassetteLedgerConnector-exploded_C0.jpg?crop=true&amp;keep=c&amp;q=60&amp;w=900&amp;h=675"
+      slot="media"
+    ></studs-image>
+    <main>Popover content</main>
+    <studs-button button-type="primary" size="small" slot="footer">
+      Yes
+    </studs-button>
+  </studs-popover>
+</studs-button>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73957&mode=dev"
+/>
+
+## Basic
+
+<ResizerFeatures>
+<div style={{ height: '100px' }}>   <studs-button>Popover     <studs-popover position="right">       <p slot="title">This is a popover</p>       <main>Popover content</main>     </studs-popover>   </studs-button> </div> 
+
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 100px">
+      <studs-button>Popover
+        <studs-popover position="right">
+          
+    <p slot="title">This is a popover</p>
+    <main>Popover content</main>
+        </studs-popover>
+      </studs-button>
+    </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73957&mode=dev"
+/>
+
+## No Header
+
+<ResizerFeatures minHeight="40rem">
+  <div style={{ height: '100px' }}>   <studs-button>Popover     <studs-popover position="bottom">       <main>Popover content</main>     </studs-popover>   </studs-button> </div> 
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 100px">
+      <studs-button>Popover
+        <studs-popover position="bottom">
+          
+    <main>Popover content</main>
+        </studs-popover>
+      </studs-button>
+    </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73957&mode=dev"
+/>
+
+## Close on Click Outside
+
+<ResizerFeatures minHeight="40rem">
+<div style={{ height: '100px' }}>   <studs-button>Popover     <studs-popover position="bottom" close-on-click-outside="">       <main>Popover content</main>     </studs-popover>   </studs-button> </div> 
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+<div style="height: 100px">
+      <studs-button>Popover
+        <studs-popover position="bottom" close-on-click-outside="">
+          
+    <main>Popover content</main>
+        </studs-popover>
+      </studs-button>
+    </div>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73957&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="popover" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <b>Popover title</b>
+              <p>Be brief and descriptive about the purpose of the popover. The length should not exceed one line.</p>
+              <p><strong>Do:</strong> Help me choose</p>
+              <p><strong>Don't:</strong> Comparing Pentium-class versus Xeon-class processors</p>
+              <p><strong>Body text</strong></p>
+              <p>Popover content should be centered around the trigger and what is essential for a user to know in relation to it. Content can include imagery, tables, reference links, and more text than a tooltip, but it should not require progressive actions like inputs and buttons. If content exceeds the container height, a scrollbar will appear, but consider placing longer content within the on-page experience or using a different component like drawer.</p>
+              <p>Avoid placing complex content or functionality inside a popover. Content should be short and limited to simple, contextual functionality that relates directly to a particular item or control on the page. More complex content, such as a form, should be placed in either a modal or on the page directly.</p>
+              <p><strong>Capitalization</strong></p>
+              <p>Use sentence case for labels, default values, detected values, and autocompleted text, unless referencing product names and proper nouns.</p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <b>Make sure all popover titles are unique and accurate</b>
+              <p>Ppover titles should be descriptive and identify it against other content on the page.</p>
+              <p>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html" target="_blank">1.1.1 Non-Text Content (w3.org)</a>, <a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html" target="_blank">1.3.1 Info and Relationships (w3.org)</a>
+              </p>
+            </li>
+             <li>
+              <b>Avoid using triggers to initiate popovers which are not user-initiated</b>
+              <p>Popovers should be user-initiated. A popover should not be automatically triggered by other conditions such as “5 seconds after page load” or “when the user mouses away from the browser window.”</p>
+              <p>WCAG 2.1: <a href="https://www.w3.org/WAI/WCAG21/Understanding/change-on-request.html" target="_blank">3.2.5 Change on Request</a>
+              </p>
+            </li>
+             <li>
+              <b>Avoid covering up critical content with a popover</b>
+              <p>As with tooltips, make sure that the direction and placement of your popover doesn’t obscure information on the page that the popover content is directly related to.</p>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+
+    {
+      title: 'Resources',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <a
+                href="https://www.nngroup.com/articles/popups/"
+                target="_blank"
+              >
+                Popups: 10 Problematic Trends and Alternatives
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nngroup.com/articles/timing-exposing-content/"
+                target="_blank"
+              >
+                Timing Guidelines for Exposing Hidden Content
+              </a>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ]}
+/>

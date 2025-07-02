@@ -1,0 +1,8 @@
+:where(html, *){
+  box-sizing: border-box;
+}
+
+:where(:host) {
+  position: relative;
+  z-index: 1;
+}

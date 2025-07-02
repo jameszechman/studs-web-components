@@ -1,0 +1,75 @@
+@use '../utilities' as *;
+
+$dividerFlexStart: 1;
+$dividerFlexEnd: calc(10 - $dividerFlexStart);
+
+.divider {
+  --divider-variant: solid;
+  --divider-thickness: 1px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  gap: var(--padding);
+  align-items: center;
+
+  &.-small      { --divider-thickness: 1px}
+  &.-medium     { --divider-thickness: 3px}
+  &.-large      { --divider-thickness: 5px}
+  &.-extraLarge { --divider-thickness: 7px}
+
+  &.-dashed     { --divider-variant: dashed;}
+
+  // align
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+  }
+
+  &.-start::before {
+    flex: $dividerFlexStart;
+  }
+
+  &.-start::after {
+    flex: $dividerFlexEnd;
+  }
+
+  &.-end::before {
+    flex: $dividerFlexEnd;
+  }
+
+  &.-end::after {
+    flex: $dividerFlexStart;
+  }
+
+  // orientation
+  &.-block {
+    flex-direction: column;
+    min-height: 5rem;
+    --padding: 0.5rem;
+
+    & > .content {
+      max-height: 80%;
+      overflow-y: auto;
+    }
+
+    &::after,
+    &::before {
+      border-left: var(--divider-thickness) var(--divider-variant) var(--border-color);
+    }
+  }
+
+  &.-inline {
+    min-width: 5rem;
+
+    & > .content {
+      max-width: 80%;
+    }
+
+    &::after,
+    &::before {
+      border-bottom: var(--divider-thickness) var(--divider-variant) var(--border-color);
+    }
+  }
+
+}

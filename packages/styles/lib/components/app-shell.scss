@@ -1,0 +1,41 @@
+@use '../utilities' as *;
+
+:host {
+  --headerHeight: 72px;
+  --navWidth: auto;
+  --mainHeight: auto;
+  --width: 100%;
+  --height: 100%;
+}
+
+.app-shell {
+  width: var(--width);
+  height: var(--height);
+  display: grid;
+  grid-template-columns: var(--navWidth) 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+
+  ::slotted([slot="header"]) {
+    grid-area: header;
+    height: var(--headerHeight);
+    padding: 0 1.375rem;
+    z-index: 2;
+  }
+
+  ::slotted([slot="sidebar"]) {
+    grid-area: sidebar;
+  }
+
+  ::slotted(:not([slot])) {
+    grid-area: main;
+    height: var(--mainHeight);
+    overflow-y: auto;
+  }
+
+  ::slotted([slot="footer"]) {
+    grid-area: footer;
+  }
+}

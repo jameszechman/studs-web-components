@@ -1,0 +1,36 @@
+{
+  "name": "@studs/styles",
+  "version": "1.0.1",
+  "type": "module",
+  "main": "./dist/styles.css",
+  "types": "./dist/styles.d.ts",
+  "exports": {
+    "./components/*": {
+      "default": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
+    },
+    "./studs-base.css": "./dist/styles.css",
+    "./studs-base.css?inline": "./dist/styles.css?inline",
+    ".": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "build:watch": "pnpm dev",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "esbuild-sass-plugin": "^3.2.0",
+    "lit": "^3.1.2",
+    "lit-element": "^4.0.4",
+    "postcss": "^8.4.31",
+    "sass": "^1.64.1",
+    "tsup": "^8.0.2",
+    "typed-css-modules": "^0.9.0"
+  }
+}

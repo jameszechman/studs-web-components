@@ -1,0 +1,134 @@
+@use "./menuItem.scss" as menuItem;
+
+:host {
+    --cols: 2;
+    --max-grid-height: 350px;
+    display: contents;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: -webkit-fill-available;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+::slotted(button) {
+    // Reset Button
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.popper {
+    &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        background: transparent;
+        z-index: -1;
+    }
+    &.-top,
+    &.-bottom {
+        &::before {
+            width: 100%;
+            height: 1em;
+        }
+    }
+
+    &.-left,
+    &.-right {
+        &::before {
+            width: 1em;
+            height: 100%;
+        }
+    }
+
+    &.-bottom {
+        &::before {
+            top: -0.5em;
+        }
+    }
+
+    &.-top {
+        &::before {
+            bottom: -0.5em;
+        }
+    }
+
+    &.-left {
+        &::before {
+            right: -0.5em;
+        }
+    }
+
+    &.-right {
+        &::before {
+            left: -0.5em;
+        }
+    }
+
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: var(--text-color);
+    background-color: var(--background-content);
+    text-align: left;
+    position: fixed;
+    filter: drop-shadow(var(--box-shadow));
+    flex-direction: column;
+    border-radius: 0.25em;
+    min-height: fit-content;
+    max-height: -webkit-fill-available;
+
+    & > .-content {
+        overflow-y: scroll;
+    }
+
+    &[aria-hidden="false"]{
+        display: flex;
+        &.-grid {
+            & > .-content {
+                display: grid;
+            }
+        }
+    }
+
+    &.-mega {
+        --max-grid-height: 100%;
+        width: 100%;
+        filter: none;
+        border-radius: 0;
+        & > .-content {
+            margin: 0 auto;
+            max-width: var(--max-width);
+        }
+    }
+
+    &.-grid {
+        & > .-content {
+            grid-template-columns: repeat(var(--cols), 1fr);
+            max-height: var(--max-grid-height);
+            padding: 1em 2.5em ;
+            gap: 2.5em 1em;
+        }
+    }
+    ::slotted(a) {
+        @include menuItem.menuItem
+    }
+    ::slotted(a:hover),
+    ::slotted(a:focus),
+    ::slotted(a:focus-within) {
+        @include menuItem.menuItemActive
+    }
+    ::slotted(a:focus) {
+        @include menuItem.menuItemFocus
+    }
+}
+

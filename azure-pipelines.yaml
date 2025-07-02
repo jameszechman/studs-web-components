@@ -1,0 +1,53 @@
+#trigger test
+trigger: 
+  branches:
+    include:
+    - master
+    - staging
+    - dev
+    exclude:
+    - '*\\/*'
+    - staging-azure-dev
+    - main
+    
+pr: 'none'
+
+pool:
+  name: Demo1
+  demands:
+    - Agent.Name -equals 242adoagentpoc1
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.17.1'
+  displayName: 'install node.js'
+
+- checkout: self
+- script: |
+    npm install pnpm -g
+    pnpm i
+  displayName: 'npm install and build'
+
+- script:
+    pnpm build
+  displayName: build storybooks
+
+- task: PublishBuildArtifacts@1
+  displayName: 'store artifacts to container'
+  inputs:
+    #PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.SourcesDirectory)/apps/docs/build'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+#- task: CopyFilesOverSSH@0
+#  inputs:
+#  #  sshEndpoint: 'ssh_studs_qa'
+#    sshEndpoint: 'ssh_studs_dev'
+#    sourceFolder: 'apps/docs/build'
+#    contents: '**/*'
+#    targetFolder: '/var/www/studs'
+#    cleanTargetFolder: true
+#    cleanHiddenFilesInTarget: true
+#    readyTimeout: 120000

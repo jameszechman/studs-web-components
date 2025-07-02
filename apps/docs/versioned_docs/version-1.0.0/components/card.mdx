@@ -1,0 +1,369 @@
+---
+sidebar_position: 11
+description: Cards can be used to group related subjects in a container.
+---
+
+# Card
+
+<HeaderComponent
+  htmlTag="studs-card"
+  jsxTag="StudsCard"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/card.ts"
+  urlStrbook="studs-surfaces-card--docs"
+  folder="display"
+/>
+
+Cards can be used to group related subjects in a container.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+      <div>
+    <p>Depending on the situation and any additional elements, a webpage can display navigation, highlighted information, or associated content. These containers are excellent for organizing information on a webpage systematically.</p>
+    <p>A card component can hold up to six elements divided into four segments. Besides the required card title, the inclusion of other elements is optional. This flexibility in design allows for varied arrangements of content, suitable for different online environments.</p>
+    <p>Here's a breakdown of the card component:</p>
+    <b>Media</b>
+    <ul>
+    <li>Image (optional): Should maintain a 16:9 aspect ratio or 4:3 ratio.</li>
+    </ul>
+    <img src="/img/card_media.png" />
+    <br />
+    <b>Header</b>
+    <ul>
+    <li>Icon (optional): Can be positioned above or beside the card title.</li>
+    <li>Overline: Intro/High-level content</li>
+    <li>Card title: Essential headline.</li>
+    <li>Subtitle (optional): An auxiliary content line.</li>
+    </ul>
+    <img src="/img/card_header.png" />
+    <br />
+    <b>Body</b>
+    <ul>
+    <li>Container (optional): Suitable for charts or graphs.</li>
+    </ul>
+    <b>Footer</b>
+    <ul>
+    <li>Call-to-action (optional): Can be a link, button, or group of buttons.</li>
+    <li>Expand (Optional): Expands to include content that can be interchanged with other components.</li>
+    </ul>
+    <b>Sizes</b>
+    <p>Cards are set to a size that fits in a 12pt grid and on each screen sizes. They are built with auto-layout  can can size as needed for the product needs, which is the designer’s choice to set in the space for their needs. There are a Large card with multiple sections, a medium size for less content, and a compact that is available for basic content. Depending on the content (Video, Images, Text, Fields, etc.) the card is able to support all needs.</p>
+    <img src="/img/card_sizes.png" />
+    <br />
+    <b>Collapse/Expand</b>
+    <p>To facilitate broader utilization of a greater volume of content, the card offers an Expand/Collapse feature. The expanded container below can accommodate various components. Emphasis is placed on keeping it simple, easily readable, digestible, and comprehensible.</p>
+    <img src="/img/card_collapse.png" />
+    <br />
+    <b>Video Content</b>
+    <p>The header section of a sizable card may feature an integrated video that adjusts to fit the card's dimensions and the viewport. Various elements such as titles, subtitles, content sections, chips, and additional options are at your disposal to provide descriptions of the video, metadata, and fulfill other requirements specific to the product.</p>
+    <img src="/img/card_video.png" />
+</div>
+      ),
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description:
+      (
+        <div>
+        <b>Principles of Card Design</b>
+        <p>Cards serve as a visual framework for organizing content while maintaining a consistent appearance throughout the display. They possess the flexibility to accommodate various elements tailored to specific applications. It's crucial to grasp the user experience context to determine the content suitable for inclusion within a card. For instance, if the primary objective of a card is user guidance, incorporating a link into its footer is imperative.</p>
+        <b>Highlighting Key Content</b>
+        <p>Cards that accentuate specific details elevate essential content, making it more conspicuous and engaging for users. These cards enhance content accessibility by providing clarity and focus, thereby aiding in the systematic arrangement of data on a webpage to foster a cohesive layout.</p>
+        <b>Navigation Aid</b>
+        <p>Cards function as a valuable tool for directing users to other pages. Their visual prominence as framed items on the webpage is a primary advantage for navigation purposes. Importantly, cards can accommodate both visuals and text, offering users a comprehensive understanding of where the link may lead them.</p>
+        <p>Consideration: Leveraging cards to showcase related material encourages users to explore further, guiding them to supplementary articles or resources, whether internal or external. In such instances, cards can be optimized to include links to articles, guidelines, or any related content that complements the existing page.</p>
+        <b>Headers</b>
+        <p>Card headers will be displayed in bold font, while the remaining content will maintain regular text styles. Designers have the flexibility to employ bold and italic styles as necessary to draw attention to specific text elements.</p>
+        <b>Alignment and Styles</b>
+        <p>Text alignment should be left-justified, with the option for right justification where appropriate for individual product designs. Center justification is not permitted within card layouts.</p>
+        <p>For inline links, designers may utilize the underline style.</p>
+        <p>Calls to action (CTAs) can either be presented as buttons or within an action container. To ensure simplicity and ease of interaction, each card should feature a maximum of 2 buttons or 3 action selectors.</p>
+        <b>Images</b>
+        <p>Images should be positioned either at the top of the card for the large card variant or on the left side for the medium variant. They must maintain appropriate spacing and aspect ratios within the designated areas of each card. Additionally, there are designated placements for icons, action links, and other elements as per the requirements of each product.</p>
+        </div>
+      )
+    },
+    {
+      title: 'Style',
+      description:
+      (
+        <div>
+        <b>Card Layout and Content Arrangement</b>
+        <p>Cards are highly adaptable elements, offering a multitude of content configurations. They serve as versatile containers for media, primary content, and optional footers. Headers within cards must include a title, while icons and subtitles are discretionary.</p>
+        <b>Arrangement and Alignment</b>
+        <p>Arrange cards horizontally, aligning them from left to right. Maintain consistent height across all cards, matching them to the tallest card within the group. In cases of limited space, consider arranging cards vertically while preserving their sequential order.</p>
+        <b>Design Specifications</b>
+        <p>Group cards logically to display related content together. Maintain a consistent spacing of four pixels between cards, both horizontally and vertically. All measurements are expressed in pixels.</p>
+        <b>Detailed Card Component Information</b>
+        <p>Cards function as static containers without variable states. When incorporating footers containing links or buttons, ensure adherence to standard guidelines. Since cards lack a scrolling feature, content may be truncated. To accommodate additional content, adjust the card's height accordingly.</p>
+        </div>
+      )
+    },
+]}
+/>
+
+## Vertical Card
+<ResizerFeatures>
+  <studs-card type="vertical" placement="top">
+    <img slot="media" src="https://via.placeholder.com/200x200" width="100" height="100" />
+    <div slot="title">Title</div>
+    <div slot="content">
+      This is my custom body content. This is my custom body content. This is my
+      custom body content.
+    </div>
+    <div slot="footer">
+      <studs-button>Button</studs-button>
+      <studs-button button-type="secondary">Button</studs-button>
+    </div>
+  </studs-card>
+</ResizerFeatures>
+<CodeBlocks
+  html={`
+  <studs-card type="vertical" placement="top">
+    <img slot="media" src="https://via.placeholder.com/200x200" width="100" height="100" />
+    <div slot="title">Title</div>
+    <div slot="content">
+      This is my custom body content. This is my custom body content. This is my
+      custom body content.
+    </div>
+    <div slot="footer">
+      <studs-button>Button</studs-button>
+      <studs-button button-type="secondary">Button</studs-button>
+    </div>
+  </studs-card>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73935&mode=dev"
+/>
+## Horizontal Card
+<ResizerFeatures>
+  <studs-card type="horizontal" placement="left">
+    <img slot="media" src="https://via.placeholder.com/200x200" width="100" height="100" />
+    <div slot="title">Title</div>
+    <div slot="content">
+      This is my custom body content. This is my custom body content. This is my
+      custom body content.
+    </div>
+    <div slot="footer">
+      <studs-button>Button</studs-button>
+      <studs-button button-type="secondary">Button</studs-button>
+    </div>
+  </studs-card>
+</ResizerFeatures>
+<CodeBlocks
+  html={`
+  <studs-card type="horizontal" placement="left">
+    <img slot="media" src="https://via.placeholder.com/200x200" width="100" height="100" />
+    <div slot="title">Title</div>
+    <div slot="content">
+      This is my custom body content. This is my custom body content. This is my
+      custom body content.
+    </div>
+    <div slot="footer">
+      <studs-button>Button</studs-button>
+      <studs-button button-type="secondary">Button</studs-button>
+    </div>
+  </studs-card>
+  `}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=10076%3A73935&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="card" />
+
+## Additional Guidance
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Content',
+      description: (
+        <div>
+          <b>Capitalization</b>
+          <div>
+            Titles and subtitles should be written in title case, and content
+            in the body section will follow writing standards. Calls to action
+            capitalization depends on which trigger is attached: links are
+            sentence case, while buttons are title case.
+          </div>
+          <br />
+          <b>Title and subtitle</b>
+          <div>
+            Use concise titles and subtitles describing the purpose of the card.
+            Subtitles are optional and should provide complementary information
+            if necessary.
+          </div>
+          <div>
+            <b>Do:</b>&nbsp;Card guidelines
+          </div>
+          <div>
+            <b>Don't:</b>&nbsp;Read about use cases and accessibility for the
+            card component
+          </div>
+          <br />
+          <b>Body content</b>
+          <div>
+            If used with a call to action, include a few lines to describe what
+            event the action triggers. For example, if used for displaying
+            related articles, the body copy should succinctly summarize the
+            article it navigates to. In informative contexts, concisely explain
+            or define the card’s title or topic.
+            <ul>
+            <li><b>Length:</b> Keep body content 15 to 30 words max.</li>
+            <li><b>Truncation:</b> </li>
+            <ul>
+            <li>When truncating, end with an ellipsis (...) to indicate more content is available.</li> 
+            <li>Ideally, truncate at the end of a complete sentence or natural break in content.</li>
+            </ul>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: 'Accessibility Concerns',
+      description: (
+        <div>
+          <h4>Accessibility</h4>
+          <b>Cards titles must be clear and purposeful</b>
+          <div>
+            The purpose of the card should be clearly understood from the card
+            title alone.
+          </div>
+          <div>
+            WCAG 2.1:&nbsp;
+            <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+              target="_blank"
+            >
+              1.3.1. Info and Relationships
+            </a>
+            ,&nbsp;
+            <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html"
+              target="_blank"
+            >
+              2.4.6 Headings and Labels
+            </a>
+          </div>
+          <br />
+          <b>Card links must be unique and descriptive</b>
+          <div>
+            Card links should follow existing&nbsp;
+            <a
+              href="https://www.delldesignsystem.com/components/link/?tab=Design"
+              target="_blank"
+            >
+              DDS link guidance
+            </a>. Links should always describe their purpose, either explicitly in
+            the link text, or by clear visual association with the card title (and
+            with additional screen reader-only text provided so that the destination
+            is still clear from the link alone).
+          </div>
+          <div>
+            WCAG 2.1:&nbsp;
+            <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context"
+              target="_blank"
+            >
+              2.4.4 Link Purpose in Context
+            </a>
+          </div>
+          <br />
+          <b>Any charts and meaningful images should have alternative text</b>
+          <div>
+            If charts are included, the information conveyed should always be
+            described with alternative text. Images which convey additional
+            information (and are therefore not decorative) should also have a
+            meaningful, accurate description that is equivalent to the visual
+            information being communicated.
+          </div>
+          <div>
+            WCAG 2.1:&nbsp;
+            <a
+              href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
+              target="_blank"
+            >
+              1.1.1 Non-text Content
+            </a>
+          </div>
+          <br />
+          <b>Do not rely on icons to communicate meaning</b>
+          <div>
+            If using&nbsp;
+            <a
+              href="https://www.delldesignsystem.com/foundations/icons/"
+              target="_blank"
+            >
+              icons
+            </a>, they should be chosen to reinforce the card’s purpose, as indicated
+            by the title. Always choose icons with the widest recognizability, as
+            the icon itself shouldn’t confuse people.
+          </div>
+          <br />
+          <b>Do not mix the usage of links and buttons</b>
+          <div>
+            Remember links are for navigating, not triggering actions. Misuse
+            causes problems for keyboard and screen reader users who interact
+            with these elements differently and will be confused if they hear
+            them announced by the wrong role. For more information about when to
+            use each, see the&nbsp;
+            <a
+              href="https://www.delldesignsystem.com/components/link/?tab=Design"
+              target="_blank"
+            >
+              link
+            </a>&nbsp;
+            <a
+              href="https://www.delldesignsystem.com/components/button/?tab=Design"
+              target="_blank"
+            >
+              button
+            </a>
+            &nbsp;guidance.
+          </div>
+          <br />
+          <b>Use large groups of cards sparingly</b>
+          <div>
+            Each card’s title will add a heading to the semantic page structure.
+            As a result, larger groupings of cards will increase the number of
+            page headings very quickly, which can degrade the experience for
+            screen reader users and other people who choose to navigate by
+            headings. If you have many cards in a single section, look for ways
+            to break them up into smaller grouped sections with subheadings.
+          </div>
+          <br />
+        </div>
+      ),
+    },
+    {
+      title: 'Related Documentation',
+      description: (
+        <div>
+          <ul>
+            <li>
+              <a
+                href="https://www.nngroup.com/articles/cards-component/"
+                target="_blank"
+              >
+                Cards: UI-Component Definition
+              </a>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
+  ]}
+/>

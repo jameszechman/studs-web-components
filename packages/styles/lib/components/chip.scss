@@ -1,0 +1,101 @@
+@use "../utilities" as *;
+:host {
+  display: inline-block;
+}
+:host([disabled]) {
+  cursor: not-allowed;
+}
+
+.chip {
+  --bkg: var(--chip-bkg);
+  --text: var(--chip-text);
+  --border: transparent;
+  --hover: var(--primary-background-active);
+  --font-size: 0.75rem;
+
+  padding: 0.3125rem 0.5rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25em;
+
+  color: var(--text);
+  background-color: var(--bkg);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  cursor: default;
+
+  font-size: var(--font-size);
+  line-height: 1;
+
+  &.-small   {--font-size: 0.6875rem}
+  &.-mediumn {--font-size: 0.75rem}
+  &.-large   {--font-size: 0.875rem}
+
+  ::slotted(.avatar) {
+    display: block;
+    width: 1.25em;
+    margin: 0.25em 0;
+  }
+
+  &.-deletable {
+    padding-left: 0.75em;
+    padding-right: 0.25em;
+
+    &.-reverse {
+      padding-left: 0.25em;
+      padding-right: 0.75em;
+    }
+  }
+
+  &.-reverse {
+    flex-direction: row-reverse;
+  }
+
+
+  &.-clickable:not([disabled]) {
+    cursor: pointer;
+
+    &:hover {
+      --bkg: var(--hover);
+    }
+
+    &:focus-visible {
+      --border: var(--primary);
+      --bkg: var(--chip-focus);
+      --text: var(--chip-text);
+      outline: none;
+    }
+
+    &:active {
+      --border: var(--primary-active);
+      --bkg: var(--primary-active);
+      --text: var(--text-inverted);
+    }
+  }
+
+  &.-selected {
+    --bkg: var(--interactive);
+    --text: var(--text-inverted);
+    --border: #{$transparent};
+    --hover: var(--interactive-hover);
+  }
+
+
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+    --border: transparent;
+    outline: none;
+
+    studs-button::part(base) {
+      --border: transparent;
+    }
+  }
+
+  .studs-icon {
+    font-size: 1.25em;
+  }
+
+}

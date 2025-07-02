@@ -1,0 +1,187 @@
+---
+sidebar_position: 43
+description: Steppers convey progress through numbered steps. It provides a wizard-like workflow.
+---
+
+# Stepper
+
+<HeaderComponent
+  htmlTag="studs-stepper"
+  jsxTag="StudsStepper"
+  version="Since 1.0"
+  status="Draft"
+  urlGithub="display/stepper.ts"
+  urlStrbook="studs-display-stepper--docs"
+  folder="display"
+/>
+
+Steppers convey progress through numbered steps. It provides a wizard-like workflow.
+
+## Usage
+
+<Tables
+  hideHeader
+  headers={['title', 'description']}
+  args={[
+    {
+      title: 'Usage and conditions (for acceptance criteria)',
+      description: (
+<div>
+  <strong>Usage</strong>
+  <p>Steppers serve to guide users through multi-step processes by indicating their current step, the total number of steps, and the overall progress towards task completion, effectively managing user expectations.</p>
+  <img src="/img/stepper_1.png" />
+  <img src="/img/stepper_2.png" />
+  <br />
+  <br />
+  <strong>When to Use:</strong>
+  <ul>
+  <li>When the user is engaged in a linear process comprising three or more steps.</li>
+  <li>When users would benefit from tracking their advancement in extensive forms like eCommerce checkouts, onboarding procedures, or visa applications.</li>
+  <li>When user inputs necessitate validation before proceeding to the subsequent step.</li>
+  <li>To enhance the conventional back/next navigation within a sequential progression.</li>
+  </ul>
+  <br />
+  <strong>When to Avoid:</strong>
+  <ul>
+  <li>When the process or form comprises fewer than three steps.</li>
+  <li>When the process allows for completion in any sequence.</li>
+  <li>When the number of steps fluctuates based on conditional logic.</li>
+  </ul>
+  <br />
+  <strong>Anatomy</strong>
+  <p>The Stepper component is made of 4 elements:</p>
+  <ol>
+  <li><b>Label:</b> A brief name detailing the step.</li>
+  <li><b>Status indicator:</b> Indicates whether the step is currently underway or finished, active or inactive.</li>
+  <li><b>Connecting track:</b> the track features adjustable spacing between status indicators, allowing it to fill in and seamlessly connect completed steps with those in progress.</li>
+  <li><b>Summary text (optional):</b> formerly furnished supplementary context.</li>
+  </ol>
+  <img src="/img/stepper_anatomy.png" />
+</div>)
+    },
+    {
+      title: 'Behavior: Active, Focus, Hover, Disabled, Touch Start, Touch End',
+      description: <div>
+        <strong>Interactivity</strong>
+        <p>When interaction is activated, users can easily navigate to their desired step by clicking on the corresponding dot indicator. Additionally, once the dots are highlighted, users can utilize the keyboard arrow keys for seamless navigation.</p>
+        <strong>Sizes</strong>
+        <p>There are 3 sizes. Medium, Small, Xtra Small.</p>
+        <p>The designer has the freedom to choose the sizes of the stepper, with the Medium size set as the default. However, it's advisable to position it prominently so users can easily track their progress.</p>
+        <strong>Behavior and States</strong>
+        <p>In terms of interaction, stepper labels encompass various states applicable to standalone links, such as finished, current, in progress, waiting, and error.</p>
+        <img src="/img/stepper_states.png" />
+      </div>
+    },
+    {
+      title: 'Style',
+      description: (<div>
+        <h3>Orientation</h3>
+        <strong>Horizontal</strong>
+        <p>When deciding on an orientation for the horizontal stepper, take into account your viewport and grid. Typically, it's advised to align the stepper to the left for clarity. Nevertheless, the horizontal arrangement is mainly at the designer's discretion, ensuring the component remains on one line and fits within the viewport without needing to scroll.</p>
+        <strong>Vertical</strong>
+        <p>Vertical steppers are ideally positioned to the right or left of on-page content. For optimal mobile usability and readability, it's advised to employ a vertical layout, eliminating the need for horizontal scrolling. In mobile interfaces, ensure the tracker is located at the onset of each step.</p>
+      </div>)
+    },
+]}
+/>
+
+## Default
+
+<ResizerFeatures>
+  <studs-stepper
+    step="0"
+    steps={JSON.stringify([
+      { label: 'Step1', description: 'This is step1' },
+      { label: 'Step2', description: 'This is step2' },
+      { label: 'Step3', description: 'This is step3' },
+    ])}
+  ></studs-stepper>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-stepper
+    step="0"
+    steps={JSON.stringify([
+      { label: 'Step1', description: 'This is step1' },
+      { label: 'Step2', description: 'This is step2' },
+      { label: 'Step3', description: 'This is step3' },
+    ])}
+  ></studs-stepper>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Without Description
+
+<ResizerFeatures>
+  <studs-stepper
+    step="0"
+    steps={JSON.stringify([
+      { label: 'Step1' },
+      { label: 'Step2' },
+      { label: 'Step3' },
+    ])}
+  ></studs-stepper>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-stepper
+    step="0"
+    steps={JSON.stringify([
+      { label: 'Step1' },
+      { label: 'Step2' },
+      { label: 'Step3' },
+    ])}
+  ></studs-stepper>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Block
+
+<ResizerFeatures>
+<studs-stepper step="0" direction="block">
+    </studs-stepper>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`  <studs-stepper step="0" direction="block">
+    </studs-stepper>`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Step 2
+
+<ResizerFeatures>
+  <studs-stepper
+    step="1"
+    steps={JSON.stringify([
+      { label: 'Step1', description: 'This is step1' },
+      { label: 'Step2', description: 'This is step2' },
+      { label: 'Step3', description: 'This is step3' },
+    ])}
+  ></studs-stepper>
+</ResizerFeatures>
+
+<CodeBlocks
+  html={`
+  <studs-stepper
+    step="1"
+    steps={JSON.stringify([
+      { label: 'Step1', description: 'This is step1' },
+      { label: 'Step2', description: 'This is step2' },
+      { label: 'Step3', description: 'This is step3' },
+    ])}
+  ></studs-stepper>
+`}
+  figmaUrl="https://www.figma.com/file/REEM2zSoF2qoLpXTYfYhih/STUDS?node-id=13022%3A125636&mode=dev"
+/>
+
+## Specifications
+
+import PropertyTabs from "@site/src/components/PropertiesTabs"
+
+<PropertyTabs componentKey="stepper" />
+
