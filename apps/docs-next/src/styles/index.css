@@ -1,4 +1,0 @@
-:root[data-theme='light'], :root[data-theme="dark"] {
-    --sl-color-text-accent: var(--primary);
-    --sl-font: var(--font-family);
-}

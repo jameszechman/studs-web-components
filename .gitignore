@@ -38,3 +38,4 @@ vite.config.js.timestamp-*.mjs
 vite.config.ts.timestamp-*.mjs
 **/**/vite.config.ts.timestamp-*
 apps/docs/scripts/component-metadata/.json
+.vercel

@@ -1,5 +1,5 @@
 import { defineConfig, Options } from 'tsup';
-import envFilePlugin from "esbuild-envfile-plugin";
+import envFilePlugin from 'esbuild-envfile-plugin';
 
 const config: Options = {
   splitting: true,
@@ -24,5 +24,4 @@ export default defineConfig([{
   minify: false,
   bundle: false,
   entry: ['src/index.ts'],
-  ...config
-}]);
+]);

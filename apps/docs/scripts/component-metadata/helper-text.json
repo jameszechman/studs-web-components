@@ -1,1 +1,0 @@
-{"id":30,"file":"helper-text.ts","name":"helper-text","properties":[{"name":"status","description":"The status of the helper text. Defaults to undefined.\n","type":"'error' | 'success' | 'warning'"}],"slots":[]}

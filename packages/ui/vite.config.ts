@@ -10,37 +10,37 @@ export default defineConfig({
     setupFiles: [resolve(__dirname, 'tests/setup/setup.ts')],
     // happy-dom not working with onslotchange event
     // related issue: https://github.com/whatwg/dom/issues/447
-    environment: 'jsdom', 
+    environment: 'jsdom',
   },
   build: {
-    target: 'ES2020',
-    minify: 'terser',
-    terserOptions: {
-      ecma: 2020,
-      module: true,
-      mangle: {
-        properties: {
-          regex: /^__/,
-        },
-      },
-    },
-    rollupOptions: {
-      output: [{
-        dir: 'dist', // Output directory for the main library file
-        entryFileNames: '[name].js',
-        format: 'es',
-        exports: 'named',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-      }, {
-        dir: 'dist', // Output directory for the main library file
-        entryFileNames: '[name].cjs',
-        format: 'cjs',
-        exports: 'named',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-      }],
-    },
+    // target: 'ES2020',
+    // minify: 'terser',
+    // terserOptions: {
+    //   ecma: 2020,
+    //   module: true,
+    //   mangle: {
+    //     properties: {
+    //       regex: /^__/,
+    //     },
+    //   },
+    // },
+    // rollupOptions: {
+    //   output: [{
+    //     dir: 'dist', // Output directory for the main library file
+    //     entryFileNames: '[name].js',
+    //     format: 'es',
+    //     exports: 'named',
+    //     preserveModules: true,
+    //     preserveModulesRoot: 'src',
+    //   }, {
+    //     dir: 'dist', // Output directory for the main library file
+    //     entryFileNames: '[name].cjs',
+    //     format: 'cjs',
+    //     exports: 'named',
+    //     preserveModules: true,
+    //     preserveModulesRoot: 'src',
+    //   }],
+    // },
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: resolve(__dirname, 'src/index.ts'),
@@ -51,7 +51,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
 
-    sourcemap: true
+    sourcemap: true,
   },
   resolve: {
     alias: {

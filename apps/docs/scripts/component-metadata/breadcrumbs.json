@@ -1,1 +1,0 @@
-{"id":3,"file":"breadcrumbs.ts","name":"breadcrumbs","properties":[{"name":"separator","description":"Define the separator\n","type":"\"/\" | \"&gt;\"","defaultValue":"\"/\""},{"name":"children","description":"Breadcrumb data\n\n","type":""}],"slots":[]}

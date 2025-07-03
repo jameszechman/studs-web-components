@@ -1,1 +1,0 @@
-{"id":17,"file":"skeleton.ts","name":"skeleton","properties":[{"name":"variant","description":"\n","type":"'rect' | 'text' | 'circle'","defaultValue":"rect"},{"name":"width","description":"\n","type":"string"},{"name":"height","description":"\n","type":"string"},{"name":"animation","description":"\n\n","type":"'linear' | 'pulse' | 'wave'"}],"slots":[]}

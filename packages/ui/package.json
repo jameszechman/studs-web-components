@@ -5,10 +5,6 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": [
-    "@studs/styles",
-    "*.css"
-  ],
   "exports": {
     "./studs-base.css": "./dist/index.css",
     "./styles": "./dist/index.css",
@@ -54,7 +50,7 @@
   "scripts": {
     "coverage": "vitest run --coverage",
     "dev": "storybook dev -p 6002",
-    "build": "tsup && storybook build",
+    "build": "vite build && storybook build",
     "build-storybook": "storybook build",
     "build:watch": "tsup --watch",
     "lint": "tsc",

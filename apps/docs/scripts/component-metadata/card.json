@@ -1,1 +1,0 @@
-{"id":6,"file":"card.ts","name":"card","properties":[{"name":"imageUrl","description":"Card's image url\n","type":"string"},{"name":"altText","description":"Alt text for image\n","type":"string"},{"name":"title","description":"Card's title\n\n","type":"string"}],"slots":[]}
